@@ -1,1 +1,0 @@
-# getmagic.github.io
