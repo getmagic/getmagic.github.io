@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <style>
+    /* Main menu settings */
+h1{
+  font-size:50px
+}
+#dropdown-menu {
+   clear:both;
+   float:left;
+   margin:0;
+   padding:0;
+   border-bottom:1px solid #000; /* black line below menu */
+   border-top:1px solid #000;
+   width:100%;
+   font-family:Copperplate, Geneva, sans-serif; /* Menu font */
+   font-size:90%; /* Menu text size */
+   z-index:1000; /* This makes the dropdown menus appear above the page content below */
+   position:relative;
+}
+/* Top menu items */
+#dropdown-menu ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:right;
+   position:relative;
+   right:50%;
+}
+#dropdown-menu ul li {
+   margin:0 0 0 1px;
+   padding:0;
+   float:left;
+   position:relative;
+   left:50%;
+   top:1px;
+}
+#dropdown-menu ul li a {
+   display:block;
+   margin:0;
+   padding:.6em .5em .4em;
+   font-size:1em;
+   line-height:1em;
+   background:#ffffff;
+   text-decoration:none;
+   color:#000;
+   font-weight:500;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li.active a {
+   color:#fff;
+   background:#000;
+}
+#dropdown-menu ul li a:hover {
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li:hover a,
+#dropdown-menu ul li.hover a { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+/* Submenu items */
+#dropdown-menu ul ul {
+   display:none; /* Sub menus are hiden by default */
+   position:absolute;
+   top:2em;
+   left:0;
+   right:auto; /*resets the right:50% on the parent ul */
+   width:10em; /* width of the drop-down menus */
+}
+#dropdown-menu ul ul li {
+   left:auto;  /*resets the left:50% on the parent li */
+   margin:0; /* Reset the 1px margin from the top menu */
+   clear:left;
+   width:100%;
+}
+#dropdown-menu ul ul li a,
+#dropdown-menu ul li.active li a,
+#dropdown-menu ul li:hover ul li a,
+#dropdown-menu ul li.hover ul li a { /* This line is required for IE 6 and below */
+   font-size:.8em;
+   font-weight:500; /* resets the bold set for the top level menu items */
+   background:#ffffff;
+   color:#444;
+   line-height:1.4em; /* overwrite line-height value from top menu */
+   border-bottom:1px solid #cdc9c9; /* sub menu item horizontal lines */
+}
+#dropdown-menu ul ul li a:hover,
+#dropdown-menu ul li.active ul li a:hover,
+#dropdown-menu ul li:hover ul li a:hover,
+#dropdown-menu ul li.hover ul li a:hover { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Sub menu items background colour */
+   color:#fff;
+}
+/* Flip the last submenu so it stays within the page */
+#dropdown-menu ul ul.last {
+   left:auto; /* reset left:0; value */
+   right:0; /* Set right value instead */
+}
+/* Make the sub menus appear on hover */
+#dropdown-menu ul li:hover ul,
+#dropdown-menu ul li.hover ul { /* This line is required for IE 6 and below */
+   display:block; /* Show the sub menus */
+}
+/* unvisited link */
+a:link {
+    color:#8b8989 ;
+}
+/* visited link */
+a:visited {
+    color: #8b8989;
+}
+/* mouse over link */
+a:hover {
+    color: #000000;
+}
+/* selected link */
+a:active {
+    color: #000000;
+}
+div{
+  display:block;
+  background-color:#fff;
+  color:#000;
+  margin:auto;
+  text-align:center;
+  width:1000px;
+}
+h2{
+  font-size:30px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+h3{
+  font-size:22px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+aside.figures {
+    overflow: hidden; /* only needed if floating the child elements */
+    
+}
+aside.figures figure {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+figcaption{
+    font-size:19px;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  text-align:left;
+  line-height:22px;
+}
+</style>
+<center> <iframe src="https://drive.google.com/file/d/0B9NVXOD8hyaWZ0JLdlozUTJ4ejA/preview" width="500" height="75"></iframe> </center>
+</head>
+<body>	
+<nav id="dropdown-menu">
+<ul>
+  <li><a href="home2.html">Home</a></li>
+  <li><a href="humantrafficking.html">Human Trafficking</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#about">About</a></li>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#types">Types</a><li>
+        <li><a href="file:///Users/owner/Documents/humantrafficking.html#consequencesforvictims">Consequences for Victims</a><li>
+    </ul>
+  </li>
+  <li><a href="wherevisual.html">Where</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/where.html#haiti">Haiti</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#brazil">Brazil</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#thailand">Thailand</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#china">China</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#russia">Russia</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#uzbekistan">Uzbekistan</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#pakistan">Pakistan</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#india">India</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#nepal">Nepal</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#unitedstates">United States</a></li>
+    </ul>
+  </li>
+  <li><a href="media.html">Media</a>
+    <ul>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#stories">Stories</a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="act.html">Act</a>
+<ul>
+     <li><a href="file:///Users/owner/Documents/act.html#volunteer">Volunteer</a></li>
+  <li><a href="file:///Users/owner/Documents/act.html#advocate">Advocate</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+<div id=videos style="margin-top:100px">
+  <div>
+  <h2 style="border-bottom:1px solid #e0e0e0;">Videos</h2>
+  <aside class="figures">
+<figure>
+<iframe src="https://www.youtube.com/embed/7NM-_4gOdXg" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Human Trafficking 101<br>.</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/JCb06GOjkrg" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Human Trafficking in the<br>Chocolate Industry</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/wVz_PbZyLa8" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>UNICEF USA: Angie Harmon<br>End Trafficking </figcaption>
+</figure>
+</aside>
+  </div>
+  <div>
+ <aside class="figures">
+<figure>
+<iframe src="margin-bottom:0px;" src="https://www.youtube.com/embed/qTlL_Kc4kRM" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Human Trafficking in Nigeria<br>.</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/Fdo6NVqHA0w" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Human Trafficking in Nepal<br>.</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/kwZ1F-POMXg" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>The Brazil Sex Trade Selling<br>Children</figcaption>
+</figure>
+</aside>
+   </div> 
+  <div>
+   <aside class="figures">
+<figure>
+<iframe src="margin-bottom:0px;" src="https://www.youtube.com/embed/qwJ38-O4pDY" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Sold Into Sea: Human Trafficking<br>in Thailand's Fishing Industry</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/JHY4XlwUPJI" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>Human Trafficking in China<br>.</figcaption>
+</figure>
+
+<figure>
+<iframe src="https://www.youtube.com/embed/gAJ2aAvmb_k" width=285 height=235  frameborder="0" allowfullscreen>
+    </iframe>
+<figcaption>UNICEF: Child Trafficking<br>in Kyrgyzstan</figcaption>
+</figure>
+</aside>
+</div>
+</div>
+  <div id=stories>
+  <h2 style="border-bottom:1px solid #e0e0e0;">Stories</h2>
+  <p style="text-align:left;font-family: 'Raleway', sans-serif;;font-size:18px;font-weight: 300;">Natalia | Domestic Servitude Labor Trafficking<br>
+    <a href="http://www.polarisproject.org/what-we-do/client-services/survivor-stories/618-natalia-domestic-servitude-labor-trafficking">Read more >></a>
+  </p>
+  <p style="text-align:left;font-family: 'Raleway', sans-serif;font-size:18px;font-weight: 300;">Mari | Intimate Partner Sex Trafficking<br>
+    <a href="http://www.polarisproject.org/what-we-do/client-services/survivor-stories/466-mari-intimate-partner-sex-trafficking">Read more >></a>
+  </p>
+  <p style="text-align:left;font-family: 'Raleway', sans-serif;font-size:18px;font-weight: 300;">Sarah | Domestic Minor Sex Trafficking<br>
+    <a href="http://www.polarisproject.org/what-we-do/client-services/survivor-stories/465-sarah-domestic-minor-sex-trafficking">Read more >></a>
+  </p>
+  <p style="text-align:left; font-family: 'Raleway', sans-serif;font-size:18px;font-weight: 300;">Keisha | Domestic Minor Sex Trafficking<br>
+    <a href="http://www.polarisproject.org/what-we-do/client-services/survivor-stories/464-keisha-domestic-minor-sex-trafficking">Read more >></a>
+  </p>
+  <p style="text-align:left;font-family: 'Raleway', sans-serif;font-size:18px;font-weight: 300;">Manju | Sexual Exploitation in Nepal<br>
+  <a href="http://www.globalslaveryindex.org/voice-survivor-sexual-exploitation-nepal/">Read more >></a>
+  </p>
+  <p style="text-align:left;font-family: 'Raleway', sans-serif;font-size:18px;font-weight: 300;">Arun | Myanmar Migrant Enslaved on a Thai Fishing Boat<br>
+    <a href="http://www.globalslaveryindex.org/perspectives-myanmar-migrant-enslaved-thai-fishing-boat/">Read more >></a>
+  </p>
+
+
+    </div>
+  </body>
+  </html>
