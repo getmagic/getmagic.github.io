@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    /* Main menu settings */
+h1{
+  font-size:50px
+}
+#dropdown-menu {
+   clear:both;
+   float:left;
+   margin:0;
+   padding:0;
+   border-bottom:1px solid #000; /* black line below menu */
+   border-top:1px solid #000;
+   width:100%;
+   font-family: Copperplate,Geneva,sans-serif; /* Menu font */
+   font-size:90%; /* Menu text size */
+   z-index:1000; /* This makes the dropdown menus appear above the page content below */
+   position:relative;
+}
+/* Top menu items */
+#dropdown-menu ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:right;
+   position:relative;
+   right:50%;
+}
+#dropdown-menu ul li {
+   margin:0 0 0 1px;
+   padding:0;
+   float:left;
+   position:relative;
+   left:50%;
+   top:1px;
+}
+#dropdown-menu ul li a {
+   display:block;
+   margin:0;
+   padding:.6em .5em .4em;
+   font-size:1em;
+   line-height:1em;
+   background:#ffffff;
+   text-decoration:none;
+   color:#000;
+   font-weight:500;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li.active a {
+   color:#fff;
+   background:#000;
+}
+#dropdown-menu ul li a:hover {
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li:hover a,
+#dropdown-menu ul li.hover a { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+/* Submenu items */
+#dropdown-menu ul ul {
+   display:none; /* Sub menus are hiden by default */
+   position:absolute;
+   top:2em;
+   left:0;
+   right:auto; /*resets the right:50% on the parent ul */
+   width:10em; /* width of the drop-down menus */
+}
+#dropdown-menu ul ul li {
+   left:auto;  /*resets the left:50% on the parent li */
+   margin:0; /* Reset the 1px margin from the top menu */
+   clear:left;
+   width:100%;
+}
+#dropdown-menu ul ul li a,
+#dropdown-menu ul li.active li a,
+#dropdown-menu ul li:hover ul li a,
+#dropdown-menu ul li.hover ul li a { /* This line is required for IE 6 and below */
+   font-size:.8em;
+   font-weight:500; /* resets the bold set for the top level menu items */
+   background:#ffffff;
+   color:#444;
+   line-height:1.4em; /* overwrite line-height value from top menu */
+   border-bottom:1px solid #cdc9c9; /* sub menu item horizontal lines */
+}
+#dropdown-menu ul ul li a:hover,
+#dropdown-menu ul li.active ul li a:hover,
+#dropdown-menu ul li:hover ul li a:hover,
+#dropdown-menu ul li.hover ul li a:hover { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Sub menu items background colour */
+   color:#fff;
+}
+/* Flip the last submenu so it stays within the page */
+#dropdown-menu ul ul.last {
+   left:auto; /* reset left:0; value */
+   right:0; /* Set right value instead */
+}
+/* Make the sub menus appear on hover */
+#dropdown-menu ul li:hover ul,
+#dropdown-menu ul li.hover ul { /* This line is required for IE 6 and below */
+   display:block; /* Show the sub menus */
+}
+div{
+  display:block;
+  background-color:#fff;
+  color:#4a4a4a;
+  margin:auto;
+  text-align:center;
+  width:1000px;
+}
+h2{
+  font-size:30px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+h3{
+  font-size:22px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+p{
+  font-size:20px;
+  font-weight: 300;
+  font-family: Helvetica,Verdana,Arial,sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+  line-height: 22px;
+}
+#paragraphs{
+  font-size:19px;
+  font-weight: 300;
+  font-family: Helvetica,Verdana,Arial,sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+  line-height:22px;
+}
+img{
+  margin-top: 50px;
+}
+</style>
+</head>
+<body>
+	<center> <iframe src="https://drive.google.com/file/d/0B9NVXOD8hyaWZ0JLdlozUTJ4ejA/preview" width="500" height="75"></iframe> </center>
+  </head>
+  <body>
+<nav id="dropdown-menu">
+<ul>
+  <li><a href="home2.html">Home</a></li>
+  <li><a href="humantrafficking.html">Human Trafficking</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#about">About</a></li>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#types">Types</a><li>
+        <li><a href="file:///Users/owner/Documents/humantrafficking.html#consequencesforvictims">Consequences for Victims</a><li>
+    </ul>
+  </li>
+  <li><a href="wherevisual.html">Where</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/where.html#haiti">Haiti</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#brazil">Brazil</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#thailand">Thailand</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#china">China</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#russia">Russia</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#uzbekistan">Uzbekistan</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#pakistan">Pakistan</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#india">India</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#nepal">Nepal</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#unitedstates">United States</a></li>
+    </ul>
+  </li>
+  <li><a href="media.html">Media</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/media.html#videos">Videos</a></li>
+      <li><a href="file:///Users/owner/Documents/media.html#stories">Stories</a>
+      </li>
+    </ul>
+  </li>
+ <li><a href="act.html">Act</a>
+  <ul>
+     <li><a href="#volunteer">Volunteer</a></li>
+     <li><a href="#advocate">Advocate</a></li>
+    </ul>
+ </li>
+</ul>
+</nav>
+ <div>
+   <center> <img src="http://debpotts.com/wp-content/uploads/2013/03/aaaphoto-1024x768.jpg" height="600px" width="900px" align="middle"/> </center>
+    </div>
+    <div id=volunteer>
+      <h2 style="color:#000;font-family:Lora;border-bottom:1px solid #e0e0e0;">Volunteer</h2>
+      <p>Get involved with organizations that are all working to put an end to modern-day slavery.</p>
+      <a href="http://www.unodc.org/unodc/en/human-trafficking-fund.html"><img src="http://gba.ge/uploads/images/img-lowe-un-human-rights.jpg" style="width:300px;height:250px;border:0"></a>
+      <a href="http://www.polarisproject.org/about-us/overview"><img src="http://1.bp.blogspot.com/-RbQgrH_rAAs/UoQcsQ5bpaI/AAAAAAAAABQ/dJHCiwS_lH8/s1600/Polaris_Project-LOGO.png"style="width:300px;height:250px;border:0"></a>
+      <a href="http://notforsalecampaign.org/"><img src="http://media.graphis.com/uploads/cfe/entry/d1dddf3c-b6e4-11e2-b72b-f23c91dffdec/Not%20For%20Sale1.jpg"style="width:300px;height:250px;border:0"></a>
+      <a href="http://projectfutures.com/"><img src="http://whatson.cityofsydney.nsw.gov.au/system/event_images/80460/large_PF_Identity_w_tagline_2013.jpg?1390888845"style="width:300px;height:250px;border:0"></a>
+      <a href="http://www.estherschildren.org/"><img src="http://www.estherschildren.org/wp-content/uploads/2013/07/esters_logo-27-e1390216365367.png"></a>
+      <a href="http://www.stopthetraffik.org/usa"><img src="http://www.salvationarmy.org.au/Global/State%20pages/South%20Australia/UnleyCorps/stop-the-traffic-logo.gif"style="width:300px;height:200px;border:0"></a>
+    </div>
+    <div id=advocate>
+      <h2 style="color:#000;font-family:Lora;border-bottom:1px solid #e0e0e0;">Advocate</h2>
+      <p>
+        <ul>
+          <li style="text-align:left;font-size:20px;
+  font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">Raise awareness!<br> 
+Talk to friends, family and colleagues. You could even start talking to your local politicians and authorities.</li>
+<li style="text-align:left;font-size:20px;
+  font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">Write a blog or social media post and share with your friends and online community.</li>
+<li style="text-align:left;font-size:20px;
+  font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">Petition World Leaders:<br>
+Urge world leaders to put human trafficking on the agenda and find a way to put an end to modern day slavery.<br>
+  Urge your representative to support critical investments to prevent human trafficking.</li>
+      </ul>
+</p>
+</div>
+</body>
