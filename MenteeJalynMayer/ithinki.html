@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IConcussion</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+<h1>I think I have had a concussion</h1>
+
+
+<!--<form class="flex-container">-->
+
+ 
+
+<div class="flex-items">
+<p>Did you suffer a hit to your head?</p>
+<form  >
+  <input type="radio" class="radio1" name="option1" id = "j" value="yes" > Yes<br>
+  <input type="radio" name="option1" value="no"> No<br>
+  
+
+
+
+</div>
+
+
+<div class="flex-items">
+<p>Do you have  a headache/feel pressure in your head?</p>
+  <input type="radio" class="symptomYes" name="option" value="yes" > Yes<br>
+  <input type="radio" name="option" value="no"> No<br>
+ 
+</div>
+
+
+<div class="flex-items">
+<p>Do you have nausea and/or have you vomited?</p>
+  <input type="radio" class="symptomYes" name="option2" value="yes" > Yes<br>
+  <input type="radio" name="option2" value="no"> No<br>
+
+</div>
+
+<div class="flex-items">
+<p>Do you have double  or blurry vision?</p>
+  <input type="radio" class="symptomYes" name="option3" value="yes" > Yes<br>
+  <input type="radio"  name="option3" value="no"> No<br>
+ 
+</div>
+
+<div class="flex-items">
+<p>Do you have light sensitivity?</p>
+  <input type="radio" class="symptomYes" name="option4" value="yes" > Yes<br>
+  <input type="radio" name="option4" value="no"> No<br>
+ 
+</div>
+
+<div class="flex-items">
+<p>Do you have noise sensitivity?</p>
+  <input type="radio" class="symptomYes"  name="option5" value="yes" > Yes<br>
+  <input type="radio" name="option5" value="no"> No<br>
+
+</div>
+
+<div class="flex-items">
+<p>Do you feel more sluggish/fatigued than normal?</p>
+  <input type="radio"  class="symptomYes" name="option6" value="yes" > Yes<br>
+  <input type="radio" name="option6" value="no"> No<br>
+ 
+</div>
+
+<div class="flex-items">
+<p>Are you experiencing dizziness or balance issues?</p>
+  <input type="radio" class="symptomYes"   name="option7" value="yes" > Yes<br>
+  <input type="radio" name="option7" value="no"> No<br>
+ 
+</div>
+
+<div class="flex-items">
+<p>Are you having problems remembering?</p>
+  <input type="radio"  class="symptomYes" name="option8" value="yes" > Yes<br>
+  <input type="radio" name="option8" value="no"> No<br>
+
+</div>
+
+<div class="flex-items">
+<p>Do you feel foggy or hazy?</p>
+  <input type="radio" class="symptomYes"  name="option9" value="yes" > Yes<br>
+  <input type="radio" name="option9" value="no"> No<br>
+
+</div>
+
+<div class="flex-items">
+<p>Are you having problems falling or staying asleep?</p>
+  <input type="radio" class="symptomYes"  name="option10" value="yes" > Yes<br>
+  <input type="radio" name="option10" value="no"> No<br>
+  
+</div>
+
+<div class="flex-items">
+<p>Are you feeling down or just not right?</p>
+  <input type="radio" class="symptomYes"  name="option11" value="yes" > Yes<br>
+  <input type="radio" name="option11" value="no"> No<br>
+
+</div>
+
+
+
+
+
+<input type="button" onclick="myFunction()" value="Submit"> 
+    <input type="text" id="field" size="50">
+
+
+  </form>
+
+<script>
+function myFunction() {
+    var symptom = document.forms[0];
+    var txt = "";
+    var i;
+    var count=0;
+    for (i = 0; i < symptom.length; i++) {
+        if (symptom[i].checked) {
+            txt = txt + symptom[i].value + " ";
+        }
+    }
+     for(var k=0; k<document.getElementsByClassName("symptomYes").length; k++){
+      if(document.getElementsByClassName("symptomYes")[k].checked){
+      count+=2;
+    }
+  }
+   
+    if(document.getElementById("j").checked){
+      count+=5;
+    }
+    if(count>=5){
+     document.getElementById("field").value = "You may have a concussion and should be checked by a medical professional.";
+    }
+    else{
+      document.getElementById("field").value = "You probably do not have a concussion."
+    }
+}
+</script>
+
+<p> <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script></p>
+
+</script>
+</body>
+
+</html>
