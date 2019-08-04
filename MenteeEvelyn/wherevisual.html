@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <style>
+    /* Main menu settings */
+h1{
+  font-size:50px
+}
+#dropdown-menu {
+   clear:both;
+   float:left;
+   margin:0;
+   padding:0;
+   border-bottom:1px solid #000; /* black line below menu */
+  border-top:1px solid #000;
+   width:100%;
+   font-family:Copperplate, Geneva, sans-serif; /* Menu font */
+   font-size:90%; /* Menu text size */
+   z-index:1000; /* This makes the dropdown menus appear above the page content below */
+   position:relative;
+}
+/* Top menu items */
+#dropdown-menu ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:right;
+   position:relative;
+   right:50%;
+}
+#dropdown-menu ul li {
+   margin:0 0 0 1px;
+   padding:0;
+   float:left;
+   position:relative;
+   left:50%;
+   top:1px;
+}
+#dropdown-menu ul li a {
+   display:block;
+   margin:0;
+   padding:.6em .5em .4em;
+   font-size:1em;
+   line-height:1em;
+   background:#ffffff;
+   text-decoration:none;
+   color:#000;
+   font-weight:500;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li.active a {
+   color:#fff;
+   background:#000;
+}
+#dropdown-menu ul li a:hover {
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li:hover a,
+#dropdown-menu ul li.hover a { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+/* Submenu items */
+#dropdown-menu ul ul {
+   display:none; /* Sub menus are hiden by default */
+   position:absolute;
+   top:2em;
+   left:0;
+   right:auto; /*resets the right:50% on the parent ul */
+   width:10em; /* width of the drop-down menus */
+}
+#dropdown-menu ul ul li {
+   left:auto;  /*resets the left:50% on the parent li */
+   margin:0; /* Reset the 1px margin from the top menu */
+   clear:left;
+   width:100%;
+}
+#dropdown-menu ul ul li a,
+#dropdown-menu ul li.active li a,
+#dropdown-menu ul li:hover ul li a,
+#dropdown-menu ul li.hover ul li a { /* This line is required for IE 6 and below */
+   font-size:.8em;
+   font-weight:500; /* resets the bold set for the top level menu items */
+   background:#ffffff;
+   color:#444;
+   line-height:1.4em; /* overwrite line-height value from top menu */
+   border-bottom:1px solid #cdc9c9; /* sub menu item horizontal lines */
+}
+#dropdown-menu ul ul li a:hover,
+#dropdown-menu ul li.active ul li a:hover,
+#dropdown-menu ul li:hover ul li a:hover,
+#dropdown-menu ul li.hover ul li a:hover { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Sub menu items background colour */
+   color:#fff;
+}
+/* Flip the last submenu so it stays within the page */
+#dropdown-menu ul ul.last {
+   left:auto; /* reset left:0; value */
+   right:0; /* Set right value instead */
+}
+/* Make the sub menus appear on hover */
+#dropdown-menu ul li:hover ul,
+#dropdown-menu ul li.hover ul { /* This line is required for IE 6 and below */
+   display:block; /* Show the sub menus */
+}
+div{
+  display:block;
+  background-color:#fff;
+  color:#4a4a4a;
+  margin:auto;
+  text-align:center;
+  width:1000px;
+}
+h2{
+  font-size:30px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+h3{
+  font-size:22px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+p{
+  text-align:left;
+}
+aside.figures {
+    overflow: hidden; /* only needed if floating the child elements */
+    
+}
+aside.figures figure {
+    display: inline-block;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+figcaption{
+  font-size:19px;
+  font-weight: 300;
+  /*font-family: Helvetica,Verdana,Arial,sans-serif;*/
+  font-family: 'Raleway', sans-serif;
+  text-align:center;
+  line-height:22px;
+}
+a{
+  text-decoration:none;
+}
+/* unvisited link */
+a:link {
+    color:#000000;
+}
+/* visited link */
+a:visited {
+    color: #000000;
+}
+/* mouse over link */
+a:hover {
+    color: #282828;
+    /*color: #8b8989;*/
+}
+/* selected link */
+a:active {
+    color: #282828;
+    /*color: #8b8989;*/
+}
+hr{
+  border: 0;
+  border-top: 2px solid #f95a61;
+  border-bottom: 2px solid #f95a61;
+  /*border-top: 2px solid #8b8989;
+  border-bottom: 2px solid #8b8989;*/
+  background: transparent;
+  height: 6px;
+}
+</style>
+  <center> <iframe src="https://drive.google.com/file/d/0B9NVXOD8hyaWZ0JLdlozUTJ4ejA/preview" width="500" height="75"></iframe> </center>
+</head>
+<body>
+<nav id="dropdown-menu">
+<ul>
+  <li><a href="home2.html">Home</a></li>
+  <li><a href="humantrafficking.html">Human Trafficking</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#about">About</a></li>
+      <li><a href="file:///Users/owner/Documents/humantrafficking.html#types">Types</a><li>
+        <li><a href="file:///Users/owner/Documents/humantrafficking.html#consequencesforvictims">Consequences for Victims</a><li>
+    </ul>
+  </li>
+  <li><a href="wherevisual.html">Where</a>
+    <ul>
+     <li><a href="#haiti">Haiti</a></li>
+     <li><a href="#brazil">Brazil</a></li>
+     <li><a href="#thailand">Thailand</a></li>
+     <li><a href="#china">China</a></li>
+     <li><a href="#russia">Russia</a></li>
+     <li><a href="#uzbekistan">Uzbekistan</a></li>
+     <li><a href="#pakistan">Pakistan</a></li>
+     <li><a href="#india">India</a></li>
+     <li><a href="#nepal">Nepal</a></li>
+     <li><a href="#unitedstates">United States</a></li>
+    </ul>
+  </li>
+  <li><a href="media.html">Media</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/media.html#videos">Videos</a></li>
+      <li><a href="file:///Users/owner/Documents/media.html#stories">Stories</a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="act.html">Act</a>
+<ul>
+     <li><a href="file:///Users/owner/Documents/act.html#volunteer">Volunteer</a></li>
+  <li><a href="file:///Users/owner/Documents/act.html#advocate">Advocate</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+<div style="margin-top:100px">
+   <h2 style="border-bottom:1px solid #e0e0e0;color:#000000"> Where</h2>
+<aside class="figures">
+<figure>
+<img src="http://images.clipartpanda.com/haitian-clipart-12397678-vector-illustration-of-maps-of--haiti.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#haiti"><figcaption>HAITI</figcaption></a>
+</figure>
+
+<figure>
+<img src="http://photos.gograph.com/thumbs/CSP/CSP087/k0876333.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#brazil"><figcaption>BRAZIL</figcaption></a>
+</figure>
+
+<figure>
+<img src="http://cdns2.freepik.com/free-photo/thailand-country-map-silhouette_318-40623.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#thailand"><figcaption>THAILAND</figcaption></a>
+</figure>
+
+</aside>
+<aside class="figures">
+<figure>
+<img src="http://mapsof.net/uploads/static-maps/roc_outline.png" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#china"><figcaption>CHINA</figcaption></a>
+</figure>
+
+<figure>
+<img src="data:image/png;base64,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" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#russia"><figcaption>RUSSIA</figcaption></a>
+</figure>
+
+<figure>
+<img src="http://cdns2.freepik.com/free-photo/uzbekistan-country-map-black-shape_318-40103.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#uzbekistan"><figcaption>UZBEKISTAN</figcaption></a>
+</figure>
+
+</aside>
+<aside class="figures">
+<figure>
+<img src="http://cdns2.freepik.com/image/th/318-41076.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#pakistan"><figcaption>PAKISTAN</figcaption></a>
+</figure>
+
+ <figure>
+<img src="http://pay-e-pay.engineering/assets/images/in.png" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#india"><figcaption>INDIA</figcaption></a>
+</figure>
+
+<figure>
+<img src="http://i.istockimg.com/file_thumbview_approve/56015618/3/stock-illustration-56015618-nepal-map.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#nepal"><figcaption>NEPAL</figcaption></a>
+</figure>
+</aside>
+<aside class="figures">
+  <figure>
+<img src="http://designm.ag/wp-content/uploads/2011/06/Black-United-States-Vector-Map-300x186.jpg" width=220 height=163><hr>
+<a href="file:///Users/owner/Documents/where.html#unitedstates"><figcaption>UNITED STATES</figcaption></a>
+</figure>
+</aside>
+</div>
+</body>
+</html>
