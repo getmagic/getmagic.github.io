@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    /* Main menu settings */
+h1{
+  font-size:50px
+}
+#dropdown-menu {
+   clear:both;
+   float:left;
+   margin:0;
+   padding:0;
+   border-bottom:1px solid #000; /* black line below menu */
+   border-top:1px solid #000;
+   width:100%;
+   font-family:Copperplate, Geneva, sans-serif; /* Menu font */
+   font-size:90%; /* Menu text size */
+   z-index:1000; /* This makes the dropdown menus appear above the page content below */
+   position:relative;
+}
+/* Top menu items */
+#dropdown-menu ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:right;
+   position:relative;
+   right:50%;
+}
+#dropdown-menu ul li {
+   margin:0 0 0 1px;
+   padding:0;
+   float:left;
+   position:relative;
+   left:50%;
+   top:1px;
+}
+#dropdown-menu ul li a {
+   display:block;
+   margin:0;
+   padding:.6em .5em .4em;
+   font-size:1em;
+   line-height:1em;
+   background:#ffffff;
+   text-decoration:none;
+   color:#000;
+   font-weight:500;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li.active a {
+   color:#fff;
+   background:#000;
+}
+#dropdown-menu ul li a:hover {
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+#dropdown-menu ul li:hover a,
+#dropdown-menu ul li.hover a { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #000;
+}
+/* Submenu items */
+#dropdown-menu ul ul {
+   display:none; /* Sub menus are hiden by default */
+   position:absolute;
+   top:2em;
+   left:0;
+   right:auto; /*resets the right:50% on the parent ul */
+   width:10em; /* width of the drop-down menus */
+}
+#dropdown-menu ul ul li {
+   left:auto;  /*resets the left:50% on the parent li */
+   margin:0; /* Reset the 1px margin from the top menu */
+   clear:left;
+   width:100%;
+}
+#dropdown-menu ul ul li a,
+#dropdown-menu ul li.active li a,
+#dropdown-menu ul li:hover ul li a,
+#dropdown-menu ul li.hover ul li a { /* This line is required for IE 6 and below */
+   font-size:.8em;
+   font-weight:500; /* resets the bold set for the top level menu items */
+   background:#ffffff;
+   color:#444;
+   line-height:1.4em; /* overwrite line-height value from top menu */
+   border-bottom:1px solid #cdc9c9; /* sub menu item horizontal lines */
+}
+#dropdown-menu ul ul li a:hover,
+#dropdown-menu ul li.active ul li a:hover,
+#dropdown-menu ul li:hover ul li a:hover,
+#dropdown-menu ul li.hover ul li a:hover { /* This line is required for IE 6 and below */
+   background:#cdc9c9; /* Sub menu items background colour */
+   color:#fff;
+}
+/* Flip the last submenu so it stays within the page */
+#dropdown-menu ul ul.last {
+   left:auto; /* reset left:0; value */
+   right:0; /* Set right value instead */
+}
+/* Make the sub menus appear on hover */
+#dropdown-menu ul li:hover ul,
+#dropdown-menu ul li.hover ul { /* This line is required for IE 6 and below */
+   display:block; /* Show the sub menus */
+}
+div{
+  display:block;
+  background-color:#fff;
+  margin:auto;
+}
+section{
+  display:block;
+  background-color:#fff;
+  color:#4a4a4a;
+  margin:auto;
+  text-align:center;
+  width:1000px;
+}
+h2{
+  font-size:30px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+h3{
+  font-size:22px;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+p{
+  font-size:19px;
+  font-weight: 300;
+  font-family: Helvetica,Verdana,Arial,sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+  line-height:22px;
+}
+ul li{
+  text-align:left;
+}
+#paragraphs{
+  font-size:19px;
+  font-weight: 300;
+  font-family: Helvetica,Verdana,Arial,sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align:left;
+  line-height:22px;
+}
+img{
+  margin-top: 40px;
+}
+</style>
+         <center> <iframe src="https://drive.google.com/file/d/0B9NVXOD8hyaWZ0JLdlozUTJ4ejA/preview" width="500" height="75"></iframe> </center>
+         </head>
+         <body> 
+<nav id="dropdown-menu">
+<ul>
+  <li><a href="home2.html">Home</a></li>
+  <li><a href="humantrafficking.html">Human Trafficking</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#types">Types</a><li>
+        <li><a href="#consequencesforvictims">Consequences for Victims</a></li>
+    </ul>
+  </li>
+  <li><a href="wherevisual.html">Where</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/where.html#haiti">Haiti</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#brazil">Brazil</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#thailand">Thailand</a></li>
+      <li><a href="file:///Users/owner/Documents/where.html#china">China</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#russia">Russia</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#uzbekistan">Uzbekistan</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#pakistan">Pakistan</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#india">India</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#nepal">Nepal</a></li>
+<li><a href="file:///Users/owner/Documents/where.html#unitedstates">United States</a></li>
+    </ul>
+  </li>
+  <li><a href="media.html">Media</a>
+    <ul>
+      <li><a href="file:///Users/owner/Documents/media.html#videos">Videos</a></li>
+      <li><a href="file:///Users/owner/Documents/media.html#stories">Stories</a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="act.html">Act</a>
+<ul>
+     <li><a href="file:///Users/owner/Documents/act.html#volunteer">Volunteer</a></li>
+  <li><a href="file:///Users/owner/Documents/act.html#advocate">Advocate</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+    <div >
+      <section >
+        <img src="http://www.estherschildren.org/wp-content/uploads/2014/01/IMG_4615-1200x661.jpg " height="500px" width="1024px" align="middle"/>
+      </section>
+    </div>
+    <div id="about">
+      <section >
+      <h2 style="color:#000;font-family:Lora;border-bottom:1px solid #e0e0e0;">About</h2>
+      <p id="paragraphs">Human trafficking is a modern form of slavery. It is the trade in people, and does not necessarily involve the movement of the person from one place to another. It involves controlling a person through force, fraud, or coercion to exploit the victim for forced labor, sexual exploitation, or both.Victims of human trafficking represent a range of backgrounds in terms of age, nationality, socioeconomic status, and education.They are often isolated from their families and social networks. In some cases, victims are separated from their country of origin, native language, and culture.Victims who are undocumented immigrants often do not report abuses to the authorities out of distrust of law enforcement, and/or fear of arrest, injury to family members, deportation, or other serious reprisals. Europe is the destination for victims from the widest range of destinations, while victims from Asia are trafficked to the widest range of destinations. The Americas are prominent both as the origin and destination of victims of human trafficking. Sex trafficking is often highlighted in the media but is not the primary form of modern-day slavery. Using coercion, violence and deception, labor traffickers force victims to work against their will in industries that range from small mom-and-pop shops to enormous mineral extraction camps for commodities such as gold. Some individuals enter into work agreements willingly but accrue enormous debt to the trafficker in the form of food, shelter, documentation, and travel fees. The traffickers inflate these costs and tack on enormous interest rates that condemn their new hires to a life of underpaid labor or slavery.</p>
+    </section>
+    </div>
+    <div id=types>
+      <section>
+      <h2 style="color:#000;font-family:Lora;border-bottom:1px solid #e0e0e0;">Types</h2>
+      <h3 style="font-family:Lora;color:#292929;">Sex Trafficking:</h3>
+      <p>
+Sex trafficking is the act of forcing, coercing, or transporting a person for the purpose of a commercial sex act. These crimes are primarily committed against women and children. Sex trafficking can occur in residential brothels, brothels disguised as massage parlors, strip clubs, via online escort services and street prostitution.</p>
+<h3 style="font-family:Lora;color:#292929;">Labor Trafficking:</h3>
+<p>Labor trafficking is the act of forcing a person to work for little or no money. It can include forced labor in underground markets and sweatshops, as well as legitimate businesses such as hotels, factories, restaurants, construction sites, farming, landscaping, nail salons, and traveling sales crews.</p>
+<h3 style="font-family:Lora;color:#292929;">Domestic Servitude:</h3>
+      <p>A form of labor trafficking, domestic servitude often involves women who are forced to live and work in the homes of employers who confiscate their legal documents and prevent them from leaving. Domestic workers can be U.S. citizens, lawfully-admitted foreign nationals, or undocumented immigrants.</p>
+<h3 style="font-family:Lora;color:#292929;">Trafficking of Children:</h3>
+<p>Trafficking of children involves the recruitment, transportation, transfer, harboring, or receipt of children for the purpose of exploitation. The commercial sexual exploitation of children can take many forms, including forcing a child into prostitution or other forms of sexual activity or child pornography. Child exploitation may also involve forced labour or services, slavery or practices similar to slavery, servitude, the removal of organs, illicit international adoption, trafficking for early marriage, recruitment as child soldiers, for use in begging or as athletes (such as child camel jockeys or football players), or for recruitment for cults. Traffickers in children may take advantage of the parents' extreme poverty. Parents may sell children to traffickers in order to pay off debts or gain income, or they may be deceived concerning the prospects of training and a better life for their children. They may sell their children into labor, sex trafficking, or illegal adoptions.</p>
+<h3 style="font-family:Lora;color:#292929;">Forced Marriage:</h3>
+<p>A forced marriage is a marriage where one or both participants are married without their freely given consent. Servile marriage is defined as a marriage involving a person being sold, transferred or inherited into that marriage. A forced marriage qualifies as a form of human trafficking in certain situations. If a woman is sent abroad, forced into the marriage and then repeatedly compelled to engage in sexual conduct with her new husband, then her experience is that of sex trafficking. If the bride is treated as a domestic servant by her new husband and/or his family, then this is a form of labor trafficking.</p>
+<h3 style="font-family:Lora;color:#292929;">Trafficking for Organ Trade:</h3>
+<p>Trafficking in organs is a form of human trafficking. It can take different forms. In some cases, the victim is compelled into giving up an organ. In other cases, the victim agrees to sell an organ in exchange of money/goods, but is not paid (or paid less). Finally, the victim may have the organ removed without the victim's knowledge (usually when the victim is treated for another medical problem/illness - real or orchestrated problem/illness). Trafficking of organs is an organized crime, involving several offenders:<br>
+ <ul>
+  <li style="font-size:19px;font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">the recruiter,</li>
+  <li style="font-size:19px;font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">the transporter,</li>
+  <li style="font-size:19px;font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">the medical staff,</li>
+  <li style="font-size:19px;font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">the middlemen/contractors,</li>
+  <li style="font-size:19px;font-weight: 300;font-family: Helvetica,Verdana,Arial,sans-serif;">the buyers</li>
+  </ul>
+</p>
+<p>Trafficking for organ trade often seeks kidneys. Trafficking in organs is a lucrative trade because in many countries the waiting lists for patients who need transplants are very long.
+      </p>
+    </section>
+    </div>
+    <div  id=consequencesforvictims>
+      <section >
+    <h2 style="color:#000;font-family:Lora;border-bottom:1px solid #e0e0e0;">Consequences for Victims</h2>
+    <p>Sex trafficking victims face threats of violence from many sources, including customers, pimps, brothel owners, madams, traffickers, and corrupt local law enforcement officials. Raids as an anti-sex trafficking measure severely impact sex trafficked victims. Due to their complicated legal status and their language barriers, the arrest or fear of arrest creates stress and other emotional trauma for trafficking victims.Trafficking victims are also exposed to different psychological stressors. They suffer social alienation in the host and home countries. Stigmatization, social exclusion, and intolerance make reintegration into local communities difficult. As the victims are also pushed into drug trafficking, many of them face criminal sanctions. Sex trafficking increases the risk of contracting HIV/AIDS. The HIV/AIDS pandemic can be both a cause and a consequence of sex trafficking. On one hand, child-prostitutes are sought by customers because they are perceived as being less likely to be HIV positive, and this demand leads to child sex trafficking. On the other hand, trafficking leads to the proliferation of HIV, because victims, being vulnerable and often young/inexperienced, cannot protect themselves properly, and get infected.
+    </p>
+  </section>
+  </div>
+</body>
+</html>
