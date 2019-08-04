@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Play Now! 
+</title>
+<link rel="stylesheet" type="text/css" href="firstgame.css">
+</head>
+<body>
+<div class="top-bar" style="background-color: pink; height: 200px; width:100%; position:relative;">
+
+<button onclick="startGame()" style="background-color: purple; font-family:Garamond; font-size: 40px; color: white; padding:10px 20px; height:55; width:85;" >Play "Guess the Number" by clicking here!</button>
+<p id="intro" style="font-size: 34px; text-align: center; "</p>
+
+<input type="text" name="txt" id="numberGuess" onchange="getUserGuess()">
+
+<div class="center" style="background-color:purple; width: 100%;">
+<p id="output" style="background-color:purple; color: white; text-align: center; font-size: 34px;">
+
+</p>
+</div>
+</div>
+
+<div class="center" style="background-color: purple;"></div>
+
+<div style="width: 100%; overflow: hidden; background-color: pink;">
+
+    <div class="side-1" style="background-color: pink; float: left; width: 300px;">
+    <center><img src="https://s-media-cache-ak0.pinimg.com/736x/86/d6/41/86d641fd767e458386a68bdbda187c0a.jpg" width="300px" height="600px"></img></center>
+    </div>
+    
+    <div class="side-2" style="background-color: pink; float: right; width: 300px;">
+    <center><img src="https://s-media-cache-ak0.pinimg.com/736x/86/d6/41/86d641fd767e458386a68bdbda187c0a.jpg" width="300px" height="600px"></img></center>
+    </div>
+    
+</div>
+
+<script>
+var guess = Math.floor(Math.random() * 100);
+var secret_number = guess;
+var num_guesses = -1;
+var total_score = 0;
+var num_games_played = 0;
+function startGame() {
+    document.getElementById("output").innerHTML = "Guess the number between 0-99";
+    num_guesses = 0;
+}
+function getUserGuess() {
+    var user_guess = document.getElementById("numberGuess").value;
+    if (user_guess <= 0) {
+        document.getElementById("output").innerHTML = "You entered a incorrect value. Guess again";
+    }
+    else { 
+        /* user guessed a number */
+        num_guesses += 1;
+        if (user_guess > secret_number) {
+            document.getElementById("output").innerHTML = "Guess lower than " + user_guess;
+        }
+        else if (user_guess < secret_number) {
+            document.getElementById("output").innerHTML = "Guess higher than " + user_guess;
+        }
+        else { /* user has guessed the secret number */
+            num_games_played += 1;
+            total_score += num_guesses;
+            var average_score = total_score/num_games_played;
+            document.getElementById("output").innerHTML = "Congrats you have guessed the number " + secret_number + " in " + num_guesses + " guesses!\n" + " Your average score in " + num_games_played + " games is " + average_score + ".";      
+        }
+        document.getElementById("numberGuess").value = " ";
+    } 
+}
+</script>
+
+</body>
+</html>
