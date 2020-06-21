@@ -1,7 +1,7 @@
 # getmagic.github.io
 The website was made from a template
 
-The Folders that begin with "Mentee" (ie "MenteeAlineGarcia", "MenteeAnjali") are their code. They were taken from Ritu's google drive. These folders are linked inside the ".html" files.**
+The Folders that begin with "Mentee" (ie "MenteeAlineGarcia", "MenteeAnjali") are their code. They were taken from my mom's google drive. These folders are linked inside the ".html" files.**
 
 For the css folder, Ruchi only edited the "style.css" file. The rest was imported from the template or github.io. 
 
