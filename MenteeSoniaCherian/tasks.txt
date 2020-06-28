@@ -1,0 +1,12 @@
+Practice piano,False,,2017-04-27
+Piano lesson,False,,2017-04-27
+study for french quiz,False,,2017-04-27
+Go to track practice,True,,2017-04-27
+Bake cookies,True,,2017-04-27
+Read chapter 12,True,,2017-04-27
+ Read chapter 14,True,,2017-04-27
+Bake cupcakes,True,,2017-04-27
+Track meet,True,,2017-04-27
+study for french quiz,True,,2017-04-27
+Study for french quiz!!!,True,,2017-04-27
+Study for math test!!!,True,,2017-04-27
