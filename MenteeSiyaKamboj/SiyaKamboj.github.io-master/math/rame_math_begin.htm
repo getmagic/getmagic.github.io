@@ -1,0 +1,316 @@
+<html>  
+  <link type="text/css" rel="stylesheet" href="/css/math_frame.css">
+  <head>
+  <title>Beginner Section of Math</title> 
+  </head>
+  <body>
+<!--<div class="navbar">
+  <a href="https://siyakamboj.github.io/">Home</a>
+  <a href="frame_math_begin.htm">Beginner</a>
+  <a href="frame_math_inter.htm">Intermediate</a>
+  <a href="frame_math_advanced.htm">Advanced</a>
+</div>!-->
+    
+<ul>
+  <li><a style="text-align:center" href="https://siyakamboj.github.io/">Home</a></li>
+  <li><a style="text-align:center" class="active" href="frame_math_begin.htm">Beginner</a></li>
+   <!--<li class="active">
+    <a href="javascript:void(0)" class="dropbtn">Beginner</a>
+    <div class="dropdown-content">
+      <a href="frame_math_begin.htm">Probability</a> //ADD ACTUAL LINKS ONCE THEY ARE CREATED 
+      <a href="#">Fractions</a>
+      <a href="#">Multiplication</a>
+    </div>
+  </li>!-->
+  <li><a style="text-align:center" href="frame_math_inter.htm">Intermediate</a></li>
+  <li><a style="text-align:center" href="frame_math_advanced.htm">Advanced</a></li>
+</ul>
+
+<div class="main">
+
+
+
+<!--<html>
+  <link type="text/css" rel="stylesheet" href="/css/math_frame.css">
+  
+
+  <head>
+    <title> Beginner Section of Math </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="math_begin.js"></script>   
+  </head>
+
+  <body>!--> 
+  
+  <h1> Beginner Math Section</h1>
+    <div id="timer"></div>
+    <div id="pop_up_6_point_graph" style="display:none; ">
+      <div id="pageone" data-role="main" class="ui-content">
+        <a href="#myPopup" data-rel="popup" data-position-to="window">
+          <img src="/math/images/6_point_graph.png" alt="Graph View" style="width:22%;height:75%;"></a>
+
+        <div data-role="popup" id="myPopup">
+          <a href="#pageone" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="/math/images/6_point_graph.png" style="height:95%;width:42%;" alt="Graph" usemap="#graphmap">
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="q3" style="display:none;">
+<div id="container"></div>
+      <p>Select the point (3, 4) from the image below. </p>
+<img src="/math/images/graph.png" alt="My Image" style="margin:0;padding:0;position:absolute;left:50px;top:50px;" width="500" height="500" />
+<canvas style="margin:0;padding:0;position:absolute;left:50px;top:50px;" id="imgCanvas" width="500" height="500" onclick="draw(event)"></canvas>
+  </div>
+    
+    
+    <div id="Initial">
+      <p> Placeholder </p>
+      <input type="submit" id="start" value="Start The Test" onclick="mathbegin()"/>
+    </div>
+    
+    
+
+    <div id="q1" style="display:none;">
+      <p class="question"> What is the product of 25 and 32? </p>      
+    </div>
+    
+    <div id="q2" style="display:none;">
+      <p> Enter 1/2 * 1/2 in its simplest fraction form</p>  
+    </div>
+    
+    <input type="text" id="text_answer" style="display:none;"/>
+    <input type="submit" value="Submit" class="submit" id="submit" onclick="submitanswer()" style="display:none;" />
+    
+    
+    <div id="q1_sol" style="display:none;">
+      <p> The correct answer is 800 </p>
+      <p> 25 </p>
+      <p>*32 </p>
+      <p>-----</p>
+      <p>+ 50 </p>        
+       <p> 750 </p>
+       <p>-----</p>
+       <p> 800 </p>
+       <input type="submit" value="Continue" class="continue" id="continue" onclick="showNextQuestion()" />
+    </div>
+    
+    <div id="q2_sol" style="display:none;">
+      <p> The correct answer is 0.25</p>
+      <p> Something </p>
+      <input type="submit" value="Continue" class="continue" id="continue" onclick="showNextQuestion()" />
+    </div>
+    
+    <div id="q3_sol" style="display:none;">
+      <p>Display the correct answer on (3, 4) </p>
+      <input type="submit" value="Continue" class="continue" id="continue" onclick="showNextQuestion()" />
+    </div>
+
+        <div id="NotSubmit" style="display:none;">
+          <p> Please give an answer before submitting </p>
+        </div>
+
+        <div id="Correct" style="display:none;">
+          <p> The answer is correct </p>
+          <input type="submit" value="Continue" class="continue" id="continue" onclick="showNextQuestion()" />
+        </div>
+            
+    <div id="Ending" style="display:none;"> 
+           <p> You finished the test. Your score is <br> </p>
+           <div id="EndScore"> </div>
+       
+
+    </div>      
+     <div id="Expired" style="display:none;">
+          <p> Your time has expired, so you can not finish the test </p>
+          <!--<input type="submit" class="submit" value="Try Again" id ="redo" onclick="vocabbeginnerstart()">!-->
+     </div>
+    </div> <!--ENDING FOR <DIV CLASS="MAIN"> !-->
+    
+    
+    <script>
+      var questions = ["q1", "q2", "q3", "Ending" ];
+      var correctans = ["800", "1/4", "(3, 4)"];
+      var solution = ["q1_sol", "q2_sol", "q3_sol"];
+      var question_number=0;
+      var score=0;
+      var test_time_mins = 0;
+      var test_time_secs = 0;
+function mathbegin() {
+  var d = new Date();
+  var n = d.getTime();
+  starttimer(n);
+  var score = 0;
+  randomize();
+  document.getElementById("Initial").style.display = "none";
+  document.getElementById(questions[0]).style.display = "block";
+  document.getElementById("text_answer").style.display="block";
+  document.getElementById('submit').style.display = "block";
+}
+var t, mins, secs;
+var count = 600; //600
+function timerdisplay() {
+  var mins = Math.floor(count / 60);
+  var secs = count % 60;
+  document.getElementById('timer').innerHTML = 'Time left: ' + mins + ' minutes and ' + secs.toFixed(0) + ' seconds.';
+}
+function starttimer() {
+  // starts countdown
+  timerdisplay();
+  if (count === 0) {
+    // time is up
+    document.getElementById("timer").innerHTML = "TIME UP!";
+    document.getElementById("submit").style.display = "none";
+    document.getElementById(questions[question_number]).style.display = "none"; //questions[question_number] not QFrame
+    document.getElementById("Correct").style.display = "none";
+    document.getElementById(solution[question_number]).style.display = "none";
+    //document.getElementById("Ending").innerHTML = score + " out of " + (questions.length - 1) * 10;
+    document.getElementById("Ending").style.display = "block";
+    document.getElementById("EndScore").style.display = "block";
+    document.getElementById("EndScore").innerHTML = score + " out of " + (questions.length - 1) * 10;
+  } else {
+    count--;
+    t = setTimeout(starttimer, 1000);
+  }
+}
+      
+ function showNextQuestion() { 
+   document.getElementById(questions[question_number]).style.display = "none";
+   if (questions[question_number]=="q3") { 
+     document.getElementById("text_answer").style.display="none";
+     document.getElementById("q3").style.display="block";     
+   }
+   else{    
+     
+   document.getElementById("text_answer").readOnly = false;
+     document.getElementById("NotSubmit").style.display = "none";
+     document.getElementById(solution[question_number]).style.display = "none";
+     document.getElementById("Correct").style.display = "none";
+     document.getElementById("text_answer").value='';    
+     document.getElementById("submit").style.display = "block";
+     //document.getElementById(questions[question_number]).style.display = "none";
+     if (question_number < questions.length - 1) {
+       question_number = question_number + 1;
+       timerpause();       
+       document.getElementById('submit').style.visibility = "visible";
+     };
+     if (question_number == questions.length-1) {
+       document.getElementById("timer").innerHTML = "Time taken: " +  test_time_secs + " secs.";
+       document.getElementById("text_answer").style.display="none";  
+       document.getElementById('submit').style.visibility = "hidden";
+     };   
+   document.getElementById(questions[question_number]).style.display = "block";
+     document.getElementById("text_answer").style.display="block";   
+     document.getElementById("EndScore").innerHTML = score + " out of " + (questions.length - 1) * 10; 
+   };
+   };
+      
+function timerpause() {
+  // pauses countdown
+  test_time_secs = 600 - count;
+  clearTimeout(t);
+}
+
+function randomize() {
+  var j, x, i, y, z;
+  for (i = questions.length - 1; i; i--) {
+    j = Math.floor(Math.random() * i);
+    x = questions[i - 1];
+    y = correctans[i - 1];
+    z = solution[i - 1];
+    //swapped 2 variables 
+    questions[i - 1] = questions[j];
+    correctans[i - 1] = correctans[j];
+    solution[i - 1] = solution[j];
+    questions[j] = x;
+    correctans[j] = y;
+    solution[j] = z;
+  };
+}
+function submitanswer() {
+  document.getElementById("submit").style.display = "none";  
+  document.getElementById("text_answer").readOnly = true;
+  var text = document.getElementById("text_answer").value;
+  if (text.length == 0) {
+    // when no text is entered and "submit" is clicked.
+   document.getElementById("NotSubmit").style.display="block";
+    document.getElementById("submit").style.display = "block";
+  } else {
+    // when a text button is written on, do the following         
+    document.getElementById("NotSubmit").style.display = "none";
+    //document.getElementById("submit").disabled=true;    
+    if (text == correctans[question_number]) { //text is the answer user put in
+      //if user selected answer is the right one
+      score += 10;
+      document.getElementById("text_answer").style.display="block";  
+      document.getElementById("Correct").style.display = "block";
+     //document.getElementById("text_answer").style.display="none";  
+      document.getElementById("NotSubmit").style.display = "none";
+    } else {
+      // when answer is wrong
+      document.getElementById("text_answer").style.display="block"; 
+      document.getElementById(solution[question_number]).style.display = "block";
+      //document.getElementById("text_answer").style.display="none";  
+      document.getElementById("submit").style.display="none";
+    };
+  };
+/*if (question_number == 2) { //14
+  timerpause();
+  
+};*/
+  if (question_number == 3) { //15
+  clearInterval(t);
+  clearTimeout(t);
+  timerpause();
+  document.getElementById("QFrame").style.display = "none";
+  document.getElementById("text_answer").style.display="none";  
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("Ending").style.display = "block";
+}
+}
+      
+      //CIRCLE ON GRAPH PROCEDURE
+   
+var canvas = document.getElementById("imgCanvas");
+var context = canvas.getContext("2d");
+function createImageOnCanvas(imageId) {
+  canvas.style.display = "block";
+  document.getElementById("images").style.overflowY = "hidden";
+  var img = new Image(300, 300);
+  img.src = document.getElementById(imageId).src;
+  context.drawImage(img, (0), (0)); //onload....
+}
+function draw(e) {
+  document.getElementById("text_answer").style.display="none";
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  var pos = getMousePos(canvas, e);
+  posx = pos.x;
+  posy = pos.y;
+  posx_t = Math.round((posx - 250) / 30);
+  posy_t = Math.round((-posy + 250) / 30);
+  context.fillStyle = "#ff0000";
+  context.beginPath();
+  //context.arc(posx, posy, 4, 0, 2 * Math.PI); //change size of circle
+  context.arc(posx_t * 30 + 250, 250 - posy_t * 30, 3, 0, 2 * Math.PI);
+  context.fill();
+
+  document.getElementById("text_answer").value = "(" + "" + posx_t + ", " + posy_t + ")";
+  //document.getElementById("coordinate").innerHTML = "<p>The coordinates are (" + "" + posx_t + ", " + posy_t + ")</p>";
+}
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top
+  };
+};
+window.draw = draw;
+    </script>
+
+
+  </body>
+
+</html>
