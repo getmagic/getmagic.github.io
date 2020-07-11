@@ -1,0 +1,51 @@
+<html>
+<link type="text/css" rel="stylesheet" href="/css/mathstyle.css">
+<head>
+  <title>Math Homepage</title> 
+  <script src="jquery-3.2.1.min.js"></script>
+  <header>	 
+  <button class="hamburger">&#9776;</button>
+  <button class="cross">&#735;</button>
+</header>
+ 
+</head>
+<body style="background-color:burlywood"><!--/burlywood=BACKGROUND COLOR!-->
+ <!-- <h1>Math</h1> 
+  <a target= "bottom_frame" href="frame_math_begin.htm">
+    <button class="button">Beginner</button>
+  </a>
+  <a target="bottom_frame" href="frame_math_inter.htm">
+    <button class="button">Intermediate </button>
+  </a>
+  <a target="bottom_frame" href="frame_math_advanced.htm">
+    <button class="button"> Advanced </button>
+  </a>!-->
+  <div class="menu">
+  <ul>
+    <a target="bottom_frame" href="frame_math_begin.htm"><li>Beginner</li></a>
+    <a target="bottom_frame" href="frame_math_inter.htm"><li>Intermediate</li></a>
+    <a target="bottom_frame" href="frame_math_advanced.htm"><li>Advanced</li></a>
+    <a target="_blank" href="https://siyakamboj.github.io/"><li>Home(4)</li></a>
+    <!--<a href="#"><li>LINK FIVE(5)</li></a>!-->
+  </ul>
+</div> 
+ 
+<script>
+  $( ".cross" ).hide();
+  $( ".menu" ).hide();
+  $( ".hamburger" ).click(function() {
+  $( ".menu" ).slideToggle( "slow", function() {
+  $( ".hamburger" ).hide();
+  $( ".cross" ).show();
+  });
+  });
+
+  $( ".cross" ).click(function() {
+  $( ".menu" ).slideToggle( "slow", function() {
+  $( ".cross" ).hide();
+  $( ".hamburger" ).show();
+  });
+  });
+</script>
+</body>
+  </html>
