@@ -1,0 +1,98 @@
+ /*The photos that preview the mentee's projects (mentee-thumbnail)*/
+.mentee-photos {
+      vertical-align: middle;
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      
+}
+/* Slideshow container */
+.slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      width: 100%;
+}
+
+/* Next & previous buttons */
+.prev-button, .next-button {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white !important;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: black;
+}
+
+/* Position the "next button" to the right */
+.next-button {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+}
+
+ /* On hover, add a grey background color with a little bit see-through */
+.prev-button:hover, .next-button:hover {
+      background-color: grey;
+}
+      
+#mentee-name{
+      color: #f2f2f2;
+      font-size: 40px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 67px;
+      width: 100%;
+      text-align: center;
+}
+
+ #mentee-grade{
+      color: #f2f2f2;
+      font-size: 40px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+}
+
+/*The div that contains the mentee-name and mentee-grade */
+.menteeInfoDiv {
+      background-color: gray;
+      border: 5px solid black;
+      overflow:auto;
+      width: 500px;
+      height: 150px;
+      position: relative;
+      margin: -55px auto auto auto;
+      display: inline-block;
+      margin-left: 50%;
+      transform: translateX(-50%); 
+}
+      
+/* The dots/bullets/indicators */
+.dot-carousel {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+}
+
+.d-active, .dot-carousel:hover {
+      background-color: #717171;
+}
+ /* The div that contains the dots and bullets */
+#secondContainerDots{
+      margin-left: 50%; /*These 2 lines of code center them */
+      transform: translateX(-50%); 
+}

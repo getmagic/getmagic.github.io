@@ -1608,9 +1608,14 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
   -moz-transition: transform 0.6s ease;
 }
 
-.blog.type-1 .single-blog img{
-    width: 100%;
+.blog.type-1 .single-blog img{ 
+    /*width: 100%; */
+    width: 300px;
     border-radius: 4px;
+    /* ----Added CSS-----*/
+    height: 175px;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 .blog.type-1 .single-blog .title{
@@ -1619,20 +1624,39 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
     line-height: 24px;
     margin-top: 5px;
     color: #000;
+    /*--- Added CSS ------*/
+    text-align:center; 
+    
 }
+
+.blog.type-1 .single-blog .date{
+    color: #bfbfbf;
+    font-size: 11px;
+    /*margin-top: 10px;*/
+    display: block;
+    /* ------Added CSS ------*/
+    text-align:center; 
+    
+}
+
+/*Added CSS */
+.AllProjects_Div:hover{
+        color: #014c8c;
+        outline-width: 0;
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        transition: transform 0.6s ease;
+        -webkit-transition: transform 0.6s ease;
+        -moz-transition: transform 0.6s ease;
+        text-align:center;
+    }
 
 .blog.type-1 .single-blog .category{
     font-size: 11px;
     font-weight: 600;
      display: block;
      margin-top: 20px;
-}
-
-.blog.type-1 .single-blog .date{
-    color: #bfbfbf;
-    font-size: 11px;
-    margin-top: 10px;
-    display: block;
 }
 
 
@@ -2478,6 +2502,9 @@ header.type-1 nav ul li.hassub .submenu {
     font-size: 18px;
     padding: 31px;
 }
+
+
+
 
 }
 
