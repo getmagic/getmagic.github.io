@@ -1,0 +1,92 @@
+h1 {
+    text-align:center;
+    margin-top:1.5em;    
+    font-family: verdana, times new roman;
+}
+
+#Science {    
+    background-color: #FF7F50;
+    height:35%;
+    width:50%;
+    position:relative;
+    margin-top:0%;    
+    margin-bottom:5%;
+    margin-left:25%;
+    clear:both;
+    border:4px solid black;
+}
+
+#Math {
+    background-color:pink;
+    height:35%;
+    width:50% ;
+    position:relative;
+    margin-top:0%;
+    margin-bottom:5%;
+    margin-left:25%;
+    clear:both;
+    border:4px solid black;
+}
+
+#Vocabulary{
+    background-color:yellow;
+    height:35%;
+    width:50%;
+    position:relative;
+    margin-top:0%;
+    margin-bottom:5%;
+    margin-left:25%;
+    clear:both;
+    border:4px solid black;
+}
+
+.levels{
+    display:inline-block;
+    position:relative;
+    float:left;
+    border:4px solid black;
+    height:43%;
+    width:20%;
+    background-color:white;   
+    margin-left:10%;
+}
+
+.name_levels{    
+    position:relative;
+    font-size:110%;
+    font-family: verdana, times new roman;
+    
+}
+
+.name_levels:link{
+    color:black; 
+    font-family: verdana, times new roman;
+}
+
+.name_levels:visited{
+    color:mediumslateblue;
+    text-decoration:underline;
+    font-family: verdana, times new roman;
+}
+
+
+.name_levels:hover{
+    color:gray;
+    text-decoration:none;
+    font-family: verdana, times new roman;
+};
+
+img{
+    position:absolute;
+    height:300px;
+    width:350px;
+    margin-left:100px;
+    margin-top:30px;
+}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+  
