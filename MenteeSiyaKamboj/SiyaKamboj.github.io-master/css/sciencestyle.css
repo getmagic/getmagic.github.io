@@ -1,0 +1,70 @@
+/*h1 {
+    text-align:center;
+    margin-top:1.5em;
+}
+
+.sciencelevels{
+    height: 40%;
+    width: 20%; 
+    background-color: goldenrod;
+    display:inline-block;
+    position:relative;
+    float:left;      
+    margin-left:10%;
+    text-align:center;
+    line-height:90px;
+}
+
+.science_name_levels{
+    font-size:150%;    
+    position:relative;    
+    vertical-align:middle;
+    text-align:center;
+    
+}*/
+
+h1 {
+    text-align:center;
+    margin-top:1.5em;
+}
+
+.button{
+    height: 40%;
+    width: 20%; 
+    background-color: goldenrod;
+    display:inline-block;
+    position:relative;
+    float:left;      
+    margin-left:10%;
+    text-align:center;
+    line-height:90px;
+    font-size:150%;
+    text-align:center;
+    font-weight:bold;
+    text-decoration:underline;
+    transition-duration: 0.4s;
+      
+}
+.button:hover{
+    box-shadow: 20px 20px 10px #888888;
+    background-color: white;
+    color: black;
+    border: goldenrod;
+};
+    
+
+.science_name_levels{
+    font-size:150%;    
+    position:relative;    
+    vertical-align:middle;
+    text-align:center;
+    
+};
+
+.background{
+    background-color: powderblue;
+    margin-left: 30%;
+    margin-top: 30%;
+    margin-bottom: 30%;
+};
+    
