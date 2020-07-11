@@ -1,0 +1,449 @@
+<html>
+    <link type="text/css" rel="stylesheet" href="/css/science_frame.css"> 
+<body>
+    <h1> Beginner Level Science Test </h1>
+    <div id="initial">
+    <!--<ol>
+        <li>Abhor (verb) .........................................Hate</li>
+        <p>           Example: Majority of the people <span>ABHOR</span> a corrupt government.</p> 
+        <li>Talisman (noun).......................................An Object Thought to Bring Good Luck</li>
+        <p>           Example: She believed this <span>TALISMAN</span> helped her pass the test</p>
+        <li>Plaudit (noun)........................................Praise</li>
+        <p>           Example: The actress recieved lots of <span>PLAUDIT</span> and support for her new movie</p>
+        <li>Obdurate (adjective).................................Stubborn </li>
+        <p>           Example: It is useless to argue with <span>OBDURATE</span> people. <p> 
+        <li>Adduce (verb)........................................Cite as Evidence/Proof </li>
+    </ol>!-->
+    <!--<button onclick="vocabbeginnerstart()">Start the Test</button> !-->
+    <input type="button" name="answer" value="Start the Test" onclick="vocabbeginnerstart()"/>
+    </div>
+                        
+    <div id="QFrame">
+        <div id="timer" style="margin-left:40%; font-size:110%;"> </div> 
+        <!--<div class="choices1" id="Incontrovertible1" style="display:none;">
+        <p class="question"> What is the meaning of "INCONTROVERTIBLE"?</p>
+    <form> 
+        <input type="radio" name="q1choices" id="q1a0" class="choices" /><label for="q1a0">Certain/Correct</label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a1" class="choices" /><label for="q1a1">Controversial</label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a2" class="choices" /><label for="q1a2">Picteresque</label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a3" class="choices" /><label for="q1a3">None of the above</label>
+        <br />
+     </form>
+    <input type="submit" value="Submit" id="submit" class="submit" onclick="submitinteranswer()" />
+    </div>!-->
+    <div class="choices1" id="Abhor1" style="display:none;">
+        <p class="question"> What is fertilization?</p>
+    <form> 
+        <input type="radio" name="q1choices" id="q1a0" /><label for="q1a0">Sperm cell combines with the egg cell </label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a1" /><label for="q1a1">Producing the sperm and egg cell</label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a2" /><label for="q1a2">The process of childbirth</label>
+        <br />
+        <input type="radio" name="q1choices" id="q1a3" /><label for="q1a3">None of the above</label>
+        <br />
+     </form>
+    </div>
+    <div class="choices1" id="Perfidious1" style="display:none;">
+            <p class="question"> What are the two types of bones?</p>
+             <form> 
+                <input type="radio" name="q2choices" id="q2a0" /><label for="q2a0">Spongy and Compact</label>
+                <br />
+                <input type="radio" name="q2choices" id="q2a1" /><label for="q2a1">Axial and Appendicular</label>
+                <br />
+                <input type="radio" name="q2choices" id="q2a2" /><label for="q2a2">Cardiac and Smooth</label>
+                <br />
+                <input type="radio" name="q2choices" id="q2a3" /><label for="q2a3">None of the above</label>
+                <br />
+            </form>
+       </div>
+        <div id="Esoteric1" style="display:none;">
+            <p class="question">What is a food web?</p>
+             <form> 
+                <input type="radio" name="q3choices" id="q3a0" /><label for="q3a0">The idea of survival of the fittest</label>
+                <br />
+                <input type="radio" name="q3choices" id="q3a1" /><label for="q3a1">A single path as one organism consumes another</label>
+                <br />
+                <input type="radio" name="q3choices" id="q3a2" /><label for="q3a2">Interaction between producers and consumers by different pathways</label>
+                <br />
+                <input type="radio" name="q3choices" id="q3a3" /><label for="q3a3">None of the above</label>
+                <br />
+            </form>
+       </div>
+       <div id="Obdurate1" style="display:none;">
+            <p class="question"> What are the two water biomes?</p>
+             <form> 
+                <input type="radio" name="q4choices" id="q4a0" /><label for="q4a0">grasslands and desert</label>
+                <br />
+                <input type="radio" name="q4choices" id="q4a1" /><label for="q4a1">tundra and taiga</label>
+                <br />
+                <input type="radio" name="q4choices" id="q4a2" /><label for="q4a2">tropical rain forest and deciduous forests</label>
+                <br />
+                <input type="radio" name="q4choices" id="q4a3" /><label for="q4a3">None of the above</label>
+                <br />
+            </form>
+       </div>        
+        <div id="Abdicate1" style="display:none;">
+            <p class="question"> Why is vegetation closely huddled in Taigas and Tundras?</p>
+             <form> 
+                <input type="radio" name="q5choices" id="q5a0" /><label for="q5a0">For stability</label>
+                <br />
+                <input type="radio" name="q5choices" id="q5a1" /><label for="q5a1">To trap heat</label>
+                <br />
+                <input type="radio" name="q5choices" id="q5a2" /><label for="q5a2">For protection</label>
+                <br />
+                <input type="radio" name="q5choices" id="q5a3" /><label for="q5a3">None of the above</label>
+                <br />
+            </form>
+        </div>
+        <div id="Idyllic1" style="display:none;">
+            <p class="question">About how much rain does a desert get per year?</p>
+             <form> 
+                <input type="radio" name="q6choices" id="q6a0" /><label for="q6a0">There is no rain in the desert</label>
+                <br />
+                <input type="radio" name="q6choices" id="q6a1" /><label for="q6a1">About 15 inches</label>
+                <br />
+                <input type="radio" name="q6choices" id="q6a2" /><label for="q6a2">less than 10 in to no rainfall</label>
+                <br />
+                <input type="radio" name="q6choices" id="q6a3" /><label for="q6a3">None of the above</label>
+                <br />
+            </form>
+        </div>
+        <div id="Assail1" style="display:none;">
+            <p class="question"> What is kelp an important part of the salt water biome?</p>
+             <form> 
+                <input type="radio" name="q7choices" id="q7a0" /><label for="q7a0">It is the habitat for many organisms such as sponges</label>
+                <br />
+                <input type="radio" name="q7choices" id="q7a1" /><label for="q7a1">It is good for making weapons</label>
+                <br />
+                <input type="radio" name="q7choices" id="q7a2" /><label for="q7a2">It cleans the water</label>
+                <br />
+                <input type="radio" name="q7choices" id="q7a3" /><label for="q7a3">None of the above</label>
+                <br />
+            </form>
+        </div>
+        <div id="Nuance1" style="display:none;">
+            <p class="question"> What is the meaning of population?</p>
+             <form> 
+                <input type="radio" name="q8choices" id="q8a0" /><label for="q8a0">The way of life for a species in the enviornment</label>
+                <br />
+                <input type="radio" name="q8choices" id="q8a1" /><label for="q8a1">The number of species in the world</label>
+                <br />
+                <input type="radio" name="q8choices" id="q8a2" /><label for="q8a2">Amount of certain species that live in the same geographical area</label>
+                <br />
+                <input type="radio" name="q8choices" id="q8a3" /><label for="q8a3">None of the above</label>
+                <br />
+            </form>
+    </div>
+            
+            <div id="Talisman1" style="display:none;">
+            <p class="question"> What is a part of the water cycle?</p>
+             <form> 
+                <input type="radio" name="q9choices" id="q9a0" /><label for="q9a0">Inhaling</label>
+                <br />
+                <input type="radio" name="q9choices" id="q9a1" /><label for="q9a1">Decomposition</label>
+                <br />
+                <input type="radio" name="q9choices" id="q9a2" /><label for="q9a2">Option 1 and 2 are both parts of the water cycle</label>
+                <br />
+                <input type="radio" name="q9choices" id="q9a3" /><label for="q9a3">None of the above</label>
+                <br />
+            </form>                     
+       </div>
+    
+        <div id="Airy1" style="display:none;">
+            <p class="question"> How is bacteria helpful?</p>
+             <form> 
+                <input type="radio" name="q10choices" id="q10a0" /><label for="q10a0">It decomposes/ Creates dairy product</label>
+                <br />
+                <input type="radio" name="q10choices" id="q10a1" /><label for="q10a1">No bacteria is helpful</label>
+                <br />
+                <input type="radio" name="q10choices" id="q10a2" /><label for="q10a2">It cleans up the ocean</label>
+                <br />
+                <input type="radio" name="q10choices" id="q10a3" /><label for="q10a3">None of the above</label>
+                <br />
+            </form>    
+       </div>
+        <div id="Boisterous1" style="display:none;">
+            <p class="question"> What is K Selection?</p>
+             <form> 
+                <input type="radio" name="q11choices" id="q11a0" /><label for="q11a0">The process of picking out the weakest in a group of animals</label>
+                <br />
+                <input type="radio" name="q11choices" id="q11a1" /><label for="q11a1">A type of reproduction where lots of offsprings are born and thee animal matures early</label>
+                <br />
+                <input type="radio" name="q11choices" id="q11a2" /><label for="q11a2">A type of reproduction where few offsprings are born and thee animal matures late</label>
+                <br />
+                <input type="radio" name="q11choices" id="q11a3" /><label for="q11a3">None of the above</label>
+                <br />
+            </form>       
+       </div>
+    
+    <div id="Adduce1" style="display:none;">
+            <p class="question"> What is R-selection?</p>
+             <form> 
+                <input type="radio" name="q12choices" id="q12a0" /><label for="q12a0">A type of reproduction where lots of offsprings are born and these animal matures early</label>
+                <br />
+                <input type="radio" name="q12choices" id="q12a1" /><label for="q12a1">A type of reproduction where few offsprings are born and these animal matures late</label>
+                <br />
+                <input type="radio" name="q12choices" id="q12a2" /><label for="q12a2">The process of picking out the weakest in a group of animals</label>
+                <br />
+                <input type="radio" name="q12choices" id="q12a3" /><label for="q12a3">None of the above</label>
+                <br />
+            </form>        
+       </div>
+    <div id="Histrionic1" style="display:none;">
+            <p class="question"> What is an example of an organism who goes through R-selection?</p>
+             <form> 
+                <input type="radio" name="q13choices" id="q13a0" /><label for="q13a0">Humans</label>
+                <br />
+                <input type="radio" name="q13choices" id="q13a1" /><label for="q13a1">Pandas</label>
+                <br />
+                <input type="radio" name="q13choices" id="q13a2" /><label for="q13a2">Dogs</label>
+                <br />
+                <input type="radio" name="q13choices" id="q13a3" /><label for="q13a3">None of the above</label>
+                <br />
+            </form>         
+       </div>    
+    
+        <div id="Plaudit1" style="display:none;">
+            <p class="question"> What is an example of an organism who goes through K-selection?</p>
+             <form> 
+                <input type="radio" name="q14choices" id="q14a0" /><label for="q14a0">Humans</label>
+                <br />
+                <input type="radio" name="q14choices" id="q14a1" /><label for="q14a1">Fruit Fly</label>
+                <br />
+                <input type="radio" name="q14choices" id="q14a2" /><label for="q14a2">Rabbit</label>
+                <br />
+                <input type="radio" name="q14choices" id="q14a3" /><label for="q14a3">None of the above</label>
+                <br />
+            </form>         
+       </div>
+    
+        <div id="Aeronautics1" style="display:none;">
+            <p class="question"> What is biotic?</p>
+             <form> 
+                <input type="radio" name="q15choices" id="q15a0" /><label for="q15a0">All the non-living parts of the ecosystem</label>
+                <br />
+                <input type="radio" name="q15choices" id="q15a1" /><label for="q15a1">All the living parts of an ecosystem</label>
+                <br />
+                <input type="radio" name="q15choices" id="q15a2" /><label for="q15a2">All the once-living parts of an ecosystem</label>
+                <br />
+                <input type="radio" name="q15choices" id="q15a3" /><label for="q15a3">None of the above</label>
+                <br />
+            </form>
+                       
+       </div>
+        
+       
+       <input type="submit" value="Submit" class="submit" id="submit" onclick="submitanswer()" style="display:none" />
+    </div>
+       <div id="Ending" style="display:none;"> 
+           <p> You finished the test. Your score is <br> </p>
+           <div id="EndScore"> </div>
+       
+
+    </div>      
+     <div id="Expired" style="display:none;">
+          <p> Your time has expired, so you can not finish the test </p>
+          <input type="submit" class="submit" value="Try Again" id ="redo" onclick="vocabbeginnerstart()">
+     </div>
+     <div id="Wrong" style="display:none; font-color: red; font-size:110%; margin-left:30%;">
+          <p class="notify"> Sorry, that is incorrect. The correct answer is <br> </p>
+         <div id="correctanswer"> </div>
+         <input type="submit" class="continue" value="Continue" id="continue" onclick="showNextQuestion()"/>
+     </div>
+    <div id="Correct" style="display:none; font-color:green; font-size:110%; margin-left:30%">
+        <p class="notify"> That is correct </p>
+        <input type="submit" value="Continue" class="continue" id="continue" onclick="showNextQuestion()"/>
+    </div>
+    <div id="NotSubmit" style="display:none; font-color:red; font-size:100%; margin-left:30%"> 
+         <p>Please select an answer before submitting.</p>
+    </div>
+    
+<script> 
+   var questions = ["Abhor1", "Perfidious1", "Esoteric1", "Obdurate1", "Abdicate1", "Idyllic1", "Assail1", "Nuance1", "Talisman1", "Airy1", "Boisterous1", "Adduce1", "Histrionic1", "Plaudit1", "Aeronautics1", "Ending"];
+   var correctans = [0, 0, 2, 3, 1, 2, 0, 2, 3, 0, 2, 0, 3, 0, 1];
+   var choices = ['q1choices', 'q2choices', 'q3choices', 'q4choices', 'q5choices', 'q6choices', 'q7choices', 'q8choices', 'q9choices', 'q10choices', 'q11choices', 'q12choices', 'q13choices', 'q14choices', 'q15choices'];
+   var wrongans = [];
+   var question_number = 0;
+   var score = 0;
+   var test_time_mins = 0;
+   var test_time_secs = 0;
+   //document.getElementById("options").style.display="none";
+   function vocabbeginnerstart() {
+     //var frame=document.getElementById("frame_a");
+     var d = new Date();
+     var n = d.getTime();
+     starttimer(n);
+     var score = 0;
+     randomize();
+     document.getElementById("initial").style.display = "none";
+     document.getElementById(questions[0]).style.display = "block";
+     document.getElementById('submit').style.display = "block";
+   }
+var x ;
+   /*function starttimer(n) {
+     // Set the date we're counting down to
+     var TestEndTime = n + 10 * 1000 * 60; //10 minutes is 60*1000*10 miliseconds-Actual: var TestEndTime = n+10*1000*60;
+     // Update the count down every 1 second
+      x = setInterval(function() {
+       // Get todays date and time
+       var now = new Date().getTime();
+       // Find the distance between now an the count down date
+       var remainingTime = TestEndTime - now;
+       // Time calculations for days, hours, minutes and seconds
+       var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+       var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+         //css         
+       // Output the result in an element with id="demo"
+       document.getElementById("timer").innerHTML = "Time remaining: " + minutes + " mins and " + seconds + " secs.";
+       test_time_mins = 9 - minutes;
+       test_time_secs = 60 - seconds;
+       // If the count down is over, write some text 
+       if (remainingTime < 0) {
+         clearInterval(x);
+         document.getElementById("timer").innerHTML = "TIME UP!";
+         document.getElementById("submit").style.display = "none";
+         document.getElementById(questions[question_number]).style.display = "none";
+         document.getElementById("Correct").style.display="none";
+         document.getElementById("Ending").style.display = "block";
+       }
+     }, 1000);
+     if (question_number == 15) {
+       //clearInterval(x);
+       //clearTimeout(x);
+         stoptimer();
+       document.getElementById("timer").style.display = "none";
+     };
+   }*/
+var t, mins, secs;
+var count=600;//600
+function timerdisplay() {
+    var mins=Math.floor(count/60);
+    var secs=count % 60;
+    document.getElementById('timer').innerHTML ='Time left: ' + mins + ' minutes and ' + secs.toFixed(0) + ' seconds.';
+}
+function starttimer() {
+    // starts countdown
+    timerdisplay();
+    if (count === 0) {
+        // time is up
+        document.getElementById("timer").innerHTML = "TIME UP!";
+        document.getElementById("submit").style.display = "none";
+        document.getElementById(questions[question_number]).style.display = "none";//questions[question_number] not QFrame
+        document.getElementById("Correct").style.display="none";
+        document.getElementById("Wrong").style.display="none";
+      //document.getElementById("Ending").innerHTML = score + " out of " + (questions.length - 1) * 10;
+        document.getElementById("Ending").style.display="block";
+        document.getElementById("EndScore").style.display="block";
+        document.getElementById("EndScore").innerHTML = score + " out of " + (questions.length - 1) * 10;
+    } else {
+        count--;
+        t = setTimeout(starttimer, 1000);
+    }
+}
+function timerpause() {
+    // pauses countdown
+    test_time_secs= 600-count;
+    clearTimeout(t);
+}
+    
+/*if (count==0) {
+    //clearTimeout(t);
+    document.getElementById("timer").innerHTML = "TIME UP!";
+     document.getElementById("submit").style.display = "none";
+     document.getElementById("QFrame").style.display = "none";//questions[question_number] not QFrame
+     document.getElementById("Correct").style.display="none";
+      document.getElementById("Ending").style.display = "block";
+   }*/
+    
+if (question_number==15) {
+    clearInterval(t);
+   clearTimeout(t);   
+    timerpause();
+    document.getElementById("QFrame").style.display="none";
+    document.getElementById("timer").style.display = "none";
+    document.getElementById("Ending").style.display="block";
+}
+    
+   
+        
+        
+   function submitanswer() {     
+     document.getElementById("submit").style.display = "none";       
+     var radios = document.getElementsByName(choices[question_number]);
+     for (var i = 0, length = radios.length; i < length; i++) {
+       if (radios[i].checked) {
+         // when a radio button is checked, do the following         
+         document.getElementById("NotSubmit").style.display = "none";
+           //document.getElementById("submit").disabled=true;
+         var useranswer = radios[i].value;
+         if (i == correctans[question_number]) {
+             //if user selected answer is the right one
+           score += 10;           
+           document.getElementById("Correct").style.display = "block";
+             document.getElementById("NotSubmit").style.display="none";
+             
+         } else {
+             // when answer is wrong
+           var correctanschoicenum = correctans[question_number];
+           var selector = 'label[for=' + radios[correctanschoicenum].id + ']';
+           var label = document.querySelector(selector);
+            label.style["webkit-font-size"]="100%";
+             label.style["-webkit-text-align"]="center";
+           document.getElementById("correctanswer").innerHTML = label.innerHTML;
+           document.getElementById("Wrong").style.display = "block";
+         };
+       } else {
+           // when no radio button is selected and "submit" is clicked.
+         document.getElementById("NotSubmit").style.display = "block";
+         document.getElementById("submit").style.display = "block";
+       };
+     };
+       if (question_number==14) {
+           timerpause();
+       };
+       
+   }
+   function randomize() {
+     var j, x, i, y, z;
+     for (i = questions.length - 1; i; i--) {
+       j = Math.floor(Math.random() * i);
+       x = questions[i - 1];
+       y = correctans[i - 1];
+       z = choices[i - 1];
+       //swapped 2 variables 
+       questions[i - 1] = questions[j];
+       correctans[i - 1] = correctans[j];
+       choices[i - 1] = choices[j];
+       questions[j] = x;
+       correctans[j] = y;
+       choices[j] = z;
+     };
+   }
+    
+   function showNextQuestion() {
+     document.getElementById("NotSubmit").style.display = "none";
+     document.getElementById("Wrong").style.display = "none";
+     document.getElementById("Correct").style.display = "none";
+     document.getElementById("submit").style.display = "block";
+     starttimer();
+     document.getElementById(questions[question_number]).style.display = "none";
+     if (question_number < questions.length - 1) {
+       question_number = question_number + 1;
+       document.getElementById('submit').style.visibility = "visible";
+     };
+     if (question_number == questions.length-1) {
+       document.getElementById("timer").innerHTML = "Time taken: " +  test_time_secs + " secs.";
+       document.getElementById('submit').style.visibility = "hidden";
+     };
+     document.getElementById(questions[question_number]).style.display = "block";
+     document.getElementById("EndScore").innerHTML = score + " out of " + (questions.length - 1) * 10
+     
+   };
+</script>
+ 
+ </body>
+</html>
