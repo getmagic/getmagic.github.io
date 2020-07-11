@@ -1,0 +1,11 @@
+.item{
+	width: 98%;
+	height: 300px;
+	object-fit: cover;
+}
+
+.codeEx{
+	width:85%;
+	height: 400px;
+	object-fit:cover;
+ }

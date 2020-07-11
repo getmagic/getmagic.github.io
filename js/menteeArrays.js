@@ -1,8 +1,8 @@
 /*The 4 arrays that hold the mentee's information. To add more mentees, add their information into these arrays. menteeThumbnails is the photo that is displayed as a preview in the image carousel, the menteeNames and menteeGrades are the information located inside the "menteeInfoDiv' in codeBlock, and the menteeLinks is their website. */
-      var menteeThumbnails= ["images/Aline'sProject/New Size9-02 at 7.19.12 AM.png" , "images/Evelyn'sProject/NewSizedEvelynProject.png", "images/Anjali/NewSizedSlime.png", "images/Jalyn/New-sized.png"];
-      var menteeNames = ["Aline Garcia", "Evelyn", "Anjali Ulrich", "Jalyn Mayer" ];
-      var menteeLinks = ["AlineProject.html", "EvelynProject.html", "AnjaliProject.html", "JalynProject.html"];
-      var menteeGrades= ["Middle School", "High Schoool", "Middle School", "High School"];
+      var menteeThumbnails= ["images/Aline'sProject/New Size9-02 at 7.19.12 AM.png" , "images/Evelyn'sProject/NewSizedEvelynProject.png", "images/Anjali/NewSizedSlime.png", "images/Jalyn/New-sized.png", "images/Leyla/HomePhoto.png"];
+      var menteeNames = ["Aline Garcia", "Evelyn", "Anjali Ulrich", "Jalyn Mayer", "Leyla Rivera" ];
+      var menteeLinks = ["AlineProject.html", "EvelynProject.html", "AnjaliProject.html", "JalynProject.html", "LeylaProject.html"];
+      var menteeGrades= ["Middle School", "High Schoool", "Middle School", "High School", "Middle School"];
 
 /*-------------------------CODE FOR IMAGE CAROUSEL IN INDEX.HTML UNDER STUDENT PROJECTS TAB ----------------*/
       /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
