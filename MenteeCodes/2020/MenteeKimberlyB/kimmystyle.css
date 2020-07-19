@@ -1,0 +1,40 @@
+h3{ 
+ text-decoration:underline;
+}
+#buttondivnext {
+  margin-bottom: 10px;
+  font-size:  30px;
+ }
+#grad1 {
+  background-color: blue; /* For browsers that do not support gradients */
+  background-image: linear-gradient(white,pink); /* Standard syntax (must be last) */
+}
+#overflowTest {  background: "background-color:slateblue;"
+  color: white;
+  padding: 15px;
+  width: 50%;
+  height: 75px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+
+  .pagination a {
+       color: black;
+       float: left;
+       padding: 8px 30px;
+       text-decoration: none;
+     }
+
+     .pagination a.active {
+       background-color: white;
+       color: white;
+     }
+
+    .pagination a:hover:not(.active) {background-color: pink;}
+     p.solid {border-style: solid;}
+ 
+
+.center {
+  text-align: center;
+}
+

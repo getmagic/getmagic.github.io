@@ -25,7 +25,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
   </head>
-  <body onload="createNewMenteeDiv();addDots();showSlides(slideIndex);">
+  <body class="myBodClick" onload="createNewMenteeDiv();addDots();showSlides(slideIndex);seeifClick();">
     
     <!-- Preloading -->
     <div class="preloader">
@@ -71,6 +71,9 @@
       <span></span>
     </div>
   </header>
+
+  
+
   
   <!-- HOME SECTION
   ================================================== -->
@@ -80,6 +83,11 @@
         <span class="little-text wow fadeInUp" data-wow-delay="0.5s">MENTORING MIDDLE AND HIGH SCHOOL GIRLS IN STEM</span>
         <h1 class="title wow fadeInUp" data-wow-delay="1s">MAGIC MENTEE PROJECTS WEBSITE</h1>
         <p class="wow fadeInUp" data-wow-delay="1.5s">MAGIC's website displays student's projects as well as sample code and mentee's reflections to demonstrate what they have learned.</p>
+
+
+        
+
+
         <!-- Down Icon -->
         <a href="#" class="down-icon wow fadeInUp" data-wow-delay="2.0s">
           <div class="icon-circle"></div>
@@ -142,22 +150,22 @@
       <!-- BLOG SECTION
       ================================================== -->
       <!--Css is from image-carousel.css and javascript is from menteeArrays.js-->
-
+      <p id="test-p-for-funct"> </p>
       <section id="blog">
         <div  class="section-title padding_45 text-center">
           <h2 class="title">Mentee Projects</h2>
         </div>
+        <p class="test-p-for-funct">  </p>
         <div id="mainContainerCarousel" class="slideshow-container">
           <!-- This is where all of the createNewMenteeDiv() will go -->
-          <!--<script>createNewMenteeDiv();</script>-->
-          <a class="prev-button" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next-button" onclick="plusSlides(1)">&#10095;</a>
+         
+          <a id="prev-button" onclick="plusSlides(-1)">&#10094;</a>
+          <a id="next-button" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
         <div id="secondContainerDots" style="display:inline-flex;">
           <!--This is where addDots will keep the <span> statements -->
-           <!--<script> addDots(); </script>-->
-           <!--<script type="text/javascript"> addDots(); </script>-->
+           
         </div>
         <!-- View All Button -->
         <div class="col-md-12 text-center padding_90 bottom_30 wow fadeInUp" data-wow-delay="1.5s">

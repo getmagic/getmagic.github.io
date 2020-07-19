@@ -1,4 +1,4 @@
-.item{
+.item{ /*may be for Port slider? */
 	width: 98%;
 	height: 300px;
 	object-fit: cover;
@@ -9,3 +9,32 @@
 	height: 400px;
 	object-fit:cover;
  }
+
+ /*------------Portfolio Slider on ProjectTemplate.html-------*/
+
+.slideshow-container-port-carous {
+    position: relative;
+    white-space: nowrap;
+    overflow-x:hidden;
+}
+
+#tryToAppendCarous{
+	margin-left:-450px;
+	position:relative;
+}
+
+.mySlidesPortCarous {
+    display: inline-flex;
+  	height: 300px;
+  	border: solid 1px black;
+  	margin-right: 15px;
+    margin-left:15px;
+    width:30%;
+}
+
+.PortImageCarousImg{
+	height: 300px;
+	 width: 100%;
+	 position: relative;
+   	object-fit: cover;
+}
