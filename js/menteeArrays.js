@@ -189,7 +189,8 @@ function createNewMenteeSquare() {
     document.getElementById("titleToReplace").innerHTML= "MAGIC " + NamesToSend + "'s Website";
     document.getElementById("headingToChange").innerHTML= NamesToSend;
     document.getElementById("descriptionToChange").innerHTML= menteeDescriptions[number2];
-    document.getElementById("entranceToChange").innerHTML= menteeEntrances[number2];
+    //document.getElementById("entranceToChange").innerHTML= menteeEntrances[number2];
+    document.getElementById("entranceToChange").innerHTML= NamesToSend;
     document.getElementById("nameToChange").innerHTML= NamesToSend;
     document.getElementById("gradeToChange").innerHTML=menteeGrades[number2];
     document.getElementById("yearToChange").innerHTML=menteeYears[number2];

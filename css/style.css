@@ -88,8 +88,11 @@ p{
 }
 
 .site-btn{
-  color: #af7a7a;
-  background: #562e8d;
+  /*color: #af7a7a;*/
+  /*background: #562e8d;*/
+  background: #680000;
+  color: #fed4a7;
+
   padding: 12px 50px;
   border-radius: 50px;
   font-size: 14px;
@@ -100,11 +103,13 @@ p{
 }
 
 .site-btn:hover{
-  color: #e16014;
+  /*color: #e16014;*/
+  color: #fff9f0;
   transition: all ease 0.4s;
   -webkit-transition: all ease 0.4s;
   -moz-transition: all ease 0.4s;
-  background: #fff9f0;
+  /*background: #fff9f0;*/
+  background: #480000;
 }
 
 .text-type-two{
@@ -300,12 +305,14 @@ header.type-1{
 header.type-1.fixed{
   position: fixed;
   display: none;
-  background: #fdc58b;    
+  /*background: #fdc58b;  */
+  background: #480000;  
   border-bottom: solid 1px #dfdfdf;
 }
 
 header.type-1.fixed ul li a{
-  color: #000;
+  /*color: #000;*/
+  color: #fed4a7;
 }
 
 header.type-1 ul{
@@ -347,10 +354,13 @@ header.type-1 ul li a:hover{
 }
 
 header.type-1.fixed ul li a:hover{
-  color: #000;
+  /*color: #000;*/
+  background-color: #2f0000;
+  color: #fed4a7;
 }
 
 header.type-1.fixed ul li.active a{
+  /*color: #fff9f0;*/
   color: #fff9f0;
 }
 
@@ -414,7 +424,8 @@ header.type-1.fixed .nav-icon span{
   }
 
   header.type-1.fixed nav{
-    background: #fdc58b;
+    /*background: #fdc58b;*/
+    background: #480000;
   }
 
   header.type-1 nav ul{
@@ -623,7 +634,8 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 
 .about.type-1 {
    padding: 110px 0 0;
-   border-bottom: solid 116px #f4eef5;
+   /*border-bottom: solid 116px #f4eef5;*/
+   padding-bottom: 116px;
 }
 
 
@@ -692,7 +704,7 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
     box-shadow: 0px 0px 158px 0px rgba(0, 0, 0, 0.11);
     -webkit-box-shadow: 0px 0px 158px 0px rgba(0, 0, 0, 0.11);
     -moz-box-shadow: 0px 0px 158px 0px rgba(0, 0, 0, 0.11);
-    padding: 70px 0 45px 0;    
+    padding: 70px 0 45px 0;   
     margin-bottom: -45px;
 }
 
@@ -2087,7 +2099,8 @@ blockquote {
 /*------------------------ 7 Footer Section ------------------------*/ 
 
 footer.type-1{
-    background: #000;    
+    /*background: #000;   */
+    background: #480000; 
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -2239,9 +2252,9 @@ footer.type-2 .ftr-widget p{
         margin-bottom: 30px;
     }
 
-    .about.type-3 .features .service .title {
+    /*.about.type-3 .features .service .title {
       margin: 25px 0 5px;
-  }
+  }*/
 
     .about.type-3 .features.bottom_120{
       margin-bottom: 30px;
