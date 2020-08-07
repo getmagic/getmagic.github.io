@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html>
+  <style>
+    /*Next step: have an action in form that links to pHp, add choiceopt to Languages Used, make a website that is dedicated to explaining where each part is */
+    /*Places where there is a pop-up: 
+      Fieldset no 3
+        - Project Description (in 3rd person)
+        - Mentee Relationship (with mentor) in 3rd person
+        - Project summary
+      Fieldset no 4
+        - 1 photo thumbnail
+        - 4 photos project
+        - 2 photos of ur code
+        - All of ur codes files and a readme*/
+
+  /*@import url(https://fonts.googleapis.com/css?family=Montserrat);*/
+  /*basic reset*/
+  * {margin: 0; padding: 0;}
+  html {
+  height: 100%;
+  /*Image only BG fallback*/
+  
+  /*background = gradient + image pattern combo*/
+  background: #CD5C5C;
+
+  /*linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));*/
+  }
+  body {
+  font-family: montserrat, arial, verdana;
+  }
+  .labelForCSS{
+  font-size: 12px;
+  color: gray;
+  width: 5%;
+  }
+  .textareaadd{
+  resize: vertical;
+  }
+  .titlequest{
+    font-weight:bold;
+    font-size: 12px;
+    color:dimgray;
+    text-transform: uppercase;
+  }
+  .fileUploadName{
+    font-size: 12px;
+    color:dimgray;
+    text-align:left;
+  }
+  /*form styles*/
+  #msform {
+  /*width: 400px;*/
+  width: 50%;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+  }
+  #msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+  /*stacking fieldsets above each other*/
+  position: relative;
+  }
+  /*Hide all except first fieldset*/
+  #msform fieldset:not(:first-of-type) {
+  display: none;
+  }
+  /*inputs*/
+  #msform input, #msform textarea {
+  padding: 15px; /*15*/
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px; /*10px*/
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+  }
+  /*buttons*/
+  #msform .action-button {
+  width: 100px;
+  background: #27AE60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  }
+  #msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+  }
+  /*headings*/
+  .fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  }
+  .fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+  }
+  /*progressbar*/
+  #progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  }
+  #progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 25%;
+  float: left;
+  position: relative;
+  }
+  #progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+  }
+  /*progressbar connectors*/
+  #progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+  }
+  #progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+  }
+  /*marking active/completed steps green*/
+  /*The number of the step and the connector before it = green*/
+  #progressbar li.active:before,  #progressbar li.active:after{
+  background: #27AE60;
+  color: white;
+  }
+
+  /*POP UP CSS*/
+  /* Popup container */
+.popup {
+  position: relative;
+  /*position: absolute;*/
+  /*right: 20px;*/
+  float:right;
+  display: inline-block;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 400px;
+  height: auto;
+  /*background-color: black;*/
+  background-color: #480000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px; 
+  padding: 5px 5px; /*5px 0*/
+  position: absolute;
+  z-index: 1;
+  top:-5px; 
+  left: 225%;/*110%*/ 
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 10px; 
+  right: 100%;
+  border-width: 8px; /*determines how big the arrow is*/
+  border-style: solid; 
+  /*border-color: black transparent transparent transparent;*/
+  border-color: #480000 transparent transparent transparent;
+  transform: rotate(90deg);
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  
+}
+
+.imghehe{
+  width: 100%;
+    height:100%;
+    object-fit: contain;
+}
+
+.questbutt{
+  width: 20px;
+    height: 20px;
+}
+
+
+  </style>
+  <body onload="addCheckBoxLanguage();addPopUps();startuploadProj();" >
+    <!-- multistep form -->
+    <!--<form action="/Users/skamboj2022/test/AnalyzeForm.php" method="post" name="myForm" id="msform">-->
+      <form action="http://localhost:8000/Analyzeform.php" method="post" enctype="multipart/form-data" name="myForm" id="msform">
+      <!-- progressbar -->
+      <ul id="progressbar">
+        <li class="active">Log In</li>
+        <li>Personal Information</li>
+        <li>Project Information and Relfection</li>
+        <li>File Uploads</li>
+      </ul>
+      <!-- fieldsets -->
+      <p style="color:white;"> For questions about what to write in your website, please go to https://getmagic.github.io/SiyaProject.html </p> <br> <!--maybe make another file as a website (that is not in the array and is not present on the official website) which will be more informational and explanatory -->
+    <!--<fieldset id="no1">
+        <h2 class="fs-title">Log In</h2>
+        <h3 class="fs-subtitle">Please contact your mentor if you do not have the login information</h3>
+        <input class="choiceopt" type="text" name="Username" placeholder="Username" />
+        <input class="choiceopt" type="password" name="Password" placeholder="Password" />
+        <input type="button" name="next" class="next action-button" value="Verify" />
+      </fieldset>-->
+      <fieldset id="no2" onkeypress="return event.charCode != 32"> <!-- stops user from pressing space for all the fields-->
+      <h2 class="fs-title">Personal Information</h2>
+       <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
+
+      <input class="choiceopt" type="text" name="First-Name" placeholder="First Name"/>
+      <input  class="choiceopt" type="text" name="Last-Name" placeholder="Last Name"/>
+      <input  class="choiceopt" type="number" id="mntYr" name="Year-you-were-a-mentee" min="2000" step="1" placeholder="Year you were a mentee" onkeypress="return event.charCode != 46"><!-- step prevents them from pressing period and entering a decimal number -->
+     <!--<label class="labelForCSS" for="grade">Grade Level when you were a mentee: </label>
+      <select class="choiceopt" name="Grade Level when you were a mentee" placeholder="Grade Level">
+        <option value=""></option>
+        <option value="6th">6th</option>
+        <option value="7th">7th</option>
+        <option value="8th">8th</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+        <option value="11th">11th</option>
+        <option value="12th">12th</option>
+      </select>
+      
+      <br>-->
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- <fieldset id="no3">
+      <h2 class="fs-title">Project Information and Reflection</h2>
+      <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
+      
+      <div style="width: 100%; margin-left: 42%;" id="radioTypeOfProj">
+      <label for="projtype" style="float:left" class="titlequest">Type of Project: </label> <br>
+
+      <input class="choiceopt" style="width:5%; float:left; margin-bottom: 0px;" id="webchoice" type="radio" name="Type of Project" value="Website" >
+      <label class="labelForCSS"  style="float:left;" for="Website">Website</label><br>
+      <input class="choiceopt" style="width:5%; float:left;margin-bottom: 0px;" type="radio" name="Type of Project" value="App" >
+      <label class="labelForCSS" style="float:left;" for="App">App</label><br>
+      <input style="width:5%; float:left;margin-bottom: 0px;" type="radio" id="other" name="Type of Project" value="other">
+      <label class="labelForCSS" style="float:left;" for="other">Other </label> <br>
+      <input class="choiceopt" id="specifymore1" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify Type of Project" placeholder="Specify the type of project here"/>
+     </div>-->
+      <!--when website is selected -->
+     <!--<div style="width: 100%; margin-left: 42%; display:none;" id="divWhenWebSelect">
+        <label  style="float:left" class="titlequest" for="webask">Is the website on github? </label> <br>
+        <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Website Platform" value="Yes" >
+        <label class="labelForCSS"  style="float:left;" for="Yes">Yes</label><br>
+        <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" id="nogitweb" type="radio" name="Website Platform" value="No" >
+        <label class="labelForCSS" style="float:left;" for="No">No</label><br>
+        <input class="choiceopt" id="specifymore2" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify Where Your Website is Hosted" placeholder="Specify where your website is hosted"/>
+      </div>-->
+      <!--end of Type of Project Radio-->
+      <!--checkbox for languages used -->
+    <!-- <div style="width: 100%; margin-left: 42%;"id="checkBoxLang">
+        <label for="langtype" style="float:left" class="titlequest">Languages Used: </label> <br>-->
+        <!--This is where addCheckBoxLanguage() appends the Language checkboxes -->
+     <!-- </div>-->
+      <!--end of checkbox-->
+      <!--<label for="projectdec" class="titlequest"> Please describe your project in 3rd person (100 words): </label> 
+      <div class="popup" onclick="myFunction(this.id);">
+      </div>
+      <br>
+      <p class="titlequest" style="color:red;">Number of words Left: <span id="no1span">100 </span></p>
+      <textarea  class="textareaadd choiceopt" name="Project Description" id="projectdec" onkeydown="wordLimit(this.id, 'no1span', 100);" placeholder="Please write here"></textarea>
+      <div class="popup" onclick="myFunction(this.id);">
+      </div> 
+     <label for="menteedec" class="titlequest"> Please describe your relationship with your mentor in 3rd person (100 words): </label> <br>
+
+       <p class="titlequest" style="color:red;">Number of words Left: <span id="no2span">100 </span></p>
+      <textarea  class="textareaadd choiceopt" name="Mentee Relationship Description" id="menteedec" onkeydown="wordLimit(this.id, 'no2span', 100);" placeholder="Please write here"></textarea>
+       <label for="Project Summary" class="titlequest"> Please describe your project in one sentence: </label> <br>
+       <div class="popup" onclick="myFunction(this.id);">
+      </div>
+       <p class="titlequest"> (NOTE: This will go under your name on the website) </p>
+        <p class="titlequest" style="color:red;">Number of words Left: <span id="no3span">20 </span></p>
+      <input type="text" class="choiceopt" name="Project Summary" id="projsummary" placeholder="Project Summary" onkeydown="wordLimit(this.id, 'no3span', 20);" />
+      <label class="titlequest" for="Interview Link">Please embed your interview link below:</label>
+      <p class="titlequest"> (NOTE: Please see the video below for how to upload your interview) </p> <br>
+      <video width="350" height=auto controls>
+        <source src="images/Tutorial_Interview_Upload.mov" type="video/mp4">
+        Your browser does not support HTML video. Go to MAGIC'S official youtube channel (getMagic .org), find your interview, click share, click embed, paste the link within the " " after "src=".
+      </video>
+       <input type="url" id="interviewlink" class="choiceopt" name="Interview Link" placeholder="Paste your interview link here"><br><br>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>-->
+
+
+
+    <fieldset id="no4">
+      <h2 class="fs-title">File Uploads</h2>
+      <h2 class="fs-subtitle" style="color:red; margin-bottom: 4px;">All photos must end with .png</h2>
+      <h2 class="fs-subtitle" style="margin-bottom: 10px;"><strong>Tip:</strong> Use the Control or the Shift key to select multiple files. </h2>
+      <label class="titlequest" for="thumbnailFile">1. Please upload 1 photo as a thumbnail</label>
+      <div class="popup" onclick="myFunction(this.id);">
+      </div>
+      <input type="file" accept=".png" name="OneThumbnailPhoto[]" style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="thumbnailFile" onchange="getFileInfo(this.id, 'demo1', 1)" required>
+      <br>
+      <p class="fileUploadName" id="demo1"> </p>
+      <br>
+
+
+      <label class="titlequest" for="imageCarousFile">2. Please upload 4 photos of your project</label>
+      <div class="popup" onclick="myFunction(this.id);">
+      </div>
+      <input type="file" accept=".png" name="FourProjectPhotos[]" style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="imageCarousFile" multiple onchange="getFileInfo(this.id, 'demo2', 4)" required>
+      <br>
+      <p class="fileUploadName" id="demo2"> </p>
+      <br>
+      <!--Photos of Code -->
+     <label class="titlequest" for="imagesOfCode">3. Please upload 2 photos of your code </label>
+      <div class="popup" onclick="myFunction(this.id);">
+      </div>
+      <input type="file" accept=".png" name="TwoImagesOfCode[]" style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="imagesOfCode" multiple onchange="getFileInfo(this.id, 'demo3', 2)"  required>
+      <br>
+      <p class="fileUploadName" id="demo3"> </p>
+      <br>
+      <!--Code Files -->
+      <label class="titlequest" for="FilesOfCode">4. Please upload all of your code's files and a ReadMe file that describes your project </label>
+      <div class="popup" onclick="myFunction(this.id);">
+      </div>
+      <input type="file" name="CodeFiles[]" style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="FilesOfCode" multiple onchange="getFileInfo(this.id, 'demo4', null)"  required>
+      <br>
+      <p class="fileUploadName" id="demo4"> </p>
+      <p id="demoforimg"></p>
+      <p id="demoforimg2"></p>
+      <br>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+     <!-- <input type="button" name="next" class="next action-button" value="Next" />-->
+     
+    </fieldset>
+  </form>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/tilt.jquery.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.cubeportfolio.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/menteeArrays.js"> </script>
+  <script>
+  var current_fs, next_fs, previous_fs; //fieldsets
+  var animating; //prevents errors if there are multiple fieldsets
+  var correctusername="getmagic";
+  var correctpassword="getmagic";
+  var ArrayOfSelectedImages=[];
+  
+  
+  function wordLimit(param, param2, param3){
+    var BACKSPACE   = 8;
+  var DELETE      = 46;
+  var maxwords=param3;
+  var valid_keys  = [BACKSPACE, DELETE];
+
+    var textValue = document.getElementById(param).value;
+       var words = textValue.split(/\s+/);
+       if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+          event.preventDefault();
+        }
+        
+        document.getElementById(param2).innerHTML= maxwords- words.length;
+  }
+
+ 
+function getFileInfo(param1, param, maxlength){
+  var x = document.getElementById(param1);
+  var txt = "";
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      txt = "Select one or more files.";
+    } else {
+      if (maxlength != null) {
+        if (x.files.length != maxlength){
+          //x.files[0].slice(0,maxlength);
+          alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
+          var id_test="#" + param1;
+          $(id_test).val(''); //resets the file
+          event.preventDefault();
+        }
+
+      }
+      
+     // else { //if it has an appropriate amount of files uploaded
+        for (var i = 0; i < x.files.length; i++) {
+        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+        var file = x.files[i];
+        if ('name' in file) {
+          txt += "name: " + file.name + "<br>";
+
+          //
+          /*switch (param1){
+            case "thumbnailFile" : 
+              var newName=file.name="Thumbnail_Photo.png";
+              break;
+            case "imageCarousFile" :
+              var number=i+1;
+              var newName=file.name="Example_Photo" + number + ".png";
+              break;
+            case "imagesOfCode" :
+              var number= i+1;
+              var newName=file.name="Code"+ number + ".png";
+              break;
+            default: 
+              var newName=file.name;
+          }
+          
+          txt += "New name: " + newName + "<br>";*/
+
+
+        }
+        if ('size' in file) {
+          txt += "size: " + file.size + " bytes <br>";
+        }
+      }
+
+   // } //end of else
+      
+    }
+  } 
+  else {
+    if (x.value == "") {
+      txt += "Select one or more files.";
+    } else {
+      txt += "The files property is not supported by your browser!";
+      txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+    }
+  }
+  document.getElementById(param).innerHTML = txt;
+}
+
+
+
+
+/*DOES NOT WORK. WHEN U CHANGE THE THING U SELECTED LATER ON, IT DOES NOT CHANGE IN ARRAY
+function getFileInfo(param1, param, maxlength){
+  var x = document.getElementById(param1);
+  var txt = "";
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      txt = "Select one or more files.";
+    } 
+    else { //if files are selected
+      if (maxlength != null) {
+        if (x.files.length != maxlength){
+          //x.files[0].slice(0,maxlength);
+          alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
+          var id_test="#" + param1;
+          $(id_test).val(''); //resets the file
+          event.preventDefault();
+        }//end of if x.files.length!=maxlength
+      }//end of if maxlength
+      // else { //if it has an appropriate amount of files uploaded (NOT BEING USED)
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+        if(ArrayOfSelectedImages.indexOf(file.name) != -1){ //if file.name is in the Array
+            txt -= "<br><strong>" + (i+1) + ". file</strong><br>";
+            alert("You have already uploaded "+file.name+" either in this question or in another. Please choose an unique file");
+            document.getElementById("demoforimg2").innerHTML="Operation stopped";
+            $(id_test).val(''); //resets the file
+            var ArrayContainsFile=true;
+          } //end of if ArrayOfSelectedImages.includes
+      }
+
+
+      if (ArrayContainsFile!=true){
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+
+         // else {
+            ArrayOfSelectedImages[ArrayOfSelectedImages.length]=file.name;
+            document.getElementById("demoforimg").innerHTML=ArrayOfSelectedImages.toString();
+        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+        if ('name' in file) {
+          
+            
+            txt += "name: " + file.name + "<br>";
+            
+            switch (param1){
+              case "thumbnailFile" :
+                var newName=file.name="Thumbnail_Photo.png";
+                break;
+              case "imageCarousFile" :
+                var number=i+1;
+                var newName=file.name="Example_Photo" + number + ".png";
+                break;
+              case "imagesOfCode" :
+                var number= i+1;
+                var newName=file.name="Code"+ number + ".png";
+                break;
+              default:
+                var newName=file.name;
+            } //end of switch
+
+            txt += "New name: " + newName + "<br>";
+            if ('size' in file) {
+              txt += "size: " + file.size + " bytes <br>";
+            }//end of if size
+          //}//end of else
+        }//end of if name in file
+      }
+// } //end of else THAT IS NOT BEING USED
+      }//end of for
+    }//end of else (if files are selected)
+  }//end of (if files in x)
+else {
+  if (x.value == "") {
+    txt += "Select one or more files.";
+  } 
+  else {
+    txt += "The files property is not supported by your browser!";
+    txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+  }
+}
+if (txt!=""){
+  document.getElementById(param).innerHTML = txt;
+}
+
+} //end of funct*/
+
+
+
+
+//NEED CLASS="CHOICEOPT" FOR CHECKBOXLANGUAGE
+  function addCheckBoxLanguage() {
+    var LanguagesArray=["HTML", "CSS", "Javascript", "Python", "Java", "C++", "pHp"];
+    for (var i=0; i<LanguagesArray.length; i++){
+      /*var codeBlockLang=
+        `<input style="width: 5%;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
+        <label class="labelForCSS" style="padding-right: `+ distanceArray[i] + `px;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;*/
+        var codeBlockLang=
+        `<input style="width: 5%; float:left; margin-bottom: 0px;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
+        <label class="labelForCSS" style="float:left;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;
+      $("#checkBoxLang").append(codeBlockLang);
+    } 
+    $("#checkBoxLang").append("<input id='OtherLang' style='width: 5%; float:left; margin-bottom: 0px;' type='checkbox'; name='Languages Used'; value='Other'> <label class='labelForCSS' style='float:left;' for='Other'>Other</label><br> <input class='choiceopt' id='specifymore3' style='display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px; transform: translateX(-42%);' type='text' name='Specify Language Used' placeholder='Specify Language Used'/>"); //adds an "other" option and a text option for specification
+    $('#no3 input[type=checkbox]').change(function(){ //decides when the text option should show or not
+      if (document.getElementById('OtherLang').checked ===true){
+        document.getElementById("specifymore3").style.display="block";
+      }
+      else{
+        document.getElementById("specifymore3").style.display="none";
+      }
+    })
+  }//end of addCheckBoxLanguage
+
+
+
+function moveNext(param){
+  current_fs = $(param).parent(); //param is "this"
+  next_fs = $(param).parent().next();
+  //activate next step on progressbar using the index of next_fs
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+  current_fs.hide();
+  //show the next fieldset
+  next_fs.show();
+}
+
+
+function startuploadProj(){
+$('#no3 input[type=radio]').change(function(){
+    if (document.getElementById("other").checked === true){
+      document.getElementById("specifymore1").style.display="block";
+    }
+    else if (document.getElementById("other").checked === false){
+      document.getElementById("specifymore1").style.display="none";
+    }
+    if (document.getElementById("webchoice").checked === true){
+      document.getElementById("divWhenWebSelect").style.display = "block";
+      if (document.getElementById("nogitweb").checked=== true){
+        document.getElementById("specifymore2").style.display="block";
+      }
+      else{ //if option "no" in website is not selected
+        document.getElementById("specifymore2").style.display="none";
+      }
+    }
+    else{ //if website is not selected
+      document.getElementById("divWhenWebSelect").style.display = "none";
+    }
+  })
+
+$(".next").click(function(){
+  var choices=document.getElementsByClassName("choiceopt");
+  var ArrayOfChoices=Array.from(choices); //makes choices an array
+  var res= "The following argument(s) must be filled out: ";
+  var arg1Array=[];
+  for (var i = 0; i < ArrayOfChoices.length; i++) { //the length of the number of parameters
+    if ($(ArrayOfChoices[i]).is(":visible")) {  //if the class is not hidden (ensures that we are only looking at the argumenets in the current fieldset)
+      var arg1=ArrayOfChoices[i].name;
+      var x=document.forms["myForm"][arg1].value;
+      if (x ==="") { //if x is empty
+        if (arg1Array[arg1Array.length -1]!= arg1) { //ensures that in radio buttons or checklists where there are multiple error messages for the same error, only one of the errors is added to the list.
+          arg1Array[arg1Array.length]= arg1;
+          var res= res + arg1 +  ", " ;
+        } //end of (if arg1Array[length] != arg1)
+      } //end of if x is empty
+    }//end of if visible
+  }//end of for loop
+  if(res.valueOf() != "The following argument(s) must be filled out: "){
+    alert(res);
+  }
+  else{ //if all the argumenets are filled out
+    if ($(document.getElementById('no1')).is(":visible")){ //if we are on the first fieldsset
+      var writtenusername=document.forms["myForm"]["Username"].value;
+      var writtenpassword=document.forms["myForm"]["Password"].value;
+      if (writtenusername!=correctusername || writtenpassword!=correctpassword){
+        alert ("Username and/or Password is incorrect");
+        return false; //the rest of teh function is not executed
+      }
+    }//end of first fieldset
+    else if ($(document.getElementById('no2')).is(":visible")){ //if we are on the second fieldset
+      var useryear=document.forms["myForm"]["Year-you-were-a-mentee"].value;
+      if (useryear.length!=4){
+        alert ("Please enter a valid year");
+        return false;
+      }
+    }//end of second fieldset
+  moveNext(this);
+  } //end of else
+});
+
+
+$(".previous").click(function(){
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+  //de-activate current step on progressbar
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+  current_fs.hide();
+  previous_fs.show();
+}); //end of previous click
+
+
+/*$(".submit").click(function(){
+  return false;
+})*/
+
+} //end of function startUploadpROJ()
+
+/*POP UPS*/
+function addPopUps(){
+  var ArrayOfPopUpImages=["ProjectDescription", "MenteeRelationship", "ProjectSummaryEx", "Thumbnail1", "ProjectPhotos", "CodePhotos", "CodeFiles"];
+  var listOfDiv=document.getElementsByClassName("popup");
+  for (var i=0; i< listOfDiv.length; i++){
+      var newId="popupid"+i;
+      var newSpanId="myPopuptest"+i;
+      listOfDiv[i].setAttribute("id", newId);
+      var codeBlock=
+      `<img class="questbutt" src="images/PopUpForm/question_popup.jpeg">
+      <span class="popuptext" id=`+ newSpanId + `><img class="imghehe" src="images/PopUpForm/` + ArrayOfPopUpImages[i] + `.png"></span>`;
+      var newIdNew="#" + newId;
+      $(newIdNew).append(codeBlock);
+      //document.getElementById(newId).onclick=function(){myFunction(newIdNew)};
+  }
+}
+
+function myFunction(param) {
+  var idofDiv="#"+param;
+  var x= $(idofDiv).find("span"); //$(idofDiv)
+  var span_Id_current= x.attr("id"); //get the Id of the span element inside the given div
+  var currentpopup = document.getElementById(span_Id_current);
+  //Stops multiple pop-ups from being open at the same time 
+  var listofPopUpText=document.getElementsByClassName("popuptext");
+  for (var i=0; i<listofPopUpText.length; i++){
+    if (listofPopUpText[i].id != span_Id_current){ //if the id is not equal to teh current id, remove hte class "show"
+      listofPopUpText[i].classList.remove("show");
+    }
+  }
+  //if the current pop up is showing, it hides. if the current pop up is hiding, it shows. 
+  if (currentpopup.classList.contains("show") === false) {
+    currentpopup.classList.add("show");
+  }
+  else {
+    currentpopup.classList.remove("show");
+  }
+
+}
+
+  </script>
+</body>
+</html>

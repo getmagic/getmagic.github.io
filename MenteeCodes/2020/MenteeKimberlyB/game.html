@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link rel="stylesheet" type="text/css" href="gamestyle.css">
+  </head>
+  <body onload="renderRiddle(0)">
+    <script type="text/javascript">
+      var currentRiddleNumber = 0;
+      var riddleImages = [
+        "https://i0.wp.com/www.bhavinionline.com/wp-content/uploads/2016/01/murder-mystery-how-did-police-solve-it-1.jpg?w=600&ssl=1", 
+        "https://4.bp.blogspot.com/-202rqjSVyTo/W7IMcTQRWSI/AAAAAAABg-c/NWAepWhLip4B1z4KNghojtBTjSMDeebkgCLcBGAs/s1600/detective-mystry-to-solve.png",
+        "https://i1.wp.com/www.bhavinionline.com/wp-content/uploads/2016/05/murder-mystery-whoi-killed-the-gardener.jpg?w=800&ssl=1",
+        "https://i0.wp.com/www.bhavinionline.com/wp-content/uploads/2017/09/who-killed-the-chemist-murder-mystery.jpg?w=800&ssl=1",
+        "https://i2.wp.com/www.bhavinionline.com/wp-content/uploads/2016/01/murder-mystery-who-killed-the-girl.jpg?w=800&ssl=1",
+        "https://i.pinimg.com/474x/3e/31/22/3e3122f6cd27365bf584d1e4384c735b--murder-mystery-riddles-murder-mysteries.jpg",
+        "https://www.riddlester.co/wp-content/uploads/2019/08/car-murder-mystery.jpg",
+        "https://www.riddlester.co/wp-content/uploads/2019/08/10-fish-are-in-a-tank-ariddle.jpg", 
+        "https://propensityforcuriosity.com/blog/wp-content/uploads/2014/04/murder-riddle-1a.png"
+      ]
+      
+      var correctRiddleAnswers = [
+        "He arrived at the crime scence, without knowing the address",
+        "The guard was part of the robbery",
+        "The maid",
+        "The chemicals in the list spell Nicolas",
+        "Mr.Thomas",
+        "The buttler",
+        "The car was a convertible",
+        "10",
+        "The third room"
+        ]
+      
+      var riddleOptions1 = [
+        "A witness saw him at the crime scene and reported him",
+        "The guard was part of the robbery",
+        "The driver",
+        "His wife showed up in the camera footage",
+        "Mr.Thomas",
+        "The children",
+        "Toxic gass",
+        "6",
+        "The first room"
+        ]
+      
+      var riddleOptions2 = [
+        "He arrived at the crime scence, without knowing the address",
+        "He did not get rid of all evidence",
+        "The maid",
+        "His friend Jonathan had hid blood under his nails",
+        "Mr.Benjamin",
+        "The maid",
+        "A bomb",
+        "10",
+        "The second room"
+        ]
+      
+      var riddleOptions3 = [
+        "He turned himself in",
+        "The guard forgot to",
+        "The cook",
+        "The chemicals in the list spell Nicolas",
+        "Mr. Walter",
+        "The buttler",
+        "The car was a converitble",
+        "1",
+        "The third room" 
+        ]
+      
+      function checkAnswer(kimmysOption) {
+        if (document.getElementById(kimmysOption).innerHTML == correctRiddleAnswers[currentRiddleNumber]) {
+          alert("You are correct!");
+        } else {
+          alert("You are incorrect :( ");
+        }
+      }     
+      
+      function renderRiddle(kimmysNumber) {
+        if (kimmysNumber == riddleImages.length) {
+          kimmysNumber = 0;
+        }
+        if (kimmysNumber == -1) {
+          kimmysNumber = riddleImages.length - 1;
+        }
+        // set current riddlenumber
+        currentRiddleNumber = kimmysNumber
+        // set image
+        document.getElementById("image").src = riddleImages[kimmysNumber];
+        // set riddle answer options
+        document.getElementById("option1").innerHTML = riddleOptions1[kimmysNumber];
+        document.getElementById("option2").innerHTML = riddleOptions2[kimmysNumber];
+        document.getElementById("option3").innerHTML = riddleOptions3[kimmysNumber];
+        // deselect any answer options 
+        document.getElementById("answer1").checked = false;
+        document.getElementById("answer2").checked = false;
+        document.getElementById("answer3").checked = false;
+      }
+      
+    </script>
+    <h1 style="text-align: center;"> Riddle Me This </h1>
+    <div class="pagination">
+      <a href="#" onclick="renderRiddle(currentRiddleNumber-1);">&laquo;</a> 
+      <a href="#" onclick="renderRiddle(0);" style="font-size:20px;">1</a>
+      <a href="#" onclick="renderRiddle(1);" style="font-size:20px;">2</a>
+      <a href="#" onclick="renderRiddle(2);" style="font-size:20px;">3</a>
+      <a href="#" onclick="renderRiddle(3);" style="font-size:20px;">4</a>
+      <a href="#" onclick="renderRiddle(4);" style="font-size:20px;">5</a>
+      <a href="#" onclick="renderRiddle(5);" style="font-size:20px;">6</a>
+      <a href="#" onclick="renderRiddle(6);" style="font-size:20px;">7</a>
+      <a href="#" onclick="renderRiddle(7);" style="font-size:20px;">8</a>
+      <a href="#" onclick="renderRiddle(8);" style="font-size:20px;">9</a>
+      <a href="#" onclick="renderRiddle(currentRiddleNumber+1);">&raquo;</a> 
+    </div>
+    <br>
+    <div id="media"  style="text-align: right bottom corner;">
+      <img id="image" width="700" height="600" />
+    </div>
+    <br>
+    <div class="center"> 
+      <p>Select your answer to the riddle:</p>
+      <input type="radio" id="answer1" name="answer" value="answer1" onclick="checkAnswer('option1')">
+      <label for="answer1" id="option1"></label><br>
+      <input type="radio" id="answer2" name="answer" value="answer2" onclick="checkAnswer('option2')">
+      <label for="answer2" id="option2"></label><br>
+      <input type="radio" id="answer3" name="answer" value="answer3" onclick="checkAnswer('option3')">
+      <label for="answer3" id="option3"></label><br>
+      <br>  
+    </div>
+    <div id="buttondivr1" style="text-align: center;">
+      <button onclick="renderRiddle(currentRiddleNumber+1)">Next Riddle</button>
+    </div>
+    <br> 
+    <div id="buttondivr2" style="text-align: center;">
+      <button onclick="location.href='index.html'" type="button">Information Page</button>
+    </div> 
+  </body>
+</html>

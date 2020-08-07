@@ -6,6 +6,10 @@
       object-fit: cover;
       
 }
+.mentee-photos:hover{
+      cursor:pointer;
+}
+
 /* Slideshow container */
 .slideshow-container {
       max-width: 1000px;
@@ -15,7 +19,7 @@
 }
 
 /* Next & previous buttons */
-.prev-button, .next-button {
+#prev-button, #next-button {
       cursor: pointer;
       position: absolute;
       top: 50%;
@@ -32,17 +36,17 @@
 }
 
 /* Position the "next button" to the right */
-.next-button {
+#next-button {
       right: 0;
       border-radius: 3px 0 0 3px;
 }
 
  /* On hover, add a grey background color with a little bit see-through */
-.prev-button:hover, .next-button:hover {
+#prev-button:hover, #next-button:hover {
       background-color: grey;
 }
       
-#mentee-name{
+.mentee-name{
       color: #f2f2f2;
       font-size: 40px;
       padding: 8px 12px;
@@ -52,7 +56,7 @@
       text-align: center;
 }
 
- #mentee-grade{
+ .mentee-grade{
       color: #f2f2f2;
       font-size: 40px;
       padding: 8px 12px;
@@ -74,6 +78,10 @@
       display: inline-block;
       margin-left: 50%;
       transform: translateX(-50%); 
+}
+
+.menteeInfoDiv:hover{
+      cursor:pointer;
 }
       
 /* The dots/bullets/indicators */

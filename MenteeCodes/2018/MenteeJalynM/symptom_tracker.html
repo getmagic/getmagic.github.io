@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SymptomTracker</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+<h1>Symptom Tracker</h1>
+<form>
+  <div>
+    <label for="symptom">Pick Date</label>
+    <input type="date" id="symptom" name="symptom" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" onchange="getDate()"> 
+    <span class="validity"></span>
+    </div>
+    
+    <div id="date2">
+      headache
+      <select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+<p>
+confusion
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+amnesia
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+dizziness
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+nausea
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+slurred speech
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+fatigue
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+concentration/memory problems
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+irritability
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+light sensitivity 
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+noise sensitivity
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+vision problems
+<select>
+  <option value="1">1 -least severe</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+   <option value="9">9</option>
+  <option value="10">10 - most severe</option>
+</select>
+</p>
+<p>
+
+   
+
+  </div>
+ 
+
+  <div>
+
+    <input type="button" onclick="save()" value="Save"> 
+  </div>
+</form>
+
+
+
+
+<p>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+function getDate(){
+console.log( document.getElementById("symptom").value);
+var parentElement = document.getElementById("date2");
+parentElement.setAttribute('style', 'display:block;');
+  }
+  function save(){
+  }
+</script>
+</p>
+
+</body>
+
+</html>

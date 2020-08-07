@@ -1,0 +1,58 @@
+.question{
+  font-size:130%;
+  font-family: verdana, Times New Roman;  
+  text-align:center;
+}
+
+h1 {
+    text-align:center;
+    margin-top:2%;
+    font-family: verdana, Times New Roman;
+}
+
+form{
+  margin-left:30%;
+  font-size:115%;
+  font-family: verdana, Times New Roman;
+}
+
+.submit{    
+    background-color: tomato;     
+    margin-left:35%;  
+    color: black;
+  font-family: verdana, Times New Roman;
+}
+
+
+/*#NotSubmit{
+  color:red;
+  font-style:italic;  
+}*/
+
+.continue{  
+  background-color: darksalmon;
+  color:black;
+  margin-left:8%;
+  font-family: verdana, Times New Roman;
+}
+
+/*.notify{
+  color:red;
+  font-size:100%;  
+};*/
+
+#Wrong{
+  font-family: verdana, Times new Roman;
+}
+
+#Correct{
+  font-family: verdana, Times New Roman;
+}
+
+#NotSubmit{
+  font-family: verdana, Times new Roman;
+}
+
+#Expired{
+  font-family:verdana, Times new Roman;
+};

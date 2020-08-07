@@ -25,7 +25,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
   </head>
-  <body onload="createNewMenteeDiv();addDots();showSlides(slideIndex);">
+  <body class="myBodClick" onload="createNewMenteeDiv();addDots();showSlides(slideIndex);seeifClick();">
     
     <!-- Preloading -->
     <div class="preloader">
@@ -45,7 +45,7 @@
             <li><a href="#about">About</a>
           </li>
           <li><a href="#blog">Student Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <!--<li><a href="#contact">Contact</a></li>-->
         </ul>
       </nav>
       <div class="nav-icon">
@@ -62,7 +62,7 @@
           <li><a href="#about">About</a>
         </li>
         <li><a href="#blog">Student Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <!--<li><a href="#contact">Contact</a></li>-->
       </ul>
     </nav>
     <div class="nav-icon">
@@ -71,6 +71,9 @@
       <span></span>
     </div>
   </header>
+
+  
+
   
   <!-- HOME SECTION
   ================================================== -->
@@ -80,6 +83,11 @@
         <span class="little-text wow fadeInUp" data-wow-delay="0.5s">MENTORING MIDDLE AND HIGH SCHOOL GIRLS IN STEM</span>
         <h1 class="title wow fadeInUp" data-wow-delay="1s">MAGIC MENTEE PROJECTS WEBSITE</h1>
         <p class="wow fadeInUp" data-wow-delay="1.5s">MAGIC's website displays student's projects as well as sample code and mentee's reflections to demonstrate what they have learned.</p>
+
+
+        
+
+
         <!-- Down Icon -->
         <a href="#" class="down-icon wow fadeInUp" data-wow-delay="2.0s">
           <div class="icon-circle"></div>
@@ -88,15 +96,16 @@
           </div>
         </a>
       </div>
-      <div class="svg-wave">
+      <!--<div class="svg-wave">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="248" viewBox="0 0 3600 248">
           <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"/>
         </svg>
-      </div>
+      </div>-->
     </div>
   </section>
   <!-- ABOUT SECTION
   ================================================== -->
+
   <section id="about" data-midnight="white" class="about type-1">
     <div class="container">
       <div class="row">
@@ -115,7 +124,7 @@
     </div>
     <!-- What we do -->
     <div class="container top_120 wow fadeInUp" data-wow-delay="1.5s">
-      <div class="owl-carousel owl-theme features" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="1"  data-wow-delay="0.4s">
+     <div class="owl-carousel owl-theme features" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="1"  data-wow-delay="0.4s">
         <div class="item service text-center">
           <h2 class="title top_15 bottom_15">Vision</h2>
           <p>Be a world class resource for guiding and assisting young women seriously considering studying one or more science, technology,
@@ -132,57 +141,62 @@
           workforce today. MAGIC aims to be a mentoring program throughout the country, available to support women's STEM careers.</p>
         </div>
       </div>
-      <div class="svg-wave">
+
+      <!--gets rid of box to the right of "vision mission why" div-->
+     <!-- <div class="svg-wave">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="248" viewBox="0 0 3594 343">
           <path d="M-7,311.773S857.694,141.03,1933,270.8c1113.66,134.4,1661,39.972,1661,39.972V0H-8Z"/>
         </svg>
-      </div>
+      </div>-->
+
+      
+
+
     </section>
      
       <!-- BLOG SECTION
       ================================================== -->
       <!--Css is from image-carousel.css and javascript is from menteeArrays.js-->
-
       <section id="blog">
         <div  class="section-title padding_45 text-center">
           <h2 class="title">Mentee Projects</h2>
         </div>
+        
         <div id="mainContainerCarousel" class="slideshow-container">
           <!-- This is where all of the createNewMenteeDiv() will go -->
-          <!--<script>createNewMenteeDiv();</script>-->
-          <a class="prev-button" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next-button" onclick="plusSlides(1)">&#10095;</a>
+         
+          <a id="prev-button" onclick="plusSlides(-1)">&#10094;</a>
+          <a id="next-button" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
         <div id="secondContainerDots" style="display:inline-flex;">
           <!--This is where addDots will keep the <span> statements -->
-           <!--<script> addDots(); </script>-->
-           <!--<script type="text/javascript"> addDots(); </script>-->
+           
         </div>
         <!-- View All Button -->
-        <div class="col-md-12 text-center padding_90 bottom_30 wow fadeInUp" data-wow-delay="1.5s">
+        <div class="col-md-12 text-center bottom_30 wow fadeInUp" style="padding-top: 30px;" data-wow-delay="1.5s">
           <a href="allProjects.html" class="site-btn"> View All </a>
         </div>
      
-        <div class="svg-wave">
+       <!-- <div class="svg-wave">
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="248" viewBox="0 0 3600 248">
             <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"/>
           </svg>
-        </div>
+        </div>-->
     </section>
       <!-------------------------------------------------END OF BLOG ------------------------------ -->
       
       
       <!-- CONTACT SECTION
       ================================================== -->
-      <section id="contact" class="contact type-1 padding_90 bg-pink">
+     <!-- <section id="contact" class="contact type-1 padding_90 bg-pink">
         <div class="container">
           <div class="section-title padding_90 text-center">
             <span>CONTACT US</span>
             <h2 class="title">Get In Touch</h2>
-          </div>
+          </div>-->
           <!-- Contact Information -->
-          <div class="information col-md-8 offset-md-2">
+         <!-- <div class="information col-md-8 offset-md-2">
             <div class="row">
               <div class="col-md-4 col-sm-6 info text-center wow fadeInUp" data-wow-delay="0.9s">
                 <p><b>Official Website </b><br> getmagic.org</p>
@@ -196,18 +210,35 @@
             </div>
           </div>
           
-          </div> <!-- container end -->
-        </section>
+          </div> --><!-- container end -->
+       <!-- </section>-->
         </div> <!-- wrapper end -->
         <!-- FOOTER SECTION
         ================================================== -->
-        <footer class="type-1">
+        <footer id="footercontacts" class="type-1">
           <div class="cont text-center padding_90">
             <p>Copyright © 2019 MAGIC, All rights Reserved.</p>
             <div class="social top_30">
               <a href="https://www.facebook.com/GirlsGetMAGIC/"><i class="fab fa-facebook"></i>  </a>
               <a href="https://twitter.com/STEMmagic"><i class="fab fa-twitter" aria-hidden="true"></i>  </a>
             </div>
+
+            <br>
+            <br>
+            <div class="information col-md-8 offset-md-2">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 info text-center wow " data-wow-delay="0.9s">
+                <p><b>Official Website </b><br> getmagic.org</p>
+              </div>
+              <div class="col-md-4 col-sm-6 info text-center wow " data-wow-delay="1.3s">
+                <p><b>Location</b><br>San Jose, California, USA</p>
+              </div>
+              <div class="col-md-4 col-sm-12 info text-center wow " data-wow-delay="1.7s">
+                <p><b>Email</b> <br>info@getmagic.org</p>
+              </div>
+            </div>
+          </div>
+
           </div>
         </footer>
         
