@@ -124,7 +124,8 @@
   color: white;
   text-transform: uppercase;
   font-size: 9px;
-  width: 25%;
+  /*width: 25%; when there were 4 fieldsets*/
+    width: 33.33%;
   float: left;
   position: relative;
   }
@@ -229,8 +230,8 @@
       <form action="http://localhost:8000/Analyzeform.php" method="post" enctype="multipart/form-data" name="myForm" id="msform">
       <!-- progressbar -->
       <ul id="progressbar">
-        <li class="active">Log In</li>
-        <li>Personal Information</li>
+        <!--<li class="active">Log In</li>-->
+        <li class="active">Personal Information</li>
         <li>Project Information and Relfection</li>
         <li>File Uploads</li>
       </ul>
@@ -250,7 +251,7 @@
       <input class="choiceopt" type="text" name="First-Name" placeholder="First Name"/>
       <input  class="choiceopt" type="text" name="Last-Name" placeholder="Last Name"/>
       <input  class="choiceopt" type="number" id="mntYr" name="Year-you-were-a-mentee" min="2000" step="1" placeholder="Year you were a mentee" onkeypress="return event.charCode != 46"><!-- step prevents them from pressing period and entering a decimal number -->
-     <!--<label class="labelForCSS" for="grade">Grade Level when you were a mentee: </label>
+     <label class="labelForCSS" for="grade">Grade Level when you were a mentee: </label>
       <select class="choiceopt" name="Grade Level when you were a mentee" placeholder="Grade Level">
         <option value=""></option>
         <option value="6th">6th</option>
@@ -262,10 +263,10 @@
         <option value="12th">12th</option>
       </select>
       
-      <br>-->
+      <br>
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-  <!-- <fieldset id="no3">
+   <fieldset id="no3">
       <h2 class="fs-title">Project Information and Reflection</h2>
       <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
       
@@ -279,24 +280,24 @@
       <input style="width:5%; float:left;margin-bottom: 0px;" type="radio" id="other" name="Type of Project" value="other">
       <label class="labelForCSS" style="float:left;" for="other">Other </label> <br>
       <input class="choiceopt" id="specifymore1" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify Type of Project" placeholder="Specify the type of project here"/>
-     </div>-->
+     </div>
       <!--when website is selected -->
-     <!--<div style="width: 100%; margin-left: 42%; display:none;" id="divWhenWebSelect">
+     <div style="width: 100%; margin-left: 42%; display:none;" id="divWhenWebSelect">
         <label  style="float:left" class="titlequest" for="webask">Is the website on github? </label> <br>
         <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Website Platform" value="Yes" >
         <label class="labelForCSS"  style="float:left;" for="Yes">Yes</label><br>
         <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" id="nogitweb" type="radio" name="Website Platform" value="No" >
         <label class="labelForCSS" style="float:left;" for="No">No</label><br>
         <input class="choiceopt" id="specifymore2" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify Where Your Website is Hosted" placeholder="Specify where your website is hosted"/>
-      </div>-->
+      </div>
       <!--end of Type of Project Radio-->
       <!--checkbox for languages used -->
-    <!-- <div style="width: 100%; margin-left: 42%;"id="checkBoxLang">
+    <div style="width: 100%; margin-left: 42%;"id="checkBoxLang">
         <label for="langtype" style="float:left" class="titlequest">Languages Used: </label> <br>-->
         <!--This is where addCheckBoxLanguage() appends the Language checkboxes -->
-     <!-- </div>-->
+      </div>
       <!--end of checkbox-->
-      <!--<label for="projectdec" class="titlequest"> Please describe your project in 3rd person (100 words): </label> 
+      <label for="projectdec" class="titlequest"> Please describe your project in 3rd person (100 words): </label> 
       <div class="popup" onclick="myFunction(this.id);">
       </div>
       <br>
@@ -323,7 +324,7 @@
        <input type="url" id="interviewlink" class="choiceopt" name="Interview Link" placeholder="Paste your interview link here"><br><br>
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
-    </fieldset>-->
+    </fieldset>
 
 
 
