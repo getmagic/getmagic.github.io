@@ -223,3 +223,357 @@ function createNewMenteeSquare() {
     setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
 }
 
+/*-------------------------------------------------------END OF CODE FOR PROJECTTEMPLATE.HTML ----------------------------------------*/
+
+/*-------------------------------------------------------CODE FOR UPLOADPROJ.html ----------------------------------------------------*/
+var current_fs, next_fs, previous_fs; //fieldsets
+  var animating; //prevents errors if there are multiple fieldsets
+  var correctusername="getmagic";
+  var correctpassword="getmagic";
+  var ArrayOfSelectedImages=[];
+  
+  
+  function wordLimit(param, param2, param3){
+    var BACKSPACE   = 8;
+  var DELETE      = 46;
+  var maxwords=param3;
+  var valid_keys  = [BACKSPACE, DELETE];
+
+    var textValue = document.getElementById(param).value;
+       var words = textValue.split(/\s+/);
+       if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+          event.preventDefault();
+        }
+        
+        document.getElementById(param2).innerHTML= maxwords- words.length;
+  }
+
+ 
+function getFileInfo(param1, param, maxlength){
+  var x = document.getElementById(param1);
+  var txt = "";
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      txt = "Select one or more files.";
+    } else {
+      if (maxlength != null) {
+        if (x.files.length != maxlength){
+          //x.files[0].slice(0,maxlength);
+          alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
+          var id_test="#" + param1;
+          $(id_test).val(''); //resets the file
+          event.preventDefault();
+        }
+
+      }
+      
+     // else { //if it has an appropriate amount of files uploaded
+        for (var i = 0; i < x.files.length; i++) {
+        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+        var file = x.files[i];
+        if ('name' in file) {
+          txt += "name: " + file.name + "<br>";
+
+          //
+          /*switch (param1){
+            case "thumbnailFile" : 
+              var newName=file.name="Thumbnail_Photo.png";
+              break;
+            case "imageCarousFile" :
+              var number=i+1;
+              var newName=file.name="Example_Photo" + number + ".png";
+              break;
+            case "imagesOfCode" :
+              var number= i+1;
+              var newName=file.name="Code"+ number + ".png";
+              break;
+            default: 
+              var newName=file.name;
+          }
+          
+          txt += "New name: " + newName + "<br>";*/
+
+
+        }
+        if ('size' in file) {
+          txt += "size: " + file.size + " bytes <br>";
+        }
+      }
+
+   // } //end of else
+      
+    }
+  } 
+  else {
+    if (x.value == "") {
+      txt += "Select one or more files.";
+    } else {
+      txt += "The files property is not supported by your browser!";
+      txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+    }
+  }
+  document.getElementById(param).innerHTML = txt;
+}
+
+
+
+
+/*DOES NOT WORK. WHEN U CHANGE THE THING U SELECTED LATER ON, IT DOES NOT CHANGE IN ARRAY
+function getFileInfo(param1, param, maxlength){
+  var x = document.getElementById(param1);
+  var txt = "";
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      txt = "Select one or more files.";
+    } 
+    else { //if files are selected
+      if (maxlength != null) {
+        if (x.files.length != maxlength){
+          //x.files[0].slice(0,maxlength);
+          alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
+          var id_test="#" + param1;
+          $(id_test).val(''); //resets the file
+          event.preventDefault();
+        }//end of if x.files.length!=maxlength
+      }//end of if maxlength
+      // else { //if it has an appropriate amount of files uploaded (NOT BEING USED)
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+        if(ArrayOfSelectedImages.indexOf(file.name) != -1){ //if file.name is in the Array
+            txt -= "<br><strong>" + (i+1) + ". file</strong><br>";
+            alert("You have already uploaded "+file.name+" either in this question or in another. Please choose an unique file");
+            document.getElementById("demoforimg2").innerHTML="Operation stopped";
+            $(id_test).val(''); //resets the file
+            var ArrayContainsFile=true;
+          } //end of if ArrayOfSelectedImages.includes
+      }
+
+
+      if (ArrayContainsFile!=true){
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+
+         // else {
+            ArrayOfSelectedImages[ArrayOfSelectedImages.length]=file.name;
+            document.getElementById("demoforimg").innerHTML=ArrayOfSelectedImages.toString();
+        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+        if ('name' in file) {
+          
+            
+            txt += "name: " + file.name + "<br>";
+            
+            switch (param1){
+              case "thumbnailFile" :
+                var newName=file.name="Thumbnail_Photo.png";
+                break;
+              case "imageCarousFile" :
+                var number=i+1;
+                var newName=file.name="Example_Photo" + number + ".png";
+                break;
+              case "imagesOfCode" :
+                var number= i+1;
+                var newName=file.name="Code"+ number + ".png";
+                break;
+              default:
+                var newName=file.name;
+            } //end of switch
+
+            txt += "New name: " + newName + "<br>";
+            if ('size' in file) {
+              txt += "size: " + file.size + " bytes <br>";
+            }//end of if size
+          //}//end of else
+        }//end of if name in file
+      }
+// } //end of else THAT IS NOT BEING USED
+      }//end of for
+    }//end of else (if files are selected)
+  }//end of (if files in x)
+else {
+  if (x.value == "") {
+    txt += "Select one or more files.";
+  } 
+  else {
+    txt += "The files property is not supported by your browser!";
+    txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+  }
+}
+if (txt!=""){
+  document.getElementById(param).innerHTML = txt;
+}
+
+} //end of funct*/
+
+
+
+
+//NEED CLASS="CHOICEOPT" FOR CHECKBOXLANGUAGE
+  function addCheckBoxLanguage() {
+    var LanguagesArray=["HTML", "CSS", "Javascript", "Python", "Java", "C++", "pHp"];
+    for (var i=0; i<LanguagesArray.length; i++){
+      /*var codeBlockLang=
+        `<input style="width: 5%;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
+        <label class="labelForCSS" style="padding-right: `+ distanceArray[i] + `px;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;*/
+        var codeBlockLang=
+        `<input style="width: 5%; float:left; margin-bottom: 0px;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
+        <label class="labelForCSS" style="float:left;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;
+      $("#checkBoxLang").append(codeBlockLang);
+    } 
+    $("#checkBoxLang").append("<input id='OtherLang' style='width: 5%; float:left; margin-bottom: 0px;' type='checkbox'; name='Languages Used'; value='Other'> <label class='labelForCSS' style='float:left;' for='Other'>Other</label><br> <input class='choiceopt' id='specifymore3' style='display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px; transform: translateX(-42%);' type='text' name='Specify Language Used' placeholder='Specify Language Used'/>"); //adds an "other" option and a text option for specification
+    $('#no3 input[type=checkbox]').change(function(){ //decides when the text option should show or not
+      if (document.getElementById('OtherLang').checked ===true){
+        document.getElementById("specifymore3").style.display="block";
+      }
+      else{
+        document.getElementById("specifymore3").style.display="none";
+      }
+    })
+  }//end of addCheckBoxLanguage
+
+
+
+function moveNext(param){
+  current_fs = $(param).parent(); //param is "this"
+  next_fs = $(param).parent().next();
+  //activate next step on progressbar using the index of next_fs
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+  current_fs.hide();
+  //show the next fieldset
+  next_fs.show();
+}
+
+
+function startuploadProj(){
+$('#no3 input[type=radio]').change(function(){
+  if (document.getElementById("Software-Choice").checked===true){
+    document.getElementById("SoftwareDiv").style.display="block";
+    if (document.getElementById("webchoice").checked===true ){
+      document.getElementById("uploadNonWebsiteVideo").style.display="none";
+    }
+    else{
+      document.getElementById("uploadNonWebsiteVideo").style.display="block";
+    }
+  }
+  else if (document.getElementById("Software-Choice").checked===false){
+    document.getElementById("SoftwareDiv").style.display="none";
+    document.getElementById("uploadNonWebsiteVideo").style.display="block";
+  }
+    if (document.getElementById("other").checked === true){
+      document.getElementById("specifymore1").style.display="block";
+    }
+    else if (document.getElementById("other").checked === false){
+      document.getElementById("specifymore1").style.display="none";
+    }
+    if (document.getElementById("webchoice").checked === true){
+      document.getElementById("divWhenWebSelect").style.display = "block";
+      if (document.getElementById("nogitweb").checked=== true){
+        document.getElementById("specifymore2").style.display="block";
+      }
+      else{ //if option "no" in website is not selected
+        document.getElementById("specifymore2").style.display="none";
+      }
+    }
+    else{ //if website is not selected
+      document.getElementById("divWhenWebSelect").style.display = "none";
+    }
+  })
+
+$(".next").click(function(){
+  var choices=document.getElementsByClassName("choiceopt");
+  var ArrayOfChoices=Array.from(choices); //makes choices an array
+  var res= "The following argument(s) must be filled out: ";
+  var arg1Array=[];
+  for (var i = 0; i < ArrayOfChoices.length; i++) { //the length of the number of parameters
+    if ($(ArrayOfChoices[i]).is(":visible")) {  //if the class is not hidden (ensures that we are only looking at the argumenets in the current fieldset)
+      var arg1=ArrayOfChoices[i].name;
+      var x=document.forms["myForm"][arg1].value;
+      if (x ==="") { //if x is empty
+        if (arg1Array[arg1Array.length -1]!= arg1) { //ensures that in radio buttons or checklists where there are multiple error messages for the same error, only one of the errors is added to the list.
+          arg1Array[arg1Array.length]= arg1;
+          var res= res + arg1 +  ", " ;
+        } //end of (if arg1Array[length] != arg1)
+      } //end of if x is empty
+    }//end of if visible
+  }//end of for loop
+  if(res.valueOf() != "The following argument(s) must be filled out: "){
+    alert(res);
+  }
+  else{ //if all the argumenets are filled out
+
+    if ($(document.getElementById('no1')).is(":visible")){ //if we are on the first fieldsset
+      var writtenusername=document.forms["myForm"]["Username"].value;
+      var writtenpassword=document.forms["myForm"]["Password"].value;
+      if (writtenusername!=correctusername || writtenpassword!=correctpassword){
+        alert ("Username and/or Password is incorrect");
+        return false; //the rest of teh function is not executed
+      }
+    }//end of first fieldset
+    else if ($(document.getElementById('no2')).is(":visible")){ //if we are on the second fieldset
+      var useryear=document.forms["myForm"]["Year-you-were-a-mentee"].value;
+      if (useryear.length!=4){
+        alert ("Please enter a valid year");
+        return false;
+      }
+    }//end of second fieldset
+  moveNext(this);
+  } //end of else
+});
+
+
+$(".previous").click(function(){
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+  //de-activate current step on progressbar
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+  current_fs.hide();
+  previous_fs.show();
+}); //end of previous click
+
+
+
+} //end of function startUploadpROJ()
+
+/*//Create cookie that php file will later read
+$(".submit").click(function(){
+  //return false;
+  setCookie("UserAuthenticationValue", userAuthentication, 1); //cookie expires in 1 day
+})*/
+
+/*POP UPS*/
+function addPopUps(){
+  var ArrayOfPopUpImages=["ProjectDescription", "MenteeRelationship", "ProjectSummaryEx", "Thumbnail1", "ProjectPhotos", "CodePhotos", "CodeFiles"];
+  var listOfDiv=document.getElementsByClassName("popup");
+  for (var i=0; i< listOfDiv.length; i++){
+      var newId="popupid"+i;
+      var newSpanId="myPopuptest"+i;
+      listOfDiv[i].setAttribute("id", newId);
+      var codeBlock=
+      `<img class="questbutt" src="images/PopUpForm/question_popup.jpeg">
+      <span class="popuptext" id=`+ newSpanId + `><img class="imghehe" src="images/PopUpForm/` + ArrayOfPopUpImages[i] + `.png"></span>`;
+      var newIdNew="#" + newId;
+      $(newIdNew).append(codeBlock);
+      //document.getElementById(newId).onclick=function(){myFunction(newIdNew)};
+  }
+}
+
+function myFunction(param) {
+  var idofDiv="#"+param;
+  var x= $(idofDiv).find("span"); //$(idofDiv)
+  var span_Id_current= x.attr("id"); //get the Id of the span element inside the given div
+  var currentpopup = document.getElementById(span_Id_current);
+  //Stops multiple pop-ups from being open at the same time 
+  var listofPopUpText=document.getElementsByClassName("popuptext");
+  for (var i=0; i<listofPopUpText.length; i++){
+    if (listofPopUpText[i].id != span_Id_current){ //if the id is not equal to teh current id, remove hte class "show"
+      listofPopUpText[i].classList.remove("show");
+    }
+  }
+  //if the current pop up is showing, it hides. if the current pop up is hiding, it shows. 
+  if (currentpopup.classList.contains("show") === false) {
+    currentpopup.classList.add("show");
+  }
+  else {
+    currentpopup.classList.remove("show");
+  }
+
+}
