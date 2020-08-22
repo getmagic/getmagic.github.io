@@ -81,8 +81,11 @@ function signOut(){
   auth.onAuthStateChanged(function(user){
   if (user){
     var email=user.email;
-    if (window.location.pathname != '/Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/uploadProj.html'){
+   /* if (window.location.pathname != '/Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/uploadProj.html'){
       window.location=('file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/uploadProj.html');
+    }*/
+    if (window.location.href != 'https://getmagic.github.io/uploadProj.html'){
+      window.location=('https://getmagic.github.io/uploadProj.html');
     }
     
     //is signed in
@@ -98,8 +101,11 @@ function signOut(){
      // localStorage.setItem("WhetherUserAuthenticated", userauthentication)
 
      //when submit is clicked, the action is set to localhost:800. It will only redirect to AuthenticateUser.html if submit is not clicked. 
-     if (window.location != 'file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/AuthenticateUser.html' && document.getElementById("uploadProjForm").action != "http://localhost:8000/Analyzeform.php"){
+     /*if (window.location != 'file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/AuthenticateUser.html' && document.getElementById("uploadProjForm").action != "http://localhost:8000/Analyzeform.php"){
             window.location=('file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/AuthenticateUser.html');
+        }*/
+    if (window.location != 'https://getmagic.github.io/AuthenticateUser.html' && document.getElementById("uploadProjForm").action != "http://localhost:8000/Analyzeform.php"){
+            window.location=('https://getmagic.github.io/AuthenticateUser.html');
         }
 
   }
