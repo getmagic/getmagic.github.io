@@ -1,29 +1,22 @@
 <html>
 	<head>
 		<title>Log In Form</title>
-
   		<link rel="Stylesheet" href="css/uploadProjAndLoginForm.css"/>
-
-		
-
 		<script src="js/jquery-2.1.4.min.js"></script>
-  <script src="js/tilt.jquery.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.cubeportfolio.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/menteeArrays.js"> </script>
-
-  
+  		<script src="js/tilt.jquery.js"></script>
+  		<script src="js/owl.carousel.min.js"></script>
+  		<script src="js/jquery.cubeportfolio.min.js"></script>
+  		<script src="js/main.js"></script>
+ 		 <script src="js/menteeArrays.js"> </script>
+		<!--Firebase provided the following <script> tags lines 12-16-->
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="js/uploadProjFireBase.js"></script>
-
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+    		https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="js/uploadProjFireBase.js"></script>
 	</head>
-	<body >
+	<body>
 		<div class="msform">
 			<p style="color:#fdc58b;"> This page is a LOG in for MAGIC Mentee Project Uploads. If you are not a mentee, please go to <a href="getmagic.org" style="color: #fff9f0;">this link</a> to learn more about MAGIC</p> <br>
 			<fieldset>
@@ -31,14 +24,10 @@
 				<h3 class="fs-subtitle">Please contact your mentor if you do not have the login information</h3>
 				<input type="email" placeholder="Email" id="email"/>
 				<input type="password" placeholder="Password" id="password"/>
-
 				<!--<button onclick="signUp()" id="signUp">Sign Up </button>-->
 				<button class="action-button" onclick="signIn()" id="signInloginForm">Sign In </button>
 				<button class="action-button" onclick="signOut()" id="signOutloginForm">Sign Out </button>
 			</fieldset>
 		</div>
-		
-		<p id="demo"> </p>
-
 	</body>
 </html>
