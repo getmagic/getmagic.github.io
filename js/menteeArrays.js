@@ -51,10 +51,6 @@ var menteeInterviews=[
 "https://www.youtube.com/embed/WpR6ucZRgjw"
 ];
 
-
-
-
-
 /*--------- Fills in menteeAbbrevs ---------*/
 for (var i=0; i<menteeYears.length; i++){
   function getMenteeAbbrevs() {
@@ -69,7 +65,6 @@ getMenteeAbbrevs();
 for (var i=0; i<menteeYears.length; i++) {
   menteeThumbnails[i]="images/" + menteeYears[i] + "/" + menteeAbbrevs[i] + "/Thumbnail_Photo.png";
 }
-
 
 /*-------------------------CODE FOR IMAGE CAROUSEL IN INDEX.HTML UNDER STUDENT PROJECTS TAB ----------------*/
 /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
@@ -95,7 +90,7 @@ function createNewMenteeDiv() {
   }
 }
   
-  //Adds the dots at the bottom of the carousel
+//Adds the dots at the bottom of the carousel
 function addDots() {
   for (var i=1; i<(menteeNames.length + 1); i++){
     var paraDot2= document.createElement("P");
@@ -111,6 +106,7 @@ var slideIndex = 1;
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
+
 //currentSlide called when the appropriate "dot" is pressed at the bottom of the carousel
 function currentSlide(n) {
   showSlides(slideIndex = n);
@@ -134,10 +130,9 @@ function showSlides(n) {
   dots[slideIndex-1].className += " d-active";
 }
   
-  
   /*--------------------------------------end of code of image carousel on index.html --------------------*/
   /* ------------------------------------CODE FOR allProjects.html --------------------------------------*/
-  /*This code is called in the body tag on allProjects.html */
+/*This code is called in the body tag on allProjects.html */
 function createNewMenteeSquare() {
   for (var j = 0; j < menteeNames.length; j++) {
   var paraNew = document.createElement("div");
@@ -150,22 +145,20 @@ function createNewMenteeSquare() {
   </a> `;
   paraNew.innerHTML = codeBlock2 ;
   divToAppend.appendChild(paraNew);
-  
   }
 }
+
   /*-------------------------------CODE FOR PROJECTTEMPLATE.HTML -----------------------*/
   //when something on the <body> is clicked, run the code
-  function seeifClick(){
+ function seeifClick(){
     $( ".myBodClick" ).click(function( event ) {
       var x= $(event.target).attr('class'); //gets the class of the clicked function
       var y= x.split(" ")[0]; //only takes the first class element
       setTheLink(y);
-  });
-
+    });
   }
-  
 
-  function setTheLink(numberparam){ 
+function setTheLink(numberparam){ 
     var scrt_var = numberparam;
     var strLink = "?" + scrt_var;
     //if you are on allProjects.html:
@@ -175,13 +168,11 @@ function createNewMenteeSquare() {
       elements = document.getElementsByClassName('NewA');
     }
     for (const element of elements) {
-    element.href = "ProjectTemplate.html" + strLink; //strLink sends the var to the Project.Template file
-  }
-  }
-  
-  
+      element.href = "ProjectTemplate.html" + strLink; //strLink sends the var to the Project.Template file
+    }
+}
 
-  function changeText(number2){
+function changeText(number2){
     AbbrevsToSend=menteeAbbrevs[number2];
     NamesToSend=menteeNames[number2];
     ThumbnailsToSend=menteeThumbnails[number2];
@@ -189,7 +180,6 @@ function createNewMenteeSquare() {
     document.getElementById("titleToReplace").innerHTML= "MAGIC " + NamesToSend + "'s Website";
     document.getElementById("headingToChange").innerHTML= NamesToSend;
     document.getElementById("descriptionToChange").innerHTML= menteeDescriptions[number2];
-    //document.getElementById("entranceToChange").innerHTML= menteeEntrances[number2];
     document.getElementById("entranceToChange").innerHTML= NamesToSend;
     document.getElementById("nameToChange").innerHTML= NamesToSend;
     document.getElementById("gradeToChange").innerHTML=menteeGrades[number2];
@@ -206,19 +196,17 @@ function createNewMenteeSquare() {
       tryToAppendCarous.appendChild(divBlockCarous);
     }
     setTimerFunct();
-
     document.getElementById("AboutToChange").innerHTML=menteeAboutProj[number2];
     document.getElementById("ReflecToChange").innerHTML=menteeMentorRelats[number2];
     document.getElementById("nameDecToChange1").innerHTML=NamesToSend.split(" ")[0];
     //Change code images
-      document.getElementById("codeToChange1").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code1.png";
-      document.getElementById("codeToChange2").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code2.png";
+    document.getElementById("codeToChange1").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code1.png";
+    document.getElementById("codeToChange2").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code2.png";
     document.getElementById("nameDecToChange2").innerHTML=NamesToSend.split(" ")[0];
     document.getElementById("youtubeToChange").src=menteeInterviews[number2];
-  }
+}
 
-
-  function setTimerFunct(){
+function setTimerFunct(){
     var slidesCarous = document.getElementsByClassName("mySlidesPortCarous");
     setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
 }
@@ -226,36 +214,33 @@ function createNewMenteeSquare() {
 /*-------------------------------------------------------END OF CODE FOR PROJECTTEMPLATE.HTML ----------------------------------------*/
 
 /*-------------------------------------------------------CODE FOR UPLOADPROJ.html ----------------------------------------------------*/
-var current_fs, next_fs, previous_fs; //fieldsets
+  var current_fs, next_fs, previous_fs; //fieldsets
   var animating; //prevents errors if there are multiple fieldsets
   var correctusername="getmagic";
   var correctpassword="getmagic";
   var ArrayOfSelectedImages=[];
   
-  
-  function wordLimit(param, param2, param3){
+function wordLimit(param, param2, param3){
     var BACKSPACE   = 8;
-  var DELETE      = 46;
-  var maxwords=param3;
-  var valid_keys  = [BACKSPACE, DELETE];
-
+    var DELETE      = 46;
+    var maxwords=param3;
+    var valid_keys  = [BACKSPACE, DELETE];
     var textValue = document.getElementById(param).value;
-       var words = textValue.split(/\s+/);
-       if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+    var words = textValue.split(/\s+/);
+    if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
-        }
-        
-        document.getElementById(param2).innerHTML= maxwords- words.length;
-  }
+    }
+    document.getElementById(param2).innerHTML= maxwords- words.length;
+}
 
- 
 function getFileInfo(param1, param, maxlength){
   var x = document.getElementById(param1);
   var txt = "";
   if ('files' in x) {
     if (x.files.length == 0) {
       txt = "Select one or more files.";
-    } else {
+    } 
+    else {
       if (maxlength != null) {
         if (x.files.length != maxlength){
           //x.files[0].slice(0,maxlength);
@@ -264,44 +249,17 @@ function getFileInfo(param1, param, maxlength){
           $(id_test).val(''); //resets the file
           event.preventDefault();
         }
-
       }
-      
-     // else { //if it has an appropriate amount of files uploaded
-        for (var i = 0; i < x.files.length; i++) {
+      for (var i = 0; i < x.files.length; i++) {
         txt += "<br><strong>" + (i+1) + ". file</strong><br>";
         var file = x.files[i];
         if ('name' in file) {
           txt += "name: " + file.name + "<br>";
-
-          //
-          /*switch (param1){
-            case "thumbnailFile" : 
-              var newName=file.name="Thumbnail_Photo.png";
-              break;
-            case "imageCarousFile" :
-              var number=i+1;
-              var newName=file.name="Example_Photo" + number + ".png";
-              break;
-            case "imagesOfCode" :
-              var number= i+1;
-              var newName=file.name="Code"+ number + ".png";
-              break;
-            default: 
-              var newName=file.name;
-          }
-          
-          txt += "New name: " + newName + "<br>";*/
-
-
         }
         if ('size' in file) {
           txt += "size: " + file.size + " bytes <br>";
         }
       }
-
-   // } //end of else
-      
     }
   } 
   else {
@@ -315,109 +273,14 @@ function getFileInfo(param1, param, maxlength){
   document.getElementById(param).innerHTML = txt;
 }
 
-
-
-
-/*DOES NOT WORK. WHEN U CHANGE THE THING U SELECTED LATER ON, IT DOES NOT CHANGE IN ARRAY
-function getFileInfo(param1, param, maxlength){
-  var x = document.getElementById(param1);
-  var txt = "";
-  if ('files' in x) {
-    if (x.files.length == 0) {
-      txt = "Select one or more files.";
-    } 
-    else { //if files are selected
-      if (maxlength != null) {
-        if (x.files.length != maxlength){
-          //x.files[0].slice(0,maxlength);
-          alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
-          var id_test="#" + param1;
-          $(id_test).val(''); //resets the file
-          event.preventDefault();
-        }//end of if x.files.length!=maxlength
-      }//end of if maxlength
-      // else { //if it has an appropriate amount of files uploaded (NOT BEING USED)
-      for (var i = 0; i < x.files.length; i++) {
-        var file = x.files[i];
-        if(ArrayOfSelectedImages.indexOf(file.name) != -1){ //if file.name is in the Array
-            txt -= "<br><strong>" + (i+1) + ". file</strong><br>";
-            alert("You have already uploaded "+file.name+" either in this question or in another. Please choose an unique file");
-            document.getElementById("demoforimg2").innerHTML="Operation stopped";
-            $(id_test).val(''); //resets the file
-            var ArrayContainsFile=true;
-          } //end of if ArrayOfSelectedImages.includes
-      }
-
-
-      if (ArrayContainsFile!=true){
-      for (var i = 0; i < x.files.length; i++) {
-        var file = x.files[i];
-
-         // else {
-            ArrayOfSelectedImages[ArrayOfSelectedImages.length]=file.name;
-            document.getElementById("demoforimg").innerHTML=ArrayOfSelectedImages.toString();
-        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
-        if ('name' in file) {
-          
-            
-            txt += "name: " + file.name + "<br>";
-            
-            switch (param1){
-              case "thumbnailFile" :
-                var newName=file.name="Thumbnail_Photo.png";
-                break;
-              case "imageCarousFile" :
-                var number=i+1;
-                var newName=file.name="Example_Photo" + number + ".png";
-                break;
-              case "imagesOfCode" :
-                var number= i+1;
-                var newName=file.name="Code"+ number + ".png";
-                break;
-              default:
-                var newName=file.name;
-            } //end of switch
-
-            txt += "New name: " + newName + "<br>";
-            if ('size' in file) {
-              txt += "size: " + file.size + " bytes <br>";
-            }//end of if size
-          //}//end of else
-        }//end of if name in file
-      }
-// } //end of else THAT IS NOT BEING USED
-      }//end of for
-    }//end of else (if files are selected)
-  }//end of (if files in x)
-else {
-  if (x.value == "") {
-    txt += "Select one or more files.";
-  } 
-  else {
-    txt += "The files property is not supported by your browser!";
-    txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
-  }
-}
-if (txt!=""){
-  document.getElementById(param).innerHTML = txt;
-}
-
-} //end of funct*/
-
-
-
-
-//NEED CLASS="CHOICEOPT" FOR CHECKBOXLANGUAGE
-  function addCheckBoxLanguage() {
+//Consider putting a "choiceopt" for the "checkboxlang" div
+function addCheckBoxLanguage() {
     var LanguagesArray=["HTML", "CSS", "Javascript", "Python", "Java", "C++", "pHp"];
     for (var i=0; i<LanguagesArray.length; i++){
-      /*var codeBlockLang=
-        `<input style="width: 5%;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
-        <label class="labelForCSS" style="padding-right: `+ distanceArray[i] + `px;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;*/
         var codeBlockLang=
         `<input style="width: 5%; float:left; margin-bottom: 0px;" type="checkbox"  name="Languages Used" value="` + LanguagesArray[i]+ `">
         <label class="labelForCSS" style="float:left;" for="` + LanguagesArray[i] + `">` + LanguagesArray[i] + `</label><br>`;
-      $("#checkBoxLang").append(codeBlockLang);
+        $("#checkBoxLang").append(codeBlockLang);
     } 
     $("#checkBoxLang").append("<input id='OtherLang' style='width: 5%; float:left; margin-bottom: 0px;' type='checkbox'; name='Languages Used'; value='Other'> <label class='labelForCSS' style='float:left;' for='Other'>Other</label><br> <input class='choiceopt' id='specifymore3' style='display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px; transform: translateX(-42%);' type='text' name='Specify Language Used' placeholder='Specify Language Used'/>"); //adds an "other" option and a text option for specification
     $('#no3 input[type=checkbox]').change(function(){ //decides when the text option should show or not
@@ -430,8 +293,6 @@ if (txt!=""){
     })
   }//end of addCheckBoxLanguage
 
-
-
 function moveNext(param){
   current_fs = $(param).parent(); //param is "this"
   next_fs = $(param).parent().next();
@@ -441,7 +302,6 @@ function moveNext(param){
   //show the next fieldset
   next_fs.show();
 }
-
 
 function startuploadProj(){
 $('#no3 input[type=radio]').change(function(){
@@ -476,7 +336,7 @@ $('#no3 input[type=radio]').change(function(){
     else{ //if website is not selected
       document.getElementById("divWhenWebSelect").style.display = "none";
     }
-  })
+})
 
 $(".next").click(function(){
   var choices=document.getElementsByClassName("choiceopt");
@@ -499,7 +359,6 @@ $(".next").click(function(){
     alert(res);
   }
   else{ //if all the argumenets are filled out
-
     if ($(document.getElementById('no1')).is(":visible")){ //if we are on the first fieldsset
       var writtenusername=document.forms["myForm"]["Username"].value;
       var writtenpassword=document.forms["myForm"]["Password"].value;
@@ -519,7 +378,6 @@ $(".next").click(function(){
   } //end of else
 });
 
-
 $(".previous").click(function(){
   current_fs = $(this).parent();
   previous_fs = $(this).parent().prev();
@@ -528,16 +386,7 @@ $(".previous").click(function(){
   current_fs.hide();
   previous_fs.show();
 }); //end of previous click
-
-
-
 } //end of function startUploadpROJ()
-
-/*//Create cookie that php file will later read
-$(".submit").click(function(){
-  //return false;
-  setCookie("UserAuthenticationValue", userAuthentication, 1); //cookie expires in 1 day
-})*/
 
 /*POP UPS*/
 function addPopUps(){
@@ -552,7 +401,6 @@ function addPopUps(){
       <span class="popuptext" id=`+ newSpanId + `><img class="imghehe" src="images/PopUpForm/` + ArrayOfPopUpImages[i] + `.png"></span>`;
       var newIdNew="#" + newId;
       $(newIdNew).append(codeBlock);
-      //document.getElementById(newId).onclick=function(){myFunction(newIdNew)};
   }
 }
 
@@ -575,5 +423,4 @@ function myFunction(param) {
   else {
     currentpopup.classList.remove("show");
   }
-
 }
