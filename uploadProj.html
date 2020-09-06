@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title> MAGIC Upload Mentee Project </title>
   <link rel="Stylesheet" href="css/uploadProjAndLoginForm.css"/>
 </head>
- 
     <!--Next step: have an action in form that links to pHp, add choiceopt to Languages Used, make a website that is dedicated to explaining where each part is */
-    /*Places where there is a pop-up: 
+    Places where there is a pop-up: 
       Fieldset no 3
         - Project Description (in 3rd person)
         - Mentee Relationship (with mentor) in 3rd person
@@ -17,69 +15,9 @@
         - 4 photos project
         - 2 photos of ur code
         - All of ur codes files and a readme-->
-
-  
-
- 
- 
-
-  <script>
-    /*function getInformation(){
-      var userAuthentication = localStorage.getItem("WhetherUserAuthenticated");
-      document.getElementById("demosessionstorage").innerHTML=userAuthentication;
-      document.getElementById("mybody").style.display="block";
-      if (userAuthentication=="true"){ 
-        document.getElementById("msform").style.display="block";
-        document.getElementById("AuthorizedP").style.display="none";
-      }
-    else if (userAuthentication=="false" || userAuthentication==null){ 
-        document.getElementById("msform").style.display="none";
-        document.getElementById("AuthorizedP").style.display="block";
-        localStorage.setItem("WhetherUserAuthenticated", userAuthentication);
-        window.location='file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/AuthenticateUser.html';
-      }
-    }
-    
-    function setCookie(cname,cvalue,exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires=" + d.toGMTString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }*/
-
-    //change this to only AuthStateChanged
-
-    /*auth.onAuthStateChanged(function(user){
-      if (!user){
-        alert ("No user");
-        //window.location='file:///Users/skamboj2022/Downloads/Internship/newProject/getmagic.github.io/AuthenticateUser.html';
-      }
-    });*/
-   /* auth.onAuthStateChanged(function(user){
-      if (!user){
-        alert("No user");
-      }
-
-    });*/
-    
-   
-
-  
-</script>
-
-
-
-  
- <!-- <body id="mybody" style="display:none;" onload="getInformation();addCheckBoxLanguage();addPopUps();startuploadProj();" >-->
-  <body id="mybody" onload="checkifSubmitClicked(false);addCheckBoxLanguage();addPopUps();startuploadProj();" >
-    
-    <p id="demosessionstorage"></p>
-    <p id="AuthorizedP" style="display:none;"> Not Authorized</p>
+<body id="mybody" onload="checkifSubmitClicked(false);addCheckBoxLanguage();addPopUps();startuploadProj();" >
   <!-- multistep form -->
-  <!--<form action="/Users/skamboj2022/test/AnalyzeForm.php" method="post" name="myForm" id="msform">-->
-  <!--<form action="http://localhost:8000/Analyzeform.php" method="post" id="uploadProjForm" enctype="multipart/form-data" name="myForm" class="msform">-->
-    <form id="uploadProjForm" enctype="multipart/form-data" name="myForm" class="msform"> <!--the action is added in uploadProjfirebase.js-->
-
+   <form id="uploadProjForm" enctype="multipart/form-data" name="myForm" class="msform"> <!--the action is added in uploadProjfirebase.js-->
     <!-- progressbar -->
     <ul id="progressbar">
       <!-- <li class="active">Log In</li>-->
@@ -90,6 +28,7 @@
     <!-- fieldsets -->
     <p style="color:#fdc58b;"> For questions about what to write in your website, please go to https://getmagic.github.io/SiyaProject.html </p> <br> <!--maybe make another file as a website (that is not in the array and is not present on the official website) which will be more informational and explanatory -->
     <p style="color:#fdc58b;"> Do not refresh or you will lose all your progress</p> <br>
+     
     <fieldset id="no2" onkeypress="return event.charCode != 32"> <!-- stops user from pressing space for all the fields-->
     <h2 class="fs-title">Personal Information</h2>
     <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
@@ -107,10 +46,10 @@
       <option value="11th">11th</option>
       <option value="12th">12th</option>
     </select>
-    
     <br>
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
+     
  <fieldset id="no3">
     <h2 class="fs-title">Project Information and Reflection</h2>
     <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
@@ -121,7 +60,6 @@
       <input class="choiceopt" id="Software-Choice" style="width:5%;float:left; margin-bottom: 0px;"  type="radio" name="Type-of-Project" value="Software" >
       <label class="labelForCSS" style="float:left;" for="Software">Software</label><br>
     </div>
-    
     <div id="SoftwareDiv" style="display:none;">
       <div style="width: 100%; margin-left: 42%;" id="radioTypeOfProj">
         <label for="projtype" style="float:left" class="titlequest">Type of Software: </label> <br>
@@ -174,9 +112,7 @@
         Your browser does not support HTML video. Go to MAGIC'S official youtube channel (getMagic .org), find your interview, click share, click embed, paste the link within the " " after "src=".
       </video>
       <input type="url" id="interviewlink" class="choiceopt" name="Interview-Link" placeholder="Paste your interview link here"><br><br>
-
       <div id="uploadNonWebsiteVideo" style="display:none;">
-        <!-- <input type="url" id="NonWebsitelink" class="choiceopt" name="ScreenRecord" placeholder="ScreenRecording demonstrating and explaining your project"><br><br>-->
          <label class="titlequest" for="NonWebsitelink"> Please upload a video (or screenrecording) demonstrating and explaining your hardware (or app) </label>
           <input class="choiceopt" type="file" name="Screenrecord[]" accept="video/mp4,video/x-m4v,video/*"  style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="NonWebsitelink" onchange="getFileInfo(this.id, 'demo5', 1)">
           <p class="fileUploadName" id="demo5"></p>
@@ -185,10 +121,10 @@
            <br>
           <textarea  class="textareaadd choiceopt" name="Description-Of-NonSoftware-Project" id="Description-Of-NonSoftware-Project" placeholder="Please write here"></textarea>
       </div>
-
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
+     
     <fieldset id="no4">
       <h2 class="fs-title">File Uploads</h2>
       <h2 class="fs-subtitle" style="color:red; margin-bottom: 4px;">All photos must end with .png</h2>
@@ -227,15 +163,9 @@
       <br>
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="submit" name="submit" class="submit action-button" id="submit-button" onclick="checkifSubmitClicked(true);" value="Submit" />
-     <!--<input type="submit" name="submit" class="submit action-button" id="submit-button" value="Submit" />-->
-      <!-- <input type="button" name="next" class="next action-button" value="Next" />-->
-      
     </fieldset>
   </form>
-
-
-
-
+  
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/tilt.jquery.js"></script>
   <script src="js/owl.carousel.min.js"></script>
@@ -244,7 +174,7 @@
   <script src="js/menteeArrays.js"> </script>
   <!--The following 2 links are to make firebase work -->
   <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
   <script src="js/uploadProjFireBase.js"></script>
 </body>
 </html>
