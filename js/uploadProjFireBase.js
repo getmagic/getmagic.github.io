@@ -1,13 +1,13 @@
 //Lines 2-13 are provided by Firebase
 // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyAaXrelPA50Go8ba5qPPdH16sSltQcohX4",
-    authDomain: "testform-720b2.firebaseapp.com",
-    databaseURL: "https://testform-720b2.firebaseio.com",
-    projectId: "testform-720b2",
-    storageBucket: "testform-720b2.appspot.com",
-    messagingSenderId: "575120093141",
-    appId: "1:575120093141:web:c3483403341ce36744575c"
+    apiKey: "AIzaSyBvdKIGHpWc3JUkdCRNhAnQfsySDzMN84M",
+    authDomain: "mentee-projects-website.firebaseapp.com",
+    databaseURL: "https://mentee-projects-website.firebaseio.com",
+    projectId: "mentee-projects-website",
+    storageBucket: "mentee-projects-website.appspot.com",
+    messagingSenderId: "251177809171",
+    appId: "1:251177809171:web:a39620b927054ab9eb56e6"
   };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
