@@ -4,20 +4,25 @@
   <title> MAGIC Upload Mentee Project </title>
   <link rel="Stylesheet" href="css/uploadProjAndLoginForm.css"/>
 </head>
-    <!--Next step: have an action in form that links to pHp, add choiceopt to Languages Used, make a website that is dedicated to explaining where each part is */
-    Places where there is a pop-up: 
-      Fieldset no 3
-        - Project Description (in 3rd person)
-        - Mentee Relationship (with mentor) in 3rd person
-        - Project summary
-      Fieldset no 4
-        - 1 photo thumbnail
-        - 4 photos project
-        - 2 photos of ur code
-        - All of ur codes files and a readme-->
+  
+  <!--Next step: have an action in form that links to pHp, add choiceopt to Languages Used, make a website that is dedicated to explaining where each part is */
+    
+  /*Places where there is a pop-up:
+  Fieldset no 3
+  - Project Description (in 3rd person)
+  - Mentee Relationship (with mentor) in 3rd person
+  - Project summary
+  Fieldset no 4
+  - 1 photo thumbnail
+  - 4 photos project
+  - 2 photos of ur code
+  - All of ur codes files and a readme-->
+  <!--checkifSubmitClicked is from "uploadProjFireBase.js" and addCheckBoxLanguage();addPopUps();startuploadProj(); are all defined in "menteeArrays.js"-->
+  <!--Whenever this site loads, you set the variable that determines whether the submit button was clicked to false. When submit is clicked on line 182, the variable is set to true and checkIfSubmitClicked is called with paramater "true"-->
 <body id="mybody" onload="checkifSubmitClicked(false);addCheckBoxLanguage();addPopUps();startuploadProj();" >
-  <!-- multistep form -->
-   <form id="uploadProjForm" enctype="multipart/form-data" name="myForm" class="msform"> <!--the action is added in uploadProjfirebase.js-->
+    <!--JUST NOW!!!!<p id="demosessionstorage"></p>
+    <p id="AuthorizedP" style="display:none;"> Not Authorized</p>-->
+  <form id="uploadProjForm" enctype="multipart/form-data" name="myForm" class="msform"> <!--the action is added in uploadProjfirebase.js-->
     <!-- progressbar -->
     <ul id="progressbar">
       <!-- <li class="active">Log In</li>-->
@@ -26,85 +31,94 @@
       <li>File Uploads</li>
     </ul>
     <!-- fieldsets -->
-    <p style="color:#fdc58b;"> For questions about what to write in your website, please go to https://getmagic.github.io/SiyaProject.html </p> <br> <!--maybe make another file as a website (that is not in the array and is not present on the official website) which will be more informational and explanatory -->
+    <p style="color:#fdc58b;"> For questions about what to write in your website, please go to https://getmagic.github.io/ProjectTemplate.html?5 </p> <br> <!--maybe make another file as a website (that is not in the array and is not present on the official website) which will be more informational and explanatory -->
     <p style="color:#fdc58b;"> Do not refresh or you will lose all your progress</p> <br>
-     
+
+    <!--This is the first tab labelled "personal information"-->
     <fieldset id="no2" onkeypress="return event.charCode != 32"> <!-- stops user from pressing space for all the fields-->
-    <h2 class="fs-title">Personal Information</h2>
-    <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
-    <input id="First-Name" class="choiceopt" type="text" name="First-Name" placeholder="First Name"/>
-    <input  id="Last-Name" class="choiceopt" type="text" name="Last-Name" placeholder="Last Name"/>
-    <input  id="Year-you-were-a-mentee" class="choiceopt" type="number" id="mntYr" name="Year-you-were-a-mentee" min="2000" step="1" placeholder="Year you were a mentee" onkeypress="return event.charCode != 46"><!-- step prevents them from pressing period and entering a decimal number -->
-    <label class="labelForCSS" for="grade">Grade Level when you were a mentee: </label>
-    <select id="Grade-When-you-Were-A-Mentee" class="choiceopt" name="Grade-Level-when-you-were-a-mentee" placeholder="Grade Level">
-      <option value=""></option>
-      <option value="6th">6th</option>
-      <option value="7th">7th</option>
-      <option value="8th">8th</option>
-      <option value="9th">9th</option>
-      <option value="10th">10th</option>
-      <option value="11th">11th</option>
-      <option value="12th">12th</option>
-    </select>
-    <br>
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-     
- <fieldset id="no3">
-    <h2 class="fs-title">Project Information and Reflection</h2>
-    <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
-    <div style="width: 100%; margin-left: 42%;">
-      <label  style="float:left" class="titlequest" for="webask">Is the website a hardware or software? </label> <br>
-      <input class="choiceopt" id="Hardware-Choice" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Type-of-Project" value="Hardware" >
-      <label class="labelForCSS"  style="float:left;" for="Hardware">Hardware</label><br>
-      <input class="choiceopt" id="Software-Choice" style="width:5%;float:left; margin-bottom: 0px;"  type="radio" name="Type-of-Project" value="Software" >
-      <label class="labelForCSS" style="float:left;" for="Software">Software</label><br>
-    </div>
-    <div id="SoftwareDiv" style="display:none;">
-      <div style="width: 100%; margin-left: 42%;" id="radioTypeOfProj">
-        <label for="projtype" style="float:left" class="titlequest">Type of Software: </label> <br>
-        <input class="choiceopt" style="width:5%; float:left; margin-bottom: 0px;" id="webchoice" type="radio" name="Type-of-Software" value="Website" >
-        <label class="labelForCSS"  style="float:left;" for="Website">Website</label><br>
-        <input class="choiceopt" id="App-choice" style="width:5%; float:left;margin-bottom: 0px;" type="radio"  name="Type-of-Software" value="App" >
-        <label class="labelForCSS" style="float:left;" for="App">App</label><br>
-        <input id="other" style="width:5%; float:left;margin-bottom: 0px;" type="radio"  name="Type-of-Software" value="Other">
-        <label class="labelForCSS" style="float:left;" for="other">Other </label> <br>
-        <input class="choiceopt" id="specifymore1" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify-Type-of-Software" placeholder="Specify the type of project here"/>
+      <h2 class="fs-title">Personal Information</h2>
+      <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
+      <input id="First-Name" class="choiceopt" type="text" name="First-Name" placeholder="First Name"/>
+      <input  id="Last-Name" class="choiceopt" type="text" name="Last-Name" placeholder="Last Name"/>
+      <input  id="Year-you-were-a-mentee" class="choiceopt" type="number" id="mntYr" name="Year-you-were-a-mentee" min="2000" step="1" placeholder="Year you were a mentee" onkeypress="return event.charCode != 46"><!-- step prevents them from pressing period and entering a decimal number -->
+      <label class="labelForCSS" for="grade">Grade Level when you were a mentee: </label>
+      <select id="Grade-When-you-Were-A-Mentee" class="choiceopt" name="Grade-Level-when-you-were-a-mentee" placeholder="Grade Level">
+        <option value=""></option>
+        <option value="6th">6th</option>
+        <option value="7th">7th</option>
+        <option value="8th">8th</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+        <option value="11th">11th</option>
+        <option value="12th">12th</option>
+      </select>
+      <br>
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+
+    <!-- "Project Information and Reflection" section starts -->
+    <fieldset id="no3">
+      <h2 class="fs-title">Project Information and Reflection</h2>
+      <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
+      <div style="width: 100%; margin-left: 42%;">
+        <label  style="float:left" class="titlequest" for="webask">Is the project hardware or software? </label> <br>
+        <input class="choiceopt" id="Hardware-Choice" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Type-of-Project" value="Hardware" >
+        <label class="labelForCSS"  style="float:left;" for="Hardware">Hardware</label><br>
+        <input class="choiceopt" id="Software-Choice" style="width:5%;float:left; margin-bottom: 0px;"  type="radio" name="Type-of-Project" value="Software" >
+        <label class="labelForCSS" style="float:left;" for="Software">Software</label><br>
       </div>
-      <!--when website is selected -->
-      <div style="width: 100%; margin-left: 42%; display:none;" id="divWhenWebSelect">
-        <label  style="float:left" class="titlequest" for="webask">Is the website on github? </label> <br>
-        <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Website-Platform" value="Yes" >
-        <label class="labelForCSS"  style="float:left;" for="Yes">Yes</label><br>
-        <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" id="nogitweb" type="radio" name="Website-Platform" value="No" >
-        <label class="labelForCSS" style="float:left;" for="No">No</label><br>
-        <input class="choiceopt" id="specifymore2" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify-Where-Your-Website-is-Hosted" placeholder="Specify where your website is hosted"/>
-      </div>
-      <!--end of Type of Project Radio-->
-      <!--checkbox for languages used -->
-      <div style="width: 100%; margin-left: 42%;"id="checkBoxLang">
-        <label for="langtype" style="float:left" class="titlequest">Languages Used: </label> <br>
-        <!--This is where addCheckBoxLanguage() appends the Language checkboxes -->
-     </div>
-      <!--end of checkbox-->
-     </div> <!--end of software div-->
-     <label for="projectdec" class="titlequest"> Please describe your project in 3rd person (100 words): </label>
+    
+      <div id="SoftwareDiv" style="display:none;">
+        <div style="width: 100%; margin-left: 42%;" id="radioTypeOfProj">
+          <label for="projtype" style="float:left" class="titlequest">Type of Software: </label> <br>
+          <input class="choiceopt" style="width:5%; float:left; margin-bottom: 0px;" id="webchoice" type="radio" name="Type-of-Software" value="Website" >
+          <label class="labelForCSS"  style="float:left;" for="Website">Website</label><br>
+          <input class="choiceopt" id="App-choice" style="width:5%; float:left;margin-bottom: 0px;" type="radio"  name="Type-of-Software" value="App" >
+          <label class="labelForCSS" style="float:left;" for="App">App</label><br>
+          <input id="other" style="width:5%; float:left;margin-bottom: 0px;" type="radio"  name="Type-of-Software" value="Other">
+          <label class="labelForCSS" style="float:left;" for="other">Other </label> <br>
+          <input class="choiceopt" id="specifymore1" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify-Type-of-Software" placeholder="Specify the type of project here"/>
+        </div>
+        <!--when website is selected -->
+        <div style="width: 100%; margin-left: 42%; display:none;" id="divWhenWebSelect">
+          <label  style="float:left" class="titlequest" for="webask">Is the website on github? </label> <br>
+          <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" type="radio" name="Website-Platform" value="Yes" >
+          <label class="labelForCSS"  style="float:left;" for="Yes">Yes</label><br>
+          <input class="choiceopt" style="width:5%;float:left; margin-bottom: 0px;" id="nogitweb" type="radio" name="Website-Platform" value="No" >
+          <label class="labelForCSS" style="float:left;" for="No">No</label><br>
+          <input class="choiceopt" id="specifymore2" style="display:none; outline: 0; border-width: 0 0 2px;border-color: black; padding: 0px;transform: translateX(-42%); " type="text" name="Specify-Where-Your-Website-is-Hosted" placeholder="Specify where your website is hosted"/>
+        </div>
+        <!--end of Type of Project Radio-->
+
+        <!--checkbox for languages used -->
+        <div style="width: 100%; margin-left: 42%;"id="checkBoxLang">
+          <label for="langtype" style="float:left" class="titlequest">Languages Used: </label> <br>
+          <!--This is where addCheckBoxLanguage() appends the Language checkboxes -->
+        </div>
+        <!--end of checkbox-->
+      </div> <!--end of software div-->
+
+      <label for="projectdec" class="titlequest"> Please describe your project in 3rd person (100 words): </label>
       <div class="popup" onclick="myFunction(this.id);">
       </div>
       <br>
+
       <p class="titlequest" style="color:red;">Number of words Left: <span id="no1span">100 </span></p>
       <textarea  class="textareaadd choiceopt" name="Project-Description" id="projectdec" onkeydown="wordLimit(this.id, 'no1span', 100);" placeholder="Please write here"></textarea>
       <div class="popup" onclick="myFunction(this.id);">
       </div>
+
       <label for="menteedec" class="titlequest"> Please describe your relationship with your mentor in 3rd person (100 words): </label> <br>
       <p class="titlequest" style="color:red;">Number of words Left: <span id="no2span">100 </span></p>
       <textarea  class="textareaadd choiceopt" name="Mentee-Relationship-Description" id="menteedec" onkeydown="wordLimit(this.id, 'no2span', 100);" placeholder="Please write here"></textarea>
+
       <label for="Project Summary" class="titlequest"> Please describe your project in one sentence: </label> <br>
       <div class="popup" onclick="myFunction(this.id);">
       </div>
       <p class="titlequest"> (NOTE: This will go under your name on the website) </p>
       <p class="titlequest" style="color:red;">Number of words Left: <span id="no3span">20 </span></p>
       <input type="text" class="choiceopt" name="Project-Summary" id="projsummary" placeholder="Project Summary" onkeydown="wordLimit(this.id, 'no3span', 20);" />
+
       <label class="titlequest" for="Interview Link">Please embed your interview link below:</label>
       <p class="titlequest"> (NOTE: Please see the video below for how to upload your interview) </p> <br>
       <video width="350" height=auto controls>
@@ -112,19 +126,21 @@
         Your browser does not support HTML video. Go to MAGIC'S official youtube channel (getMagic .org), find your interview, click share, click embed, paste the link within the " " after "src=".
       </video>
       <input type="url" id="interviewlink" class="choiceopt" name="Interview-Link" placeholder="Paste your interview link here"><br><br>
+
       <div id="uploadNonWebsiteVideo" style="display:none;">
-         <label class="titlequest" for="NonWebsitelink"> Please upload a video (or screenrecording) demonstrating and explaining your hardware (or app) </label>
-          <input class="choiceopt" type="file" name="Screenrecord[]" accept="video/mp4,video/x-m4v,video/*"  style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="NonWebsitelink" onchange="getFileInfo(this.id, 'demo5', 1)">
-          <p class="fileUploadName" id="demo5"></p>
-          <br>
-          <label for="Description-Of-NonSoftware-Project" class="titlequest"> Please describe where to find your project (if it is available on the app store for example), How your project works, etc : </label>
-           <br>
-          <textarea  class="textareaadd choiceopt" name="Description-Of-NonSoftware-Project" id="Description-Of-NonSoftware-Project" placeholder="Please write here"></textarea>
+        <label class="titlequest" for="NonWebsitelink"> Please upload a video (or screenrecording) demonstrating and explaining your hardware (or app) </label>
+        <input class="choiceopt" type="file" name="Screenrecord[]" accept="video/mp4,video/x-m4v,video/*"  style="border: 0px solid white; padding: 0px; margin-bottom: 0px;" id="NonWebsitelink" onchange="getFileInfo(this.id, 'demo5', 1)">
+        <p class="fileUploadName" id="demo5"></p>
+        <br>
+        <label for="Description-Of-NonSoftware-Project" class="titlequest"> Please describe where to find your project (if it is available on the app store for example), How your project works, etc : </label>
+        <br>
+        <textarea  class="textareaadd choiceopt" name="Description-Of-NonSoftware-Project" id="Description-Of-NonSoftware-Project" placeholder="Please write here"></textarea>
       </div>
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-     
+
+    <!-- "file uploads" section starts -->
     <fieldset id="no4">
       <h2 class="fs-title">File Uploads</h2>
       <h2 class="fs-subtitle" style="color:red; margin-bottom: 4px;">All photos must end with .png</h2>
@@ -161,17 +177,19 @@
       <p id="demoforimg"></p>
       <p id="demoforimg2"></p>
       <br>
+
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="submit" name="submit" class="submit action-button" id="submit-button" onclick="checkifSubmitClicked(true);" value="Submit" />
     </fieldset>
   </form>
-  
+
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/tilt.jquery.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.cubeportfolio.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/menteeArrays.js"> </script>
+
   <!--The following 2 links are to make firebase work -->
   <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>

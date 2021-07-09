@@ -1,7 +1,7 @@
 /*The arrays that hold the mentee's information. To add more mentees, add their information into these arrays. menteeThumbnails is the photo that is displayed as a preview in the image carousel, the menteeNames and menteeGrades are the information located inside the "menteeInfoDiv' in codeBlock, and the menteeLinks is their website. */
 var menteeThumbnails=[];
 var menteeAbbrevs=[]; //ex. Aline Garcia would be "AlineG" in menteeAbbrevs
-var menteeNames = ["Aline Garcia", "Evelyn Loza", "Anjali Ulrich", "Jalyn Mayer", "Leyla Rivera", "Siya Kamboj", "Kimberly Barillas" ];
+var menteeNames = ["Aline Garcia", "Evelyn Loza", "Anjali Ulrich", "Jalyn Mayer", "Leyla Rivera", "Siya Kamboj", "Kimberly Barillas"];
 var menteeGrades= ["Middle School", "High Schoool", "Middle School", "High School", "Middle School", "Middle School", "High School"];
 var menteeYears = ["2017", "2015", "2018", "2018", "2017", "2017", "2020"];
 var menteeDescriptions= [
@@ -11,17 +11,17 @@ var menteeDescriptions= [
   "This website determines whether or not someone has a concusion or symptoms of a concusion.", //Jalyn
   "This website includes resources for Animal Shelters in the Bay Area and 2 games about the life of a dog living in a shelter.", //Leyla
   "This website teaches math, science, and vocabulary for 3 different difficulty levels: Beginner, Intermediate, and Advanced.", //Siya
-  "This website consists of an information page about fornesic chemistry and a game with 10 riddles." //Kimberly
+  "This website consists of an information page about fornesic chemistry and a game with 10 riddles."//Kimberly
 ];
-var menteeEntrances=[
+/*var menteeEntrances=[
   "Aline's hard work and dedication led to her making not one, but two games! Check out her website below.", //Aline
   "Evelyn's passion and determination led to her explaining many causes and effects of human trafficking. Check out her website below.", //Evelyn
   "Anjali's hard work and creativity led her to making this website. Check it out below!", //Anjali
   "Jalyn's diligence and persistence led her to make a website about determining whether you have a concusion. Check out her website below!", //Jalyn
   "Leyla's hard work and dedication led to her making two games and a resources page! Check out her website below.", //Leyla
   "Siya's hard work and dedication led to her making an educational website with multiple levels! Check out her website below.", //Siya
-  "Kimberly's hard work and dedication led to her making an informative page and a game with riddles! Check out her website below." //Kimberly
-];
+  "Kimberly's hard work and dedication led to her making an informative page and a game with riddles! Check out her website below."//Kimberly
+];*/
 var menteeWorkTypes=["Website", "Website","Website","Website","Website","Website","Website"];
 var menteeAboutProj=[
 "The first part of Aline's website is <i>Guess My Number</i>, where you have to guess a random number from 1-100. Aline designed it so that the computer tells the user whether to go above or lower the number they guessed to figure out the computer generated number. After you guessed the number, the computer will display how many tries it took you as well as what your average tries were throughout many games. In her second game, <i> Catch! </i>, users will have to use the arrow keys to move the purple bar to catch green squares, but have to avoid the orange squares.",
@@ -51,6 +51,14 @@ var menteeInterviews=[
 "https://www.youtube.com/embed/WpR6ucZRgjw"
 ];
 
+
+/*//IF YOU WANT ONLY THE FIRST SEVEN MENTEES TO BE ON THE WEBSITE. TO CHANGE THE NUMBER OF MENTEES YOU WANT, CHANGE THE 7 IN THE .SPLICE COMMAND.
+var allMenteeInformation=[menteeNames, menteeGrades, menteeYears, menteeDescriptions, menteeWorkTypes, menteeAboutProj, menteeMentorRelats, menteeInterviews];
+  for (var i=0; i<allMenteeInformation.length; i++){
+      var removedelementsdynamic=allMenteeInformation[i].splice(7, allMenteeInformation[i].length);
+  }*/
+
+
 /*--------- Fills in menteeAbbrevs ---------*/
 for (var i=0; i<menteeYears.length; i++){
   function getMenteeAbbrevs() {
@@ -65,6 +73,7 @@ getMenteeAbbrevs();
 for (var i=0; i<menteeYears.length; i++) {
   menteeThumbnails[i]="images/" + menteeYears[i] + "/" + menteeAbbrevs[i] + "/Thumbnail_Photo.png";
 }
+
 
 /*-------------------------CODE FOR IMAGE CAROUSEL IN INDEX.HTML UNDER STUDENT PROJECTS TAB ----------------*/
 /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
@@ -90,7 +99,7 @@ function createNewMenteeDiv() {
   }
 }
   
-//Adds the dots at the bottom of the carousel
+  //Adds the dots at the bottom of the carousel
 function addDots() {
   for (var i=1; i<(menteeNames.length + 1); i++){
     var paraDot2= document.createElement("P");
@@ -106,7 +115,6 @@ var slideIndex = 1;
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
-
 //currentSlide called when the appropriate "dot" is pressed at the bottom of the carousel
 function currentSlide(n) {
   showSlides(slideIndex = n);
@@ -130,9 +138,10 @@ function showSlides(n) {
   dots[slideIndex-1].className += " d-active";
 }
   
+  
   /*--------------------------------------end of code of image carousel on index.html --------------------*/
   /* ------------------------------------CODE FOR allProjects.html --------------------------------------*/
-/*This code is called in the body tag on allProjects.html */
+  /*This code is called in the body tag on allProjects.html */
 function createNewMenteeSquare() {
   for (var j = 0; j < menteeNames.length; j++) {
   var paraNew = document.createElement("div");
@@ -145,20 +154,22 @@ function createNewMenteeSquare() {
   </a> `;
   paraNew.innerHTML = codeBlock2 ;
   divToAppend.appendChild(paraNew);
+  
   }
 }
-
   /*-------------------------------CODE FOR PROJECTTEMPLATE.HTML -----------------------*/
   //when something on the <body> is clicked, run the code
- function seeifClick(){
+  function seeifClick(){
     $( ".myBodClick" ).click(function( event ) {
       var x= $(event.target).attr('class'); //gets the class of the clicked function
       var y= x.split(" ")[0]; //only takes the first class element
       setTheLink(y);
-    });
-  }
+  });
 
-function setTheLink(numberparam){ 
+  }
+  
+
+  function setTheLink(numberparam){ 
     var scrt_var = numberparam;
     var strLink = "?" + scrt_var;
     //if you are on allProjects.html:
@@ -168,11 +179,13 @@ function setTheLink(numberparam){
       elements = document.getElementsByClassName('NewA');
     }
     for (const element of elements) {
-      element.href = "ProjectTemplate.html" + strLink; //strLink sends the var to the Project.Template file
-    }
-}
+    element.href = "ProjectTemplate.html" + strLink; //strLink sends the var to the Project.Template file
+  }
+  }
+  
+  
 
-function changeText(number2){
+  function changeText(number2){
     AbbrevsToSend=menteeAbbrevs[number2];
     NamesToSend=menteeNames[number2];
     ThumbnailsToSend=menteeThumbnails[number2];
@@ -180,6 +193,7 @@ function changeText(number2){
     document.getElementById("titleToReplace").innerHTML= "MAGIC " + NamesToSend + "'s Website";
     document.getElementById("headingToChange").innerHTML= NamesToSend;
     document.getElementById("descriptionToChange").innerHTML= menteeDescriptions[number2];
+    //document.getElementById("entranceToChange").innerHTML= menteeEntrances[number2];
     document.getElementById("entranceToChange").innerHTML= NamesToSend;
     document.getElementById("nameToChange").innerHTML= NamesToSend;
     document.getElementById("gradeToChange").innerHTML=menteeGrades[number2];
@@ -196,17 +210,19 @@ function changeText(number2){
       tryToAppendCarous.appendChild(divBlockCarous);
     }
     setTimerFunct();
+
     document.getElementById("AboutToChange").innerHTML=menteeAboutProj[number2];
     document.getElementById("ReflecToChange").innerHTML=menteeMentorRelats[number2];
     document.getElementById("nameDecToChange1").innerHTML=NamesToSend.split(" ")[0];
     //Change code images
-    document.getElementById("codeToChange1").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code1.png";
-    document.getElementById("codeToChange2").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code2.png";
+      document.getElementById("codeToChange1").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code1.png";
+      document.getElementById("codeToChange2").src= "images/" + menteeYears[number2] + "/" + AbbrevsToSend+ "/Code2.png";
     document.getElementById("nameDecToChange2").innerHTML=NamesToSend.split(" ")[0];
     document.getElementById("youtubeToChange").src=menteeInterviews[number2];
-}
+  }
 
-function setTimerFunct(){
+
+  function setTimerFunct(){
     var slidesCarous = document.getElementsByClassName("mySlidesPortCarous");
     setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
 }
@@ -214,43 +230,48 @@ function setTimerFunct(){
 /*-------------------------------------------------------END OF CODE FOR PROJECTTEMPLATE.HTML ----------------------------------------*/
 
 /*-------------------------------------------------------CODE FOR UPLOADPROJ.html ----------------------------------------------------*/
-  var current_fs, next_fs, previous_fs; //fieldsets
+var current_fs, next_fs, previous_fs; //fieldsets
   var animating; //prevents errors if there are multiple fieldsets
   var correctusername="getmagic";
   var correctpassword="getmagic";
   var ArrayOfSelectedImages=[];
   
+  
 function wordLimit(param, param2, param3){
-    var BACKSPACE   = 8;
-    var DELETE      = 46;
-    var maxwords=param3;
-    var valid_keys  = [BACKSPACE, DELETE];
+  var BACKSPACE   = 8;
+  var DELETE      = 46;
+  var maxwords=param3;
+  var valid_keys  = [BACKSPACE, DELETE];
     var textValue = document.getElementById(param).value;
-    var words = textValue.split(/\s+/);
-    if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+       var words = textValue.split(/\s+/);
+       if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
-    }
-    document.getElementById(param2).innerHTML= maxwords- words.length;
-}
+        }
+        document.getElementById(param2).innerHTML= maxwords- words.length;
+  }
 
+ 
+//This is called by uploadProj.html whenever a video, file, or photo is uploaded. The first parameter is always the id of the file and "maxlength" refers to the number of files that need to be uploaded
 function getFileInfo(param1, param, maxlength){
   var x = document.getElementById(param1);
   var txt = "";
   if ('files' in x) {
     if (x.files.length == 0) {
       txt = "Select one or more files.";
-    } 
-    else {
+    } else {
       if (maxlength != null) {
         if (x.files.length != maxlength){
-          //x.files[0].slice(0,maxlength);
+          //This is called whenever the user has uploaded too many OR not enough files
           alert ("You uploaded " + x.files.length + " photo(s). Please upload "+ maxlength + " photos");
           var id_test="#" + param1;
           $(id_test).val(''); //resets the file
           event.preventDefault();
         }
+
       }
-      for (var i = 0; i < x.files.length; i++) {
+      
+     // else { //if it has an appropriate amount of files uploaded
+        for (var i = 0; i < x.files.length; i++) {
         txt += "<br><strong>" + (i+1) + ". file</strong><br>";
         var file = x.files[i];
         if ('name' in file) {
@@ -260,6 +281,7 @@ function getFileInfo(param1, param, maxlength){
           txt += "size: " + file.size + " bytes <br>";
         }
       }
+      
     }
   } 
   else {
@@ -270,11 +292,12 @@ function getFileInfo(param1, param, maxlength){
       txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
     }
   }
-  document.getElementById(param).innerHTML = txt;
+  document.getElementById(param).innerHTML = txt; //This line displays the name of the file and file size for each uploaded file
 }
 
-//Consider putting a "choiceopt" for the "checkboxlang" div
-function addCheckBoxLanguage() {
+
+//NEED CLASS="CHOICEOPT" FOR CHECKBOXLANGUAGE
+  function addCheckBoxLanguage() {
     var LanguagesArray=["HTML", "CSS", "Javascript", "Python", "Java", "C++", "pHp"];
     for (var i=0; i<LanguagesArray.length; i++){
         var codeBlockLang=
@@ -293,6 +316,8 @@ function addCheckBoxLanguage() {
     })
   }//end of addCheckBoxLanguage
 
+
+
 function moveNext(param){
   current_fs = $(param).parent(); //param is "this"
   next_fs = $(param).parent().next();
@@ -303,9 +328,11 @@ function moveNext(param){
   next_fs.show();
 }
 
+
 function startuploadProj(){
 $('#no3 input[type=radio]').change(function(){
-  if (document.getElementById("Software-Choice").checked===true){
+  // If the user chooses "software", then the "software div" from uploadProj.html is displayed
+  if (document.getElementById("Software-Choice").checked===true){ 
     document.getElementById("SoftwareDiv").style.display="block";
     if (document.getElementById("webchoice").checked===true ){
       document.getElementById("uploadNonWebsiteVideo").style.display="none";
@@ -336,8 +363,9 @@ $('#no3 input[type=radio]').change(function(){
     else{ //if website is not selected
       document.getElementById("divWhenWebSelect").style.display = "none";
     }
-})
+  })
 
+//Produces an error message if the user tries to advance to the next fieldset without completing all the relevant fields in the current fieldset. 
 $(".next").click(function(){
   var choices=document.getElementsByClassName("choiceopt");
   var ArrayOfChoices=Array.from(choices); //makes choices an array
@@ -358,7 +386,8 @@ $(".next").click(function(){
   if(res.valueOf() != "The following argument(s) must be filled out: "){
     alert(res);
   }
-  else{ //if all the argumenets are filled out
+  else{ //if all the argumenets in the current fielset are filled out: 
+    //lines 390-397 might be useless since this code was written before firebase performed password authentication
     if ($(document.getElementById('no1')).is(":visible")){ //if we are on the first fieldsset
       var writtenusername=document.forms["myForm"]["Username"].value;
       var writtenpassword=document.forms["myForm"]["Password"].value;
@@ -367,6 +396,7 @@ $(".next").click(function(){
         return false; //the rest of teh function is not executed
       }
     }//end of first fieldset
+
     else if ($(document.getElementById('no2')).is(":visible")){ //if we are on the second fieldset
       var useryear=document.forms["myForm"]["Year-you-were-a-mentee"].value;
       if (useryear.length!=4){
@@ -378,6 +408,7 @@ $(".next").click(function(){
   } //end of else
 });
 
+
 $(".previous").click(function(){
   current_fs = $(this).parent();
   previous_fs = $(this).parent().prev();
@@ -386,7 +417,11 @@ $(".previous").click(function(){
   current_fs.hide();
   previous_fs.show();
 }); //end of previous click
+
+
+
 } //end of function startUploadpROJ()
+
 
 /*POP UPS*/
 function addPopUps(){
@@ -404,9 +439,10 @@ function addPopUps(){
   }
 }
 
+//myFunction is called whenever a pop-up icon is clicked. This function displays the corresponding image. 
 function myFunction(param) {
   var idofDiv="#"+param;
-  var x= $(idofDiv).find("span"); //$(idofDiv)
+  var x= $(idofDiv).find("span"); 
   var span_Id_current= x.attr("id"); //get the Id of the span element inside the given div
   var currentpopup = document.getElementById(span_Id_current);
   //Stops multiple pop-ups from being open at the same time 
@@ -423,4 +459,6 @@ function myFunction(param) {
   else {
     currentpopup.classList.remove("show");
   }
+
 }
+
