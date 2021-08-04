@@ -3,35 +3,34 @@
 /*---------------------------------- */
 
 /**
-    Penne - Portfolio Template 
-    Author : Tavonline
-    Copyright 2018
-
+	Penne - Portfolio Template 
+	Author : Tavonline
+	Copyright 2018
 
 /* Table of Content
 ==================================================
 
-    1. Body and Core Css
-    2. Home Section
+	1. Body and Core Css
+	2. Home Section
   3. About Section
   4. Portfolio Section
 
 
-/*------------------------ 1 Body and Core Css ------------------------*/   
+/*------------------------ 1 Body and Core Css ------------------------*/	
 
 body{  
-    font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 p{
-    color: #383838;
-    font-size: 16px;
+	color: #383838;
+	font-size: 16px;
   line-height: 30px;
 }
 
 .cont{
-    width: 70%;
-    margin-left: 15%;
+	width: 70%;
+	margin-left: 15%;
 }
 
 .bg-pink{
@@ -513,14 +512,14 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
     border: none;
 }
 
-/*------------------------ 2 Home Section ------------------------*/    
+/*------------------------ 2 Home Section ------------------------*/	
 
 .home{
   background: url(https://drive.google.com/uc?id=1QL7ime8vN21ih657UXz2GfYJhqcywEIH
 );
-    background-size: cover;
-    width: 100%;
-    position: relative;
+	background-size: cover;
+	width: 100%;
+	position: relative;
   display: table
 }
 
@@ -544,10 +543,10 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 }
 
 .home .home-content{
-    position: relative;
-    z-index: 2;
-    display: table-cell;
-    vertical-align: middle;
+  	position: relative;
+  	z-index: 2;
+  	display: table-cell;
+  	vertical-align: middle;
     text-align: center;
 }
 
@@ -567,10 +566,10 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 }
 
 .home .home-content span.little-text{
-    color: #fdc58b;
-    font-size: 15px;
-    margin-top: 15px;
-    display: block;
+	color: #fdc58b;
+	font-size: 15px;
+	margin-top: 15px;
+	display: block;
 }
 
 .home .home-content p{
@@ -626,7 +625,7 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 
 
 
-/*------------------------ 3 About Section ------------------------*/   
+/*------------------------ 3 About Section ------------------------*/	
 
 .about{
   position: relative;
@@ -640,8 +639,8 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 
 
 .about.type-1 h2{
-     font-size: 30px;
-     margin-bottom: 15px;
+	 font-size: 30px;
+	 margin-bottom: 15px;
 }
 
 .section-title span {
@@ -1608,7 +1607,7 @@ header.type-1 nav ul li.hassub .submenu li:last-child{
 
 .blog.type-1{
   position: relative;
-  padding-bottom: 120px;
+  padding-bottom: 20px;
 }
 
 .blog.type-1 .single-blog:hover{
