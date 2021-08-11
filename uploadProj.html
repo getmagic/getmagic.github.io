@@ -101,8 +101,13 @@
         <div id="whenWebSelected" style="display:none;">
           <label class="titlequest" for="webask">Is the website on github? </label> <br>
           <div class="alignradiobuttons" >
-            <input class="required radiobutton" type="radio" name="Website-Platform" value="Yes" >
+            <input class="required radiobutton" id="gitweb" type="radio" name="Website-Platform" value="Yes" >
             <label class="labelForSelectOrInput" for="Yes">Yes</label><br>
+          </div>
+            <!--exclude this from div "alignradiobuttons" so that it is left-aligned-->
+            <input class="required regularinput" id="receivegithublink" style="display: none; padding:3px" type="text" name="The-Link-To-Your-GitHub-Code" placeholder="Please paste the link to your github code."/>
+
+          <div class="alignradiobuttons" > 
             <input class="required radiobutton" id="nogitweb" type="radio" name="Website-Platform" value="No" >
             <label class="labelForSelectOrInput" for="No">No</label><br>
           </div>
@@ -132,14 +137,14 @@
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div> 
           <br>
           <p class="titlequest" style="color:red;">Number of words Left: <span id="no1span">100 </span></p>
-          <textarea  class="textareaadd required" name="Project-Description" id="projectdec" onkeydown="wordLimit(this.id, 'no1span', 100);" placeholder="Please write here"></textarea>
+          <textarea  class="textareaadd required" name="Project-Description" id="projectdec" onkeydown="wordLimit(this.id, 'no1span', 100);" onpaste="return false;" placeholder="Please write here"></textarea>
         </div>
 
         <div id="MenteeMentorDescription">
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div>
           <label for="menteedec" class="titlequest"> Please describe your relationship with your mentor in 3rd person (100 words): </label> <br>
           <p class="titlequest" style="color:red;">Number of words Left: <span id="no2span">100 </span></p>
-          <textarea  class="textareaadd required" name="Mentee-Relationship-Description" id="menteedec" onkeydown="wordLimit(this.id, 'no2span', 100);" placeholder="Please write here"></textarea>
+          <textarea  class="textareaadd required" name="Mentee-Relationship-Description" id="menteedec" onkeydown="wordLimit(this.id, 'no2span', 100);" onpaste="return false;" placeholder="Please write here"></textarea>
         </div>
 
         <div id="ProjectSummaryDescription">
@@ -147,7 +152,13 @@
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div> 
           <p class="titlequest"> (NOTE: This will go under your name on the website) </p>
           <p class="titlequest" style="color:red;">Number of words Left: <span id="no3span">20 </span></p>
-          <input type="text" class="required regularinput" name="Project-Summary" id="projsummary" placeholder="Project Summary" onkeydown="wordLimit(this.id, 'no3span', 20);" />
+          <input type="text" class="required regularinput" name="Project-Summary" id="projsummary" placeholder="Project Summary" onpaste="return false;" onkeydown="wordLimit(this.id, 'no3span', 20);" />
+        </div>
+
+        <div id="NonWebsiteDescription" style="display:none;">
+          <label for="Description-Of-NonWebsite-Project" class="titlequest"> Please describe where to find your project (if it is available on the app store for example), How your project works, etc : </label>
+           <p class="titlequest" style="color:red;">Number of words Left: <span id="no4span">200 </span></p>
+          <textarea  class="textareaadd required" name="Description-Of-NonWebsite-Project" id="Description-Of-NonWebsite-Project" placeholder="Please write here" onpaste="return false;" onKeyDown="wordLimit(this.id, 'no4span', 200);"></textarea>
         </div>
 
         <div id="UploadInterviewLink">
@@ -163,11 +174,7 @@
 
         <div id="UploadPresentationLink">
           <label class="titlequest" for="Presentation Link">Please embed your presentation link below:</label>
-            <p class="titlequest"> (NOTE: Please see the video below for how to upload your presentation) </p> <br>
-            <video width="350" height=auto controls>
-              <source src="images/Tutorial_Presentation_Upload.mov" type="video/mp4">
-              Your browser does not support HTML video. Go to MAGIC'S official youtube channel (getMagic .org), find your interview, click share, click embed, paste the link within the " " after "src=".
-            </video>
+            <p class="titlequest"> (NOTE: Please see the video above for how to upload your presentation) </p> <br>
             <input type="url" class="required regularinput" id="PresentationLink" name="Presentation-Link" placeholder="Paste your presentation link here">
             <p id="PresentationLinkValidation"></p><br>
         </div>

@@ -97,10 +97,12 @@
                 <li class="col-lg-3 col-sm-3 col-xs-12">YEAR<span id="yearToChange">Year as MAGIC Mentee</span></li>
                 <li class="col-lg-3 col-sm-3 col-xs-12">CATEGORY<span id="typeToChange">Mentee Category</span></li>
             </ul>
-            <div class="row justify-content-center top_90">
-                <div class="col-lg-4 text-center">
-                    <a id="hrefToChange">Visit Website</a>
-            </div>
+            <div id="VisitWebsite" style="display:none;">
+                <div class="row justify-content-center top_90">
+                    <div class="col-lg-4 text-center">
+                        <a id="hrefToChange">Visit Website</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -137,7 +139,8 @@
     </div>
 
     <!-- Big Images -->
-    <h3 class="port-title-one text-center">Here is Sample Code of <span id="nameDecToChange1">the Mentee</span>'s Project.</h3>
+    <!--If the mentee has a non-website project, then their description for their project will get displayed instead of the code images.-->
+    <h3 class="port-title-one text-center" id="sampleCodeOfProject"></h3>
 	    <br></br>
     <div class="row full-image no-gutter">
         <div class="col-lg-6">
@@ -145,6 +148,9 @@
         </div>
         <div class="col-lg-6">
             <img id ="codeToChange2" class="codeEx" alt="Mentee's Code">
+        </div>
+        <div class="port-text col-lg-6 container" id="DivForNonWebsite" style="display:none; text-align:center;">
+           <p id="ProjectDescriptionForNonWebsite"> </p>
         </div>
     </div>
 

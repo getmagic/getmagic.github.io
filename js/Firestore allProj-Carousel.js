@@ -172,6 +172,10 @@ function changeText(menteeUID){
         //console.log("Document data:", doc.data());
         var info = doc.data();
         var FullName=info.firstName + ' ' + info.lastName;
+        if (doc.get('menteeWebsite') != undefined) { //if the field "menteeWebsite" exists, then that means that the mentee's code has already been forked and added to the database. Therefore, it is ready to be added to the website.
+          document.getElementById("hrefToChange").href=info.menteeWebsite;
+          document.getElementById("VisitWebsite").style.display="block";
+        }
         document.getElementById("titleToReplace").innerHTML= "MAGIC " + FullName+ "'s Website";
         document.getElementById("headingToChange").innerHTML= FullName;
         document.getElementById("descriptionToChange").innerHTML= info.projectSummary;
@@ -190,9 +194,20 @@ function changeText(menteeUID){
 
         document.getElementById("AboutToChange").innerHTML=info.projectDescription;
         document.getElementById("ReflecToChange").innerHTML=info.menteeMentorRelationship;
-        document.getElementById("nameDecToChange1").innerHTML=info.firstName;
-        document.getElementById("codeToChange1").src= info.photoLinks.code1;
-        document.getElementById("codeToChange2").src= info.photoLinks.code2;
+        //document.getElementById("nameDecToChange1").innerHTML=info.firstName;
+        if (info.projectType=="Software" & info.softwareType=="Website"){ //if the mentee's project is a website, then display its code images
+          document.getElementById("codeToChange1").src= info.photoLinks.code1;
+          document.getElementById("codeToChange2").src= info.photoLinks.code2;
+          document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ info.firstName+ "'s Project."
+          document.getElementById("DivForNonWebsite").style.display="none";
+        }
+        else{ //if the mentee project is hardware, app, or some other non-website project, hide the code photos
+          document.getElementById("codeToChange1").style.display= "none";
+          document.getElementById("codeToChange2").style.display="none";
+          document.getElementById("sampleCodeOfProject").innerHTML="Here is more information about "+ info.firstName+ "'s Project."
+          document.getElementById("ProjectDescriptionForNonWebsite").innerHTML= info.additionalDescription;
+          document.getElementById("DivForNonWebsite").style.display="block";
+        }
         document.getElementById("nameDecToChange2").innerHTML=info.firstName;
         document.getElementById("youtubeToChange").src=info.interviewLink;
         document.getElementById("nameDecToChange3").innerHTML=info.firstName;

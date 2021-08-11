@@ -69,13 +69,24 @@ function submitForm(e){ //e stands for "event"
       if (websiteongit=="No"){
         websiteongit=getInputVal('specifymore2');
       }
+      else if (websiteongit=="Yes"){
+        var menteeGithubLink= getInputVal('receivegithublink');
+        saveDataToDatabase(UserUID, 'menteeGithubLink', menteeGithubLink)
+      }
       saveDataToDatabase(UserUID, 'isWebsiteOnGit', websiteongit);
+    }else{ //if the project is software but not a website, then save the user's extra description in the database
+      var AdditionalDescription= getInputVal('Description-Of-NonWebsite-Project');
+      saveDataToDatabase(UserUID, 'additionalDescription', AdditionalDescription);
     }
     //add languages used here
     ArrayOfUsedLanguages= getCheckedBoxes('Languages-Used');
     saveDataToDatabase(UserUID, 'languagesUsed', ArrayOfUsedLanguages);
 
   } //end of "if software"
+  else{ //if the projectType is not a software (aka it is a hardware), then save the user's additionaldescription
+    var AdditionalDescription= getInputVal('Description-Of-NonWebsite-Project');
+    saveDataToDatabase(UserUID, 'additionalDescription', AdditionalDescription);
+  }
 
   //after uploading all Projects, save photos/codes into the storage + link it to firestore
   callDatatoStorage('onethumbnailimage', 'thumbnail', 'Photo_Thumbnail', 'photo');
@@ -212,6 +223,9 @@ function addDataToStorage(ID, RenamedFile, BaseNameOfField, i, NameOfSubFolder){
         case 'storage/unknown':
           // Unknown error occurred, inspect error.serverResponse
           paragraph.innerHTML='<span style="color:red;">ERROR for ' + document.getElementById(ID).files[i].name + ': unknown error occurred </span>';
+          break;
+        case 'storage/quota-exceeded':
+          paragraph.innerHTML="<span style='color:red;'>ERROR for ' + document.getElementById(ID).files[i].name + ': Quota on MAGIC's free cloud storage bucket has been exceeded. Please contact irapramanick@getmagic.org for additional assistance.</span>";
           break;
         default:
           paragraph.innerHTML='<span style="color:red;">ERROR for ' + document.getElementById(ID).files[i].name + ': unknown error occurred. Please contact your mentor for additional assistance </span>';
@@ -373,13 +387,7 @@ $(".next").click(function(){
     document.getElementById(placeToAlert).innerHTML=res;
   }
   else{ //if all the argumenets are filled out
-    /*else if ($(document.getElementById('no2')).is(":visible")){ //if we are on the second fieldset
-      var useryear=document.forms["myForm"]["Year-you-were-a-mentee"].value;
-      if (useryear.length!=4){
-        alert ("Please enter a valid year");
-        return false;
-      }
-    }//end of second fieldset*/
+    document.getElementById(placeToAlert).innerHTML=""; 
     if ($(document.getElementById('no3')).is(":visible")){
       //check whether the uploaded InterviewLink url is valid (aka a youtube link)
       var ValidityOfURL= checkURL('InterviewLink'); 
@@ -404,7 +412,6 @@ $(".next").click(function(){
     //clear all error messages on the current fieldset before advancing
     document.getElementById("InterviewLinkValidation").innerHTML="";
     document.getElementById("PresentationLinkValidation").innerHTML="";
-    document.getElementById(placeToAlert).innerHTML=""; 
     moveNext(this);
     if ($(document.getElementById('no4')).is(":visible")){
       if (whetherToUploadCode==true){ //if the user says that they have code to upload, then make the "Upload Code" div on fieldset4 visible
@@ -494,6 +501,13 @@ $('#no3 input[type=radio]').change(function(){
     //if "website" type of software is selected
     if (document.getElementById("webchoice").checked==true){
       document.getElementById("whenWebSelected").style.display="block";
+      //whenever you select that your website is hosted on github
+      if (document.getElementById("gitweb").checked==true){
+        document.getElementById("receivegithublink").style.display="block";
+      }
+      else{
+        document.getElementById("receivegithublink").style.display="none";
+      }
       //whenever you select that you are not hosted on github
       if (document.getElementById("nogitweb").checked==true) {
         document.getElementById("specifymore2").style.display="block";
@@ -513,10 +527,18 @@ $('#no3 input[type=radio]').change(function(){
     document.getElementById("specifymore2").style.display="none";
     document.getElementById("checkBoxLang").style.display="none";
   }
+  //if Software is checked but website is not chekced, then display non-websitediv; else, display none
+  if ((document.getElementById("Software-Choice").checked===true & document.getElementById("webchoice").checked!=true) ||(document.getElementById("Hardware-Choice").checked===true)){
+    document.getElementById("NonWebsiteDescription").style.display="block";
+  }
+  else{ //if the user's project is a website
+    document.getElementById("NonWebsiteDescription").style.display="none";
+  }
 })
 
 function matchYoutubeUrl(url) {
-    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    //var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/\?.+&v=))((\w|-){11})(?:\S+)?$/; //disallows "watch"
     var matches = url.match(p); //search the attached string for whatever is in "p"
     if(matches){ //if the URL has anything that is also inside p, return it (aka the URL is valid)
         return matches[1];
