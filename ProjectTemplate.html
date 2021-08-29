@@ -87,6 +87,7 @@
 
 	<!-- ARTICLE CONTENT
 	================================================== -->
+<div style="padding-bottom:20px;">
 	<div class="article-content padding_90">
         <div class="container">
             <!--<h2 id="entranceToChange" class="port-title-one text-center bottom_30">Description of Mentee</h2>-->
@@ -100,7 +101,7 @@
             <div id="VisitWebsite" style="display:none;">
                 <div class="row justify-content-center top_90">
                     <div class="col-lg-4 text-center">
-                        <a id="hrefToChange">Visit Website</a>
+                        <a target="_blank" id="hrefToChange">Visit Website</a>
                     </div>
                 </div>
             </div>
@@ -108,10 +109,13 @@
     </div>
 
     <div id="testdiv">
+    </div> 
+    <div id="divOfStaticPhoto" style="display: none;margin-left: auto;margin-right: auto; width:50%">
+        <img id="staticphoto1" class="PortImageCarousImg" style="border:1px solid black;"src=""/>
     </div>
-
     <!--Portfolio Slider-->
-    <div class="slideshow-container-port-carous"> 
+
+    <div id="divOfImgCarousel" class="slideshow-container-port-carous"> 
         <div id="tryToAppendCarous" class="slideshow-inner">
             <!--Here is where the appended images go-->
             <div class="mySlidesPortCarous"> <img id="examplephoto1" class="PortImageCarousImg" src=""/></div>
@@ -140,37 +144,56 @@
 
     <!-- Big Images -->
     <!--If the mentee has a non-website project, then their description for their project will get displayed instead of the code images.-->
+<div id="AnyCodePhotos">
     <h3 class="port-title-one text-center" id="sampleCodeOfProject"></h3>
 	    <br></br>
-    <div class="row full-image no-gutter">
+    <img id="1codePhoto" class="PortImageCarousImg" style="display:none; margin-left: auto;margin-right: auto; width:50%" src=""/>
+   <div id="DivOf2CodePhotos" class="row full-image no-gutter" style="padding-bottom: 20px;">
         <div class="col-lg-6">
-            <img id="codeToChange1" class="codeEx" alt="Mentee's Code">
+            <img id="codeToChange1" class="codeEx" alt="Mentee's Code"/>
         </div>
         <div class="col-lg-6">
-            <img id ="codeToChange2" class="codeEx" alt="Mentee's Code">
-        </div>
-        <div class="port-text col-lg-6 container" id="DivForNonWebsite" style="display:none; text-align:center;">
-           <p id="ProjectDescriptionForNonWebsite"> </p>
+            <img id="codeToChange2" class="codeEx" alt="Mentee's Code" />
         </div>
     </div>
+</div>
+
+
+<div id="DivOfAdditionalDescription" class="row full-image no-gutter" style="display: none;padding-bottom: 10px; padding-top:20px;">
+    <h3 class="port-title-one text-center" id="additionalDescriptionOfProject"></h3>
+        <br></br>
+    <div class="port-text col-lg-6 container" style=" text-align:center;">
+            <p id="AdditionalDescription"> </p>
+    </div>
+</div>
+
+<div id="DownloadCode" style="display:none;">
+                <div class="row justify-content-center top_90">
+                    <div class="col-lg-4 text-center">
+                        <a id="LinkToMenteeZippedCode">Download Code</a>
+                    </div>
+                </div>
+</div>
 
     <!-- Video Section -->
-    <div class="container padding_90">
+    <div id="linkForMenteeInterview" class="container padding_90" style="display:none;">
         <h3 class="port-title-one text-center">Learn about how <span id="nameDecToChange2"> the mentee</span> programmed her project and how MAGIC had an impact on her life!</h3>
-    <div class="top_60" style="padding:56.25% 0 0 0;position:relative;"><iframe id="youtubeToChange" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+        <div class="top_60" style="padding:56.25% 0 0 0;position:relative;"><iframe id="youtubeToChange" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
     </div>
 
-    <div class="container padding_90">
+    <div id="linkForMenteePresentation" class="container padding_90" style="display:none;">
         <h3 class="port-title-one text-center">See <span id="nameDecToChange3"> the mentee</span> present her project!</h3>
-    <div class="top_60" style="padding:56.25% 0 0 0;position:relative;"><iframe id="youtubeToChange2" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+        <div class="top_60" style="padding:56.25% 0 0 0;position:relative;"><iframe id="youtubeToChange2" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
     </div>
+
     </div> <!-- wrapper end -->
+</div>
 
         <!-- FOOTER SECTION
         ================================================== -->
         <footer class="type-1">
           <div class="cont text-center padding_90">
-            <p>Copyright © 2019 MAGIC, All rights Reserved.</p>
+            <p>Copyright © 2021 MAGIC, All rights Reserved.</p>
             <div class="social top_30">
               <a href="https://www.facebook.com/GirlsGetMAGIC/"><i class="fab fa-facebook"></i>  </a>
               <a href="https://twitter.com/STEMmagic"><i class="fab fa-twitter" aria-hidden="true"></i>  </a>
@@ -199,7 +222,7 @@
 <script src="js/jquery.cubeportfolio.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/main.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
 <script src="js/Firestore allProj-Carousel.js"></script> 
 

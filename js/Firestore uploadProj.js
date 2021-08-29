@@ -1,12 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyB8IiatLrHayjWMOF3_R_A4lpivKoqNIuU",
-    authDomain: "test-database-contactform.firebaseapp.com",
-    databaseURL: "https://test-database-contactform-default-rtdb.firebaseio.com",
-    projectId: "test-database-contactform",
-    storageBucket: "test-database-contactform.appspot.com",
-    messagingSenderId: "78331044916",
-    appId: "1:78331044916:web:a42b797bec4199c3d55661",
-    measurementId: "G-6CSL08J95N"
+    apiKey: "AIzaSyBvdKIGHpWc3JUkdCRNhAnQfsySDzMN84M",
+    authDomain: "mentee-projects-website.firebaseapp.com",
+    databaseURL: "https://mentee-projects-website.firebaseio.com",
+    projectId: "mentee-projects-website",
+    storageBucket: "mentee-projects-website.appspot.com",
+    messagingSenderId: "251177809171",
+    appId: "1:251177809171:web:cfb4e67e5b6a15eeeb56e6"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -15,19 +14,16 @@ firebase.analytics();
 var database= firebase.firestore();
 document.getElementById('uploadProjForm').addEventListener('submit', submitForm);
 
-function saveProject(fnameparam, lnameparam, yearparam, gradeparam, projtypeparam, projdecparam, relationparam, projsumparam, InterviewParam, presentparam){
+function saveProject(fnameparam, lnameparam, yearparam, gradeparam, projdecparam, relationparam, projsumparam){
   var newUserRef = database.collection("Projects").doc(); //saves UID for later
   newUserRef.set({
     firstName: fnameparam,
     lastName: lnameparam,
     year: yearparam,
     gradeLevel: gradeparam,
-    projectType: projtypeparam,
     projectDescription: projdecparam,
     menteeMentorRelationship:relationparam,
     projectSummary: projsumparam,
-    interviewLink: InterviewParam,
-    presentationLink: presentparam
   })
   return newUserRef.id; //returns generated UID
 }
@@ -51,11 +47,101 @@ function submitForm(e){ //e stands for "event"
   var ProjectSummary= getInputVal('projsummary');
   var InterviewLink= getInputVal('InterviewLink');
   var PresentationLink= getInputVal('PresentationLink');
-  var projecttype= getRadioVal( document.getElementById('uploadProjForm'), 'Type-of-Project' );
-  var whetherThereIsCodeToUpload=getRadioVal( document.getElementById('uploadProjForm'), 'Whether-You-Have-Code-To-Upload' );
+  //var projecttype= getRadioVal( document.getElementById('uploadProjForm'), 'Type-of-Project' );
   //saves the attributes that all mentees need in the database
-  UserUID= saveProject(fname, lname, YearMentee, MenteeGrade, projecttype, ProjectDescription, MenteeMentorRelationship, ProjectSummary, InterviewLink, PresentationLink);
+  //UserUID= saveProject(fname, lname, YearMentee, MenteeGrade, projecttype, ProjectDescription, MenteeMentorRelationship, ProjectSummary, InterviewLink, PresentationLink);
+  UserUID= saveProject(fname, lname, YearMentee, MenteeGrade, ProjectDescription, MenteeMentorRelationship, ProjectSummary);
+  
+  //replace the word "Other" with the specified tags
+  if (SelectedTags.includes("Other")){
+    var indexOfOtherTag= SelectedTags.indexOf("Other");
+    //at the specified index, remove one item (aka remove "Others" from the index)
+    SelectedTags.splice(indexOfOtherTag, 1);
+    //var othertags=document.getElementById("specifymore1").innerHTML;
+    var othertags=getInputVal("specifymore1");
+    console.log(othertags);
+    SelectedTags.push(othertags);
+  }
+  saveDataToDatabase(UserUID, 'projectTags', SelectedTags);
+  var whetherThereIsCodeToUpload=getRadioVal( document.getElementById('uploadProjForm'), 'Whether-You-Have-Code-To-Upload' );
 
+  //if the user enters an interview (or presentation) link, then save it in the database.
+  if (InterviewLink !=""){
+    saveDataToDatabase(UserUID, 'interviewLink', InterviewLink);
+  }
+  if (PresentationLink !=""){
+    saveDataToDatabase(UserUID, 'presentationLink', PresentationLink);
+  }
+
+  /*if (whetherThereIsCodeToUpload=="Yes"){ //if there is code to upload, then upload the "Languages Used"
+    ArrayOfUsedLanguages= getCheckedBoxes('Languages-Used');
+    if (ArrayOfUsedLanguages.includes("Other")){
+      var indexOfOtherTag= ArrayOfUsedLanguages.indexOf("Other");
+      //at the specified index, remove one item (aka remove "Others" from the index)
+      ArrayOfUsedLanguages.splice(indexOfOtherTag, 1); 
+      var othertags=document.getElementById("specifymore3").innerHTML;
+      ArrayOfUsedLanguages.push(othertags)
+  }
+    saveDataToDatabase(UserUID, 'languagesUsed', ArrayOfUsedLanguages);
+  }*/
+
+  /*if (SelectedTags.includes("Software")){
+    //add github info to the database
+    var websiteongit= getRadioVal( document.getElementById('uploadProjForm'), "Whether-Project-Is-On-GitHub" );
+    
+      if (websiteongit=="Yes"){
+        var menteeGithubLink= getInputVal('receivegithublink');
+        saveDataToDatabase(UserUID, 'menteeGithubLink', menteeGithubLink)
+      }
+      saveDataToDatabase(UserUID, 'isWebsiteOnGit', websiteongit);
+
+      //add checkBoxLang info to the database
+      ArrayOfUsedLanguages= getCheckedBoxes('Languages-Used');
+      if (ArrayOfUsedLanguages.includes("Other")){
+        var indexOfOtherTag= ArrayOfUsedLanguages.indexOf("Other");
+        //at the specified index, remove one item (aka remove "Others" from the index)
+        ArrayOfUsedLanguages.splice(indexOfOtherTag, 1); 
+        var othertags=document.getElementById("specifymore3").innerHTML;
+        ArrayOfUsedLanguages.push(othertags)
+      }
+      saveDataToDatabase(UserUID, 'languagesUsed', ArrayOfUsedLanguages);
+
+  }  
+
+  if (SelectedTags.includes("Website")==false){
+    var AdditionalDescription= getInputVal('Description-Of-NonWebsite-Project');
+    saveDataToDatabase(UserUID, 'additionalDescription', AdditionalDescription);
+  }*/
+
+  if ((SelectedTags.includes("Website"))|| (SelectedTags.includes("Software"))){
+     //add github info to the database
+    var websiteongit= getRadioVal( document.getElementById('uploadProjForm'), "Whether-Project-Is-On-GitHub" );
+    if (websiteongit=="Yes"){
+        var menteeGithubLink= getInputVal('receivegithublink');
+        saveDataToDatabase(UserUID, 'menteeGithubLink', menteeGithubLink)
+    }
+    saveDataToDatabase(UserUID, 'isWebsiteOnGit', websiteongit);
+    if (SelectedTags.includes("Software")){
+      //add checkBoxLang info to the database
+      ArrayOfUsedLanguages= getCheckedBoxes('Languages-Used');
+      if (ArrayOfUsedLanguages.includes("Other")){
+        var indexOfOtherTag= ArrayOfUsedLanguages.indexOf("Other");
+        //at the specified index, remove one item (aka remove "Others" from the index)
+        ArrayOfUsedLanguages.splice(indexOfOtherTag, 1); 
+        var othertags=document.getElementById("specifymore3").innerHTML;
+        ArrayOfUsedLanguages.push(othertags)
+      }
+      saveDataToDatabase(UserUID, 'languagesUsed', ArrayOfUsedLanguages);
+    }
+    if (SelectedTags.includes("Website")==false){
+      var AdditionalDescription= getInputVal('Description-Of-NonWebsite-Project');
+      saveDataToDatabase(UserUID, 'additionalDescription', AdditionalDescription);
+    }
+  }
+
+
+
+/*
   //saves attributes that are only present in mentees with software projects
   if (projecttype=="Software"){
     var softwaretype= getRadioVal( document.getElementById('uploadProjForm'), 'Type-of-Software' );
@@ -86,14 +172,14 @@ function submitForm(e){ //e stands for "event"
   else{ //if the projectType is not a software (aka it is a hardware), then save the user's additionaldescription
     var AdditionalDescription= getInputVal('Description-Of-NonWebsite-Project');
     saveDataToDatabase(UserUID, 'additionalDescription', AdditionalDescription);
-  }
+  }*/
 
   //after uploading all Projects, save photos/codes into the storage + link it to firestore
   callDatatoStorage('onethumbnailimage', 'thumbnail', 'Photo_Thumbnail', 'photo');
   callDatatoStorage('fourexamplephotos', 'example', 'Photo_Example', 'photo');
   if (whetherThereIsCodeToUpload=="Yes"){ //if there is code to upload, then upload photos of the code + zipped code file
     callDatatoStorage('twocodeimages', 'code', 'Photo_Code', 'photo');
-    callDatatoStorage('uploadcode', null, 'Link_Code', 'code');
+    callDatatoStorage('uploadcode', 'codeDownloadLink', 'Link_Code', null);
   }
 
   //Redirect this to a fieldset that verifies that upload was succesful: moveNext(this); 
@@ -105,9 +191,6 @@ function saveDataToDatabase(UID, nameofField, valueofField){
     database.collection("Projects").doc(UID).update({
                [nameofField]: valueofField
     }) //end of database/collection*/
-  }
-  else{ //if valueofField is undefined
-
   }
 }
 
@@ -177,7 +260,7 @@ function addDataToStorage(ID, RenamedFile, BaseNameOfField, i, NameOfSubFolder){
       var storageName=nameOfFile; //storageName is what will be saved as the nested field in the photoLinks and codeLinks section of firestore
     }
     else {
-      if (RenamedFile=="thumbnail"){ //if you specified how u want to rename the file, rename it. Since there is only 1 thumbnail photo, you do not need to add a number after it.
+      if ((RenamedFile=="thumbnail") || (RenamedFile=="codeDownloadLink")){ //if you specified how u want to rename the file, rename it. Since there is only 1 thumbnail photo and one codeLink, you do not need to add a number after it.
         var storageName=RenamedFile; 
       }
       else{//if you specified how u want to rename the file, rename it
@@ -185,6 +268,16 @@ function addDataToStorage(ID, RenamedFile, BaseNameOfField, i, NameOfSubFolder){
       }
       var stringNeeded = UserUID+'/'+NameOfSubFolder+'/'+storageName;
     }
+    if (NameOfSubFolder==null){ //if you did not provide a sub folder, then assume that it should not be nested
+      var stringNeeded = UserUID+'/'+storageName;
+    }
+
+    //do not rename the storage but rename the field in database
+    if (RenamedFile=="codeDownloadLink"){
+      var nameOfFile=document.getElementById(ID).files[i].name;
+      var stringNeeded= UserUID+'/'+nameOfFile;
+    }
+
     var storageRef = firebase.storage().ref(stringNeeded);
     var IDofimage= '#'+ID
     //var file_data = $(IDofimage).prop('files')[0]; //takes the first uploaded file (aka 0)
@@ -236,14 +329,24 @@ function addDataToStorage(ID, RenamedFile, BaseNameOfField, i, NameOfSubFolder){
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
       //console.log('File available at', downloadURL);
       //var NameOfField=BaseNameOfField+String(number); //NameOfField resembles stringNeeded now
+      //if (NameOfSubFolder != null){
       var NameOfMap=NameOfSubFolder+'Links';
-       //SOLUTION 2
+      //}
       //issue: when u have index.html, it assumes the '.' is separating a field and creates a nested field
       storageName = storageName.replace(/\./g,'-') //replace period with a hyphen
-      let updateNested = database.collection('Projects').doc(UserUID).update({
+      //if these is a Subfolder name, then create a nested field; else, do not create a nested field.
+      if (NameOfSubFolder!=null){
+        let updateNested = database.collection('Projects').doc(UserUID).update({
         //'favorites.color': 'Red'
-        [NameOfMap+'.'+storageName]: downloadURL
-      });
+          [NameOfMap+'.'+storageName]: downloadURL
+        });
+      }
+      else{
+        let updateNested = database.collection('Projects').doc(UserUID).update({
+        //'favorites.color': 'Red'
+          [storageName]: downloadURL
+        });
+      }
       if (RenamedFile==null){ //if the uploaded file was not renamed
         paragraph.innerHTML=document.getElementById(ID).files[i].name + '<span style="color:#480000"> was succesfully uploaded and is available at</span> <a target="_blank" href="' + downloadURL + '">' + downloadURL + '</a>';
       }
@@ -373,14 +476,16 @@ $(".next").click(function(){
       } //end of if x is empty
     }//end of if visible
   }//end of for loop
+  if ($(document.getElementById('no3')).is(":visible")){
   if (document.getElementById("checkBoxLang").style.display=="block"){
     returnedmessage= seeIfLanguageBoxisChecked();
     if (returnedmessage!=null){
       if (document.getElementById('otherlanguage').checked==false){ //only if other is not checked
-        var res=res+ returnedmessage;
+        var res=res+ returnedmessage+ ', ';
       }
     }
   }
+}
   if(res.valueOf() != "The following argument(s) must be filled out: "){
     //alert(res);
     res = res.slice(0, -2);  //remove the last 2 character from the string (aka remove the final space and final comma)
@@ -389,25 +494,39 @@ $(".next").click(function(){
   else{ //if all the argumenets are filled out
     document.getElementById(placeToAlert).innerHTML=""; 
     if ($(document.getElementById('no3')).is(":visible")){
-      //check whether the uploaded InterviewLink url is valid (aka a youtube link)
-      var ValidityOfURL= checkURL('InterviewLink'); 
-      if (ValidityOfURL==true){
-        document.getElementById("InterviewLinkValidation").innerHTML=""; //ensure no error messages show if the url is valid
-      }
-      var ValidityOfURL2=checkURL('PresentationLink');
-      if (ValidityOfURL2==true){
-        document.getElementById("PresentationLinkValidation").innerHTML="";
-      }
-      if (ValidityOfURL==false || ValidityOfURL2==false){ //if either the Interview or Presentation link is invalid
-        if (ValidityOfURL==false){
-          document.getElementById("InterviewLinkValidation").innerHTML="<span style='color:red; font-size:14px;'>Please enter a valid youtube link for the Interview. Check the video above for more assistance </span>"
-        }
-        if (ValidityOfURL2==false) { //if the presentation link is invalid
-          document.getElementById("PresentationLinkValidation").innerHTML="<span style='color:red; font-size:14px;'>Please enter a valid youtube link for the Presentation. Check the video above for more assistance </span>"
-        }
+      if (SelectedTags.length==0){
+        document.getElementById(placeToAlert).innerHTML="Please select atleast one tag that describes your project";
         return; //leave function (don't let them advance to moveNext)
       }
-      whetherToUploadCode= document.getElementById("Yes-CodeUpload").checked;
+      var interviewlink= document.getElementById("InterviewLink").value;
+      var presentationlink= document.getElementById("PresentationLink").value;
+      //assume that both links are valid unless otherwise shown
+      var ValidityOfURL=true;
+      var ValidityOfURL2=true;
+      if (interviewlink!=""){ //as long as interviewlink is filled in, check if the URL is valid
+        var ValidityOfURL= checkURL('InterviewLink'); 
+        if (ValidityOfURL==true){ //if the URL is valid, ensure that no error messages are displayed
+          document.getElementById("InterviewLinkValidation").innerHTML=""; //ensure no error messages show if the url is valid
+        }
+        else{
+          document.getElementById("InterviewLinkValidation").innerHTML="<span style='color:red; font-size:14px;'>Please enter a valid youtube link or remove the Interview. Check the video above for more assistance </span>"
+        }
+      }
+
+      if (presentationlink!=""){
+        var ValidityOfURL2=checkURL('PresentationLink');
+        if (ValidityOfURL2==true){ //if the URL is valid, ensure that no error messages are displayed
+          document.getElementById("PresentationLinkValidation").innerHTML=""; //ensure no error messages show if the url is valid
+        }
+        else{
+          document.getElementById("PresentationLinkValidation").innerHTML="<span style='color:red; font-size:14px;'>Please enter a valid youtube link or remove the Presentation. Check the video above for more assistance </span>"
+        }
+      }
+
+      if (ValidityOfURL==false || ValidityOfURL2==false){ //if either URL is invalid, then stop the user from moving forward
+        return; //leave function (don't let them advance to moveNext)
+      }
+      whetherToUploadCode= document.getElementById("YesCodeUpload").checked;
     } 
     //clear all error messages on the current fieldset before advancing
     document.getElementById("InterviewLinkValidation").innerHTML="";
@@ -455,7 +574,8 @@ function getFileInfo(fileID, container, maxlength){ //fileID is the ID of the fi
     } 
     else {
       if (maxlength != null) {
-        if (x.files.length != maxlength){
+        //for all containers other than "ExamplePhotosInfo", ensure that the exact number of files have been uploaded. If the file is ExamplePhotos, then you can upload less than the specified photos
+        if (((container!= "ExamplePhotosInfo" && container!= "CodePhotsInfo") && x.files.length != maxlength) || ((container== "ExamplePhotosInfo" || container== "CodePhotsInfo")&& x.files.length > maxlength)){
           //x.files[0].slice(0,maxlength);
           txt="<span style='color:red; font-size:14px;'> You uploaded " + x.files.length + " file(s). Please upload "+ maxlength + " file(s) </span>";
           //document.getElementById(container).innerHTML = txt;
@@ -487,57 +607,18 @@ function getFileInfo(fileID, container, maxlength){ //fileID is the ID of the fi
   document.getElementById(container).innerHTML = txt;
 }
 
-$('#no3 input[type=radio]').change(function(){
-  if (document.getElementById("Software-Choice").checked===true){
-    document.getElementById("SoftwareDiv").style.display="block";
-    document.getElementById("checkBoxLang").style.display="block";
-    //If other type of software is selected
-    if (document.getElementById("other").checked==true){ 
-      document.getElementById("specifymore1").style.display="block";
-    }
-    else{ 
-      document.getElementById("specifymore1").style.display="none";
-    }
-    //if "website" type of software is selected
-    if (document.getElementById("webchoice").checked==true){
-      document.getElementById("whenWebSelected").style.display="block";
-      //whenever you select that your website is hosted on github
-      if (document.getElementById("gitweb").checked==true){
-        document.getElementById("receivegithublink").style.display="block";
-      }
-      else{
-        document.getElementById("receivegithublink").style.display="none";
-      }
-      //whenever you select that you are not hosted on github
-      if (document.getElementById("nogitweb").checked==true) {
-        document.getElementById("specifymore2").style.display="block";
-      }
-      else{
-        document.getElementById("specifymore2").style.display="none";
-      }
-    }
-    else{ //if website is not selected
-      document.getElementById("whenWebSelected").style.display="none";
-    }
-  }
-  else{ //if hardware checked OR if software is not selected
-    document.getElementById("SoftwareDiv").style.display="none";
-    document.getElementById("specifymore1").style.display="none";
-    document.getElementById("whenWebSelected").style.display="none";
-    document.getElementById("specifymore2").style.display="none";
-    document.getElementById("checkBoxLang").style.display="none";
-  }
-  //if Software is checked but website is not chekced, then display non-websitediv; else, display none
-  if ((document.getElementById("Software-Choice").checked===true & document.getElementById("webchoice").checked!=true) ||(document.getElementById("Hardware-Choice").checked===true)){
-    document.getElementById("NonWebsiteDescription").style.display="block";
-  }
-  else{ //if the user's project is a website
-    document.getElementById("NonWebsiteDescription").style.display="none";
-  }
-})
+//ensures the uploaded file for code is a zipped file
+$('#uploadcode').bind("change", function(e){
+    var file = (e.srcElement || e.target).files[0];
+    console.log(file.type);
+    if ((file.type!="application/zip") && (file.type!="application/x-zip-compressed")){
+      $("#uploadcode").val(''); //resets the file
+      document.getElementById("CodeFilesInfo").innerHTML="<span style='color:red; font-size:14px;'> Please upload a zipped file. Press the question mark for additional assistance.</span>";
+      event.preventDefault();
+    } 
+});
 
 function matchYoutubeUrl(url) {
-    //var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
     var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/\?.+&v=))((\w|-){11})(?:\S+)?$/; //disallows "watch"
     var matches = url.match(p); //search the attached string for whatever is in "p"
     if(matches){ //if the URL has anything that is also inside p, return it (aka the URL is valid)
@@ -594,6 +675,7 @@ function addYearDropdown(){
 
 //checks whether a user has selected a language box from "languages used" before they can move on to the next section/
 function seeIfLanguageBoxisChecked(){
+  var messagetoreturn=null;
   var checkBoxChecked=false;
   for (var i=0; i<LanguagesArray.length; i++){
       var idtocheck="language"+String(i);
@@ -626,7 +708,7 @@ function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxwords){
 
 /*append the "pop up" image code wherever pop ups need to be there*/
 function addPopUps(){
-  var ArrayOfPopUpImages=["ProjectDescription", "MenteeRelationship", "ProjectSummaryEx", "Thumbnail1", "ProjectPhotos", "CodePhotos", "CodeFiles"];
+  var ArrayOfPopUpImages=["ProjectDescription", "MenteeRelationship", "ProjectSummaryEx", "Thumbnail1", "ProjectPhotos", "CodePhotos", "ZippedCodeUpload"];
   var listOfDiv=document.getElementsByClassName("popup");
   for (var i=0; i< listOfDiv.length; i++){
       var newId="popupid"+i;
@@ -661,5 +743,83 @@ function displayPopUpImage(CurrentID) {
     currentpopup.classList.remove("show");
   }
 }
+
+/*tags on fieldset 3*/
+var SelectedTags=[];
+$( ".msform #no3 #FormTags input[type=button]" ).click(function() {
+  var valueOfSelectedButton=$(this).attr('value');//get the value of the clicked button
+  if (SelectedTags.includes(valueOfSelectedButton) == false) { //if the tag has not already been selected, then select it
+    SelectedTags.push(valueOfSelectedButton)
+    this.style.background="gray";
+  }
+  else{ //if the user has already selected the specified tag and clicks on it, then assume that the user does not want that specific tag anymore
+    var indexOfButton= SelectedTags.indexOf(valueOfSelectedButton);
+    //at the specified index, remove one item (aka remove the button from the index)
+    SelectedTags.splice(indexOfButton, 1);
+    this.style.background="#d9d9d9";
+  }
+
+  if (SelectedTags.includes("Software")!=true){
+    document.getElementById("checkBoxLang").style.display="none";
+  }
+  //if the user selects website or software, then ask for github info. If the user selects software, then display "Languages used". If the suer selects website, then do not display the NonWebsiteDescription.
+  if ((SelectedTags.includes("Website"))|| (SelectedTags.includes("Software"))){
+    document.getElementById("whenWebSelected").style.display="block";
+    if (SelectedTags.includes("Software")){
+      document.getElementById("checkBoxLang").style.display="block";
+    }
+    else{document.getElementById("checkBoxLang").style.display="none";}
+
+    if (SelectedTags.includes("Website")){
+      document.getElementById("NonWebsiteDescription").style.display="none";
+    }
+    else{document.getElementById("NonWebsiteDescription").style.display="block";}
+  }
+  else{
+    document.getElementById("whenWebSelected").style.display="none";
+  }
+  //when the user selects a "software" tag, ask if their project is on github and ask them for which languages they used
+  /*
+  if (SelectedTags.includes("Software")){
+      document.getElementById("whenWebSelected").style.display="block";
+      document.getElementById("checkBoxLang").style.display="block";
+  }
+  else{ document.getElementById("whenWebSelected").style.display="none"; document.getElementById("checkBoxLang").style.display="none";}
+
+  //when the user selects a "website" tag, ask if their project is on github
+  if (SelectedTags.includes("Website")){
+      document.getElementById("NonWebsiteDescription").style.display="none";
+      document.getElementById("whenWebSelected").style.display="block";
+  }
+  else{ document.getElementById("whenWebSelected").style.display="none"; document.getElementById("NonWebsiteDescription").style.display="block";}
+*/
+
+  //when Other is selected, open a text box for the user to enter additional tags for their project
+  if (SelectedTags.includes("Other")){
+    document.getElementById("specifymore1").style.display="block";
+  }
+  else{ document.getElementById("specifymore1").style.display="none";}
+
+});
+
+
+$('#no3 input[type=radio]').change(function(){
+  /*if (document.getElementById("YesCodeUpload").checked==true) {
+    document.getElementById("checkBoxLang").style.display="block";
+  } else{document.getElementById("checkBoxLang").style.display="none";} */
+
+  if (document.getElementById("whenWebSelected").style.display=="block"){
+    if (document.getElementById("nogitweb").checked==true) {
+      //Uncomment if you want the user to specify where their website is hosted if not github: document.getElementById("specifymore2").style.display="block";
+      document.getElementById("receivegithublink").style.display="none";
+    }
+    else{
+      //document.getElementById("specifymore2").style.display="none";
+      document.getElementById("receivegithublink").style.display="block";
+    }
+  } 
+
+})
+
 
 

@@ -1,13 +1,13 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyB8IiatLrHayjWMOF3_R_A4lpivKoqNIuU",
-    authDomain: "test-database-contactform.firebaseapp.com",
-    databaseURL: "https://test-database-contactform-default-rtdb.firebaseio.com",
-    projectId: "test-database-contactform",
-    storageBucket: "test-database-contactform.appspot.com",
-    messagingSenderId: "78331044916",
-    appId: "1:78331044916:web:a42b797bec4199c3d55661",
-    measurementId: "G-6CSL08J95N"
+    apiKey: "AIzaSyBvdKIGHpWc3JUkdCRNhAnQfsySDzMN84M",
+    authDomain: "mentee-projects-website.firebaseapp.com",
+    databaseURL: "https://mentee-projects-website.firebaseio.com",
+    projectId: "mentee-projects-website",
+    storageBucket: "mentee-projects-website.appspot.com",
+    messagingSenderId: "251177809171",
+    appId: "1:251177809171:web:cfb4e67e5b6a15eeeb56e6"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
@@ -182,37 +182,97 @@ function changeText(menteeUID){
         document.getElementById("entranceToChange").innerHTML= FullName;
         document.getElementById("nameToChange").innerHTML= FullName;
         document.getElementById("gradeToChange").innerHTML=info.gradeLevel;
-        document.getElementById("typeToChange").innerHTML=info.projectType;
+        var userTags=info.projectTags
+        document.getElementById("typeToChange").innerHTML=userTags.join(", ");
         document.getElementById("yearToChange").innerHTML=info.year;
       
         //Add images in Portoflio Slider and call setTimerfunct()
-        document.getElementById("examplephoto1").src=info.photoLinks.example1;
-        document.getElementById("examplephoto2").src=info.photoLinks.example2;
-        document.getElementById("examplephoto3").src=info.photoLinks.example3;
-        document.getElementById("examplephoto4").src=info.photoLinks.example4;
-        setTimerFunct();
+        //if only one example photo has been uploaded, then remove the image carousel and make it a static image
+        if ((doc.get('photoLinks.example1') != undefined) && (doc.get('photoLinks.example2') === undefined) && (doc.get('photoLinks.example3') === undefined) && (doc.get('photoLinks.example4') === undefined)){
+          //make a static image of only example 1
+          document.getElementById("divOfImgCarousel").style.display="none";
+          document.getElementById("staticphoto1").src=info.photoLinks.example1;
+          document.getElementById("divOfStaticPhoto").style.display="block";
+        }
+        //if only 2 images have been uploaded, then add each of those photos 2 times in the image carousel
+        else if ((doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example3') === undefined) && (doc.get('photoLinks.example4') === undefined)){
+          document.getElementById("examplephoto1").src=info.photoLinks.example1;
+          document.getElementById("examplephoto2").src=info.photoLinks.example2;
+          document.getElementById("examplephoto3").src=info.photoLinks.example1;
+          document.getElementById("examplephoto4").src=info.photoLinks.example2;
+          setTimerFunct();
+        }
+        //if only 3 images have been uploaded, then repeat the first image at the end.
+        else if ((doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example3') != undefined) && (doc.get('photoLinks.example4') === undefined)){
+          document.getElementById("examplephoto1").src=info.photoLinks.example1;
+          document.getElementById("examplephoto2").src=info.photoLinks.example2;
+          document.getElementById("examplephoto3").src=info.photoLinks.example3;
+          document.getElementById("examplephoto4").src=info.photoLinks.example2;
+          setTimerFunct();
+        }
+        //if all 4 photos have been uploaded, then add each photo to the image carousel
+        else if ((doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example2') != undefined) && (doc.get('photoLinks.example3') != undefined) && (doc.get('photoLinks.example4') != undefined)){
+          document.getElementById("examplephoto1").src=info.photoLinks.example1;
+          document.getElementById("examplephoto2").src=info.photoLinks.example2;
+          document.getElementById("examplephoto3").src=info.photoLinks.example3;
+          document.getElementById("examplephoto4").src=info.photoLinks.example4;
+          setTimerFunct();
+        } 
+        //if none of the above "if" statements get executed, then do not display any images/carousels
+        else{
+          document.getElementById("divOfImgCarousel").style.display="none";
+        }
 
         document.getElementById("AboutToChange").innerHTML=info.projectDescription;
         document.getElementById("ReflecToChange").innerHTML=info.menteeMentorRelationship;
-        //document.getElementById("nameDecToChange1").innerHTML=info.firstName;
-        if (info.projectType=="Software" & info.softwareType=="Website"){ //if the mentee's project is a website, then display its code images
+        
+        //if only 1 code photo exists, then only display that
+        if ((doc.get('photoLinks.code1') !=undefined) && (doc.get('photoLinks.code2') ===undefined)){
+          document.getElementById("1codePhoto").src=info.photoLinks.code1;
+          document.getElementById("DivOf2CodePhotos").style.display="none";
+          document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ info.firstName+ "'s Project."
+          document.getElementById("1codePhoto").style.display="block";
+        }
+        //otherwise (if both code1 and code2 exist, then display them both)
+        else if ((doc.get('photoLinks.code1') !=undefined) && (doc.get('photoLinks.code2') !=undefined)){
+          document.getElementById("1codePhoto").style.display="none";
           document.getElementById("codeToChange1").src= info.photoLinks.code1;
           document.getElementById("codeToChange2").src= info.photoLinks.code2;
           document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ info.firstName+ "'s Project."
-          document.getElementById("DivForNonWebsite").style.display="none";
+          document.getElementById("DivOf2CodePhotos").style.display!="none";
         }
-        else{ //if the mentee project is hardware, app, or some other non-website project, hide the code photos
-          document.getElementById("codeToChange1").style.display= "none";
-          document.getElementById("codeToChange2").style.display="none";
-          document.getElementById("sampleCodeOfProject").innerHTML="Here is more information about "+ info.firstName+ "'s Project."
-          document.getElementById("ProjectDescriptionForNonWebsite").innerHTML= info.additionalDescription;
-          document.getElementById("DivForNonWebsite").style.display="block";
+        else{
+          document.getElementById("AnyCodePhotos").style.display="none";
         }
-        document.getElementById("nameDecToChange2").innerHTML=info.firstName;
-        document.getElementById("youtubeToChange").src=info.interviewLink;
-        document.getElementById("nameDecToChange3").innerHTML=info.firstName;
-        document.getElementById("youtubeToChange2").src=info.presentationLink;
-      } else {
+
+        
+        //do not know how to call the Zipped file
+        if (doc.get('codeDownloadLink')!=undefined){
+          document.getElementById("LinkToMenteeZippedCode").href=info.codeDownloadLink;
+          document.getElementById("DownloadCode").style.display="block";
+        }
+
+        if (doc.get('additionalDescription') !=  undefined){
+          document.getElementById("additionalDescriptionOfProject").innerHTML="Here is more information about "+ info.firstName+ "'s Project.";
+          document.getElementById("AdditionalDescription").innerHTML= info.additionalDescription;
+          document.getElementById("DivOfAdditionalDescription").style.display="block";
+        } else{ document.getElementById("DivOfAdditionalDescription").style.display="none";}
+
+        if (doc.get('interviewLink') != undefined) { //if the field "interviewLink" exists, then that means that the mentee has either uploaded their own interview or a MAGIC board member updated the database afterwards. Therefore, we can display the interview. 
+          document.getElementById("nameDecToChange2").innerHTML=info.firstName;
+          document.getElementById("youtubeToChange").src=info.interviewLink;
+          document.getElementById("linkForMenteeInterview").style.display="block";
+        }
+        else{ document.getElementById("linkForMenteeInterview").style.display="none";}
+
+        if (doc.get('presentationLink') != undefined) { //if the field "presentationLink" exists, then that means that the mentee has either uploaded their own presentation or a MAGIC board member updated the database afterwards. Therefore, we can display the presentation. 
+          document.getElementById("nameDecToChange3").innerHTML=info.firstName;
+          document.getElementById("youtubeToChange2").src=info.presentationLink;
+          document.getElementById("linkForMenteePresentation").style.display="block";
+        }
+        else{ document.getElementById("linkForMenteePresentation").style.display="none";}
+
+      } else { //if no such mentee exists in the database
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }

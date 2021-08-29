@@ -75,43 +75,48 @@
         <h2 class="fs-title">Project Information and Reflection</h2>
         <h3 class="fs-subtitle">Please click the question button for examples or clarification</h3>
 
-        <div id="TypeOfProj">
-          <label class="titlequest" for="webask">Is the website a hardware or software? </label> <br>
-          <div class="alignradiobuttons">
-            <input class="required radiobutton" id="Hardware-Choice" type="radio" name="Type-of-Project" value="Hardware" >
-            <label class="labelForSelectOrInput" for="Hardware">Hardware</label><br>
-            <input class="required radiobutton" id="Software-Choice" type="radio" name="Type-of-Project" value="Software" >
-            <label class="labelForSelectOrInput" for="Software">Software</label><br>
-          </div>
-        </div>
-
-        <div id="SoftwareDiv" style="display:none;">
-          <label for="projtype" class="titlequest">Type of Software: </label> <br>
-          <div class="alignradiobuttons" id="radioTypeOfProj" >
-            <input class="required radiobutton" id="webchoice" type="radio" name="Type-of-Software" value="Website" >
-            <label class="labelForSelectOrInput" for="Website">Website</label><br>
-            <input class="required radiobutton" id="App-choice"type="radio"  name="Type-of-Software" value="App" >
-            <label class="labelForSelectOrInput" for="App">App</label><br>
-            <input id="other" class="radiobutton" type="radio"  name="Type-of-Software" value="Other">
-            <label class="labelForSelectOrInput" for="other">Other </label> <br>
-          </div>
-            <input class="required regularinput" style="display: none; padding: 3px;" id="specifymore1" type="text" name="Specify-Type-of-Software" placeholder="Specify the type of project here"/>
+        <div id="FormTags">
+          <h2 class="fs-title">Please select all applicable tags for your project.</h2>
+          <p class="titlequest" style="color:#af7a7a;"> If you select "other" and add additional tags, please separate each new tag with commas ie Scratch Project, Robotics </p>  <br>
+          <input type="button" value="Hardware">
+          <input type="button" value="Software">
+          <input type="button" value="Website">
+          <input type="button" value="App">
+          <input type="button" value="Research">
+          <input type="button" value="Science">
+          <input type="button" value="Biology">
+          <input type="button" value="Chemistry">
+          <input type="button" value="Physics">
+          <input type="button" value="Math">
+          <input type="button" value="Other">
+          <input class="required regularinput" style="display: none; padding: 3px;" id="specifymore1" type="text" name="Specify-Additional-Tags" placeholder="Please specify additional tags">
         </div>
 
         <div id="whenWebSelected" style="display:none;">
-          <label class="titlequest" for="webask">Is the website on github? </label> <br>
+          <label class="titlequest" for="webask">Is your project's code on github? </label> <br>
           <div class="alignradiobuttons" >
-            <input class="required radiobutton" id="gitweb" type="radio" name="Website-Platform" value="Yes" >
+            <input class="required radiobutton" id="gitweb" type="radio" name="Whether-Project-Is-On-GitHub" value="Yes" >
             <label class="labelForSelectOrInput" for="Yes">Yes</label><br>
           </div>
             <!--exclude this from div "alignradiobuttons" so that it is left-aligned-->
-            <input class="required regularinput" id="receivegithublink" style="display: none; padding:3px" type="text" name="The-Link-To-Your-GitHub-Code" placeholder="Please paste the link to your github code."/>
+            <input class="required regularinput" id="receivegithublink" style="display: none; padding:3px" type="text" name="The-Link-To-Your-GitHub-Code" placeholder="Please paste the link to your github code repository."/>
 
           <div class="alignradiobuttons" > 
-            <input class="required radiobutton" id="nogitweb" type="radio" name="Website-Platform" value="No" >
+            <input class="required radiobutton" id="nogitweb" type="radio" name="Whether-Project-Is-On-GitHub" value="No" >
             <label class="labelForSelectOrInput" for="No">No</label><br>
           </div>
-            <input class="required regularinput" id="specifymore2" style="display: none; padding:3px" type="text" name="Specify-Where-Your-Website-is-Hosted" placeholder="Specify where your website is hosted"/>
+           <!-- <input class="required regularinput" id="specifymore2" style="display: none; padding:3px" type="text" name="Specify-Where-Your-Website-is-Hosted" placeholder="Specify where your website is hosted"/>-->
+        </div>
+
+
+         <div id="CodeToUpload">
+          <label class="titlequest" for="webask">Do you have any code you want to upload? </label> <br>
+          <div class="alignradiobuttons">
+            <input class="required radiobutton" id="YesCodeUpload" type="radio" name="Whether-You-Have-Code-To-Upload" value="Yes" >
+            <label class="labelForSelectOrInput" for="Yes">Yes</label><br>
+            <input class="required radiobutton" id="NoCodeUpload" type="radio" name="Whether-You-Have-Code-To-Upload" value="No" >
+            <label class="labelForSelectOrInput" for="No">No</label><br>
+          </div>
         </div>
 
         <div id="checkBoxLang" style="display:none;">
@@ -120,16 +125,6 @@
             <!--This is where addCheckBoxLanguage() appends the Language checkboxes -->
           </div> 
           <!--This is where addCheckBoxLanguage() appends the "Specify Languages Used" text box -->
-        </div>
-
-         <div id="CodeToUpload">
-          <label class="titlequest" for="webask">Do you have any code you want to upload? </label> <br>
-          <div class="alignradiobuttons">
-            <input class="required radiobutton" id="Yes-CodeUpload" type="radio" name="Whether-You-Have-Code-To-Upload" value="Yes" >
-            <label class="labelForSelectOrInput" for="Yes">Yes</label><br>
-            <input class="required radiobutton" id="No-CodeUpload" type="radio" name="Whether-You-Have-Code-To-Upload" value="No" >
-            <label class="labelForSelectOrInput" for="No">No</label><br>
-          </div>
         </div>
 
         <div id="ProjectDescription">
@@ -163,19 +158,21 @@
 
         <div id="UploadInterviewLink">
           <label class="titlequest" for="Interview Link">Please embed your interview link below:</label>
-            <p class="titlequest"> (NOTE: Please see the video below for how to upload your interview) </p> <br>
+            <p class="titlequest"> (NOTE: Please see the video below for how to upload your interview) </p> 
+            <p class="titlequest" style="color:#af7a7a;">If your interview is not uploaded on youtube, then you can leave this step blank.</p><br>
             <video width="350" height=auto controls>
               <source src="images/Tutorial_Interview_Upload.mov" type="video/mp4">
               Your browser does not support HTML video. Go to MAGIC'S official youtube channel (getMagic .org), find your interview, click share, click embed, paste the link within the " " after "src=".
             </video>
-            <input type="url" class="required regularinput" id="InterviewLink" name="Interview-Link" placeholder="Paste your interview link here">
+            <input type="url" class="regularinput" id="InterviewLink" name="Interview-Link" placeholder="Paste your interview link here">
             <p id="InterviewLinkValidation"></p><br>
         </div>
 
         <div id="UploadPresentationLink">
           <label class="titlequest" for="Presentation Link">Please embed your presentation link below:</label>
-            <p class="titlequest"> (NOTE: Please see the video above for how to upload your presentation) </p> <br>
-            <input type="url" class="required regularinput" id="PresentationLink" name="Presentation-Link" placeholder="Paste your presentation link here">
+            <p class="titlequest"> (NOTE: Please see the video above for how to upload your presentation) </p> 
+            <p class="titlequest" style="color:#af7a7a;">If your presentation is not uploaded on youtube, then you can leave this step blank.</p><br>
+            <input type="url" class="regularinput" id="PresentationLink" name="Presentation-Link" placeholder="Paste your presentation link here">
             <p id="PresentationLinkValidation"></p><br>
         </div>
          <p class="errorMessage" id="errorMessage3"> </p>
@@ -199,7 +196,8 @@
         </div>
 
         <div id="Upload4ProjectPhotos">
-          <label class="titlequest" for="imageCarousFile">2. Please upload 4 photos of your project</label>
+          <label class="titlequest" for="imageCarousFile">2. Please upload upto 4 photos of your project</label>
+          <p class="titlequest"> (NOTE: It is best to upload exactly 4 photos) </p> 
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div> 
           <input type="file" accept="image/*" name="FourProjectPhotos[]" class="fileUploadInput" id="fourexamplephotos" onchange="getFileInfo(this.id, 'ExamplePhotosInfo', 4)" multiple required>
           <br>
@@ -208,7 +206,8 @@
         </div>
 
         <div id="Upload2CodePhotos">
-          <label class="titlequest" for="imagesOfCode">3. Please upload 2 photos of your code </label>
+          <label class="titlequest" for="imagesOfCode">3. Please upload upto 2 photos of your code </label>
+           <p class="titlequest"> (NOTE: It is best to upload exactly 2 photos) </p> 
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div> 
           <input type="file" accept="image/*" name="TwoImagesOfCode[]" class="fileUploadInput" id="twocodeimages" onchange="getFileInfo(this.id, 'CodePhotsInfo', 2)" multiple >
           <br>
@@ -219,7 +218,7 @@
         <div id="UploadCodeFiles">
           <label class="titlequest" for="FilesOfCode">4. Please upload one zipped file (which contains all of your code files and a ReadMe that describes your project) </label>
           <div class="popup" onclick="displayPopUpImage(this.id);"> </div> 
-          <input type="file" name="Uploaded-Code-Files" class="fileUploadInput" id="uploadcode" onchange="getFileInfo(this.id, 'CodeFilesInfo', 1)">
+          <input type="file" accept="zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed" name="Uploaded-Code-Files" class="fileUploadInput" id="uploadcode" onchange="getFileInfo(this.id, 'CodeFilesInfo', 1)">
           <br>
           <p class="fileUploadName" id="CodeFilesInfo"> </p>
           <br>
@@ -239,7 +238,7 @@
     </form>
   
   <script src="js/jquery-2.1.4.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
   <script src="js/Firestore uploadProj.js"></script> 
 </body>
