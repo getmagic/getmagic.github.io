@@ -43,6 +43,11 @@
 		  // ...
 		});
         }); //end of on connect
+	
+function setTimerFunct(){
+    var slidesCarous = document.getElementsByClassName("mySlidesPortCarous");
+    setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
+}
 
     </script>
 </head>
