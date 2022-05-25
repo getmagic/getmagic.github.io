@@ -39,7 +39,24 @@
         });
     
         jsforce.browser.on('connect', function(conn) {
-            console.log("connection");
+            	console.log("connection");
+	    	var records = [];
+		var query = conn.query("SELECT firstName__c, gradeLevel__c, lastName__c FROM MAGICMenteeProjects__c")
+		  .on("record", function(record) {
+		    records.push(record);
+		    console.log(record.gradeLevel__c);
+		    console.log(record.firstName__c);
+	            console.log(record.lastName__c);
+	            console.log("NEXT ONE:");
+		  })
+		  .on("end", function() {
+		    console.log("total in database : " + query.totalSize);
+		    console.log("total fetched : " + query.totalFetched);
+		  })
+		  .on("error", function(err) {
+		    console.error(err);
+		  })
+		  .run({ autoFetch : true, maxFetch : 4000 }); // synonym of Query#execute();
         }); //end of on connect
 
     </script>
