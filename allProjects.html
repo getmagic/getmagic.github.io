@@ -39,15 +39,32 @@
         });
     
         jsforce.browser.on('connect', function(conn) {
-            	console.log("connection");
-	    	var records = [];
-		var query = conn.query("SELECT firstName__c, gradeLevel__c, lastName__c FROM MAGICMenteeProjects__c")
-		  .on("record", function(record) {
-		    records.push(record);
-		    console.log(record.gradeLevel__c);
-		    console.log(record.firstName__c);
-	            console.log(record.lastName__c);
-	            console.log("NEXT ONE:");
+            console.log("connection");
+	    var records = [];
+	    var query = conn.query("SELECT Id, firstName__c, gradeLevel__c, lastName__c FROM MAGICMenteeProjects__c")
+	    	.on("record", function(record) {
+			records.push(record);
+			var userUID= record.Id;
+			var FirstName= record.firstName__c;
+			var LastName= record.lastName__c;
+			var GradeLevel= record.gradeLevel__c;
+			if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
+        			GradeLevel="High School";
+      			}
+      			else{
+        			GradeLevel="Middle School";
+      			}
+			var paraNew = document.createElement("div");
+			paraNew.setAttribute("class", "AllProjects_Div");
+			var codeBlock2 =
+			` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
+			<img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink + `" alt="` + FirstName + `'s Project">
+			<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+			<span class="` + userUID+ ` date">` + GradeLevel + `</span>
+			</a> `;
+			paraNew.innerHTML = codeBlock2 ;
+			divToAppend.appendChild(paraNew); 
+	            
 		  })
 		  .on("end", function() {
 		    console.log("total in database : " + query.totalSize);
