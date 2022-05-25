@@ -40,7 +40,7 @@
     
         jsforce.browser.on('connect', function(conn) {
             console.log("connection");
-	    //seeifClick(); //in another js file
+	   
 	    var records = [];
 	    var query = conn.query("SELECT Id, firstName__c, gradeLevel__c, lastName__c FROM MAGICMenteeProjects__c")
 	    	.on("record", function(record) {
@@ -88,7 +88,7 @@
   </style>
 </head>
 
-<body class="myBodClick">
+<body class="myBodClick" onload="seeifClick();">
  <!-- Preloading --> 
 <div class="preloader">
     <div class="sh-wave-loader">
