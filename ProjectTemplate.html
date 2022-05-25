@@ -33,9 +33,15 @@
         });
     
         jsforce.browser.on('connect', function(conn) {
-            var aVar = location.search.substring(1);
-           // window.onload="changeText(aVar)";
-            console.log('connection');
+           	 var menteeID = location.search.substring(1);
+           	// window.onload="changeText(aVar)";
+            	console.log('connection');
+		// Single record retrieval
+		conn.sobject("MAGICMenteeProjects__c").retrieve(menteeID, function(err, currentUser) {
+		  if (err) { return console.error(err); }
+		  console.log("Name : " + currentUser.firstName__c);
+		  // ...
+		});
         }); //end of on connect
 
     </script>
