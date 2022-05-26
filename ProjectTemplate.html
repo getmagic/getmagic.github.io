@@ -50,13 +50,13 @@
 			}*/
 			document.getElementById("titleToReplace").innerHTML= "MAGIC " + FullName+ "'s Website";
 			document.getElementById("headingToChange").innerHTML= FullName;
-			document.getElementById("descriptionToChange").innerHTML= info.projectSummary;
+			document.getElementById("descriptionToChange").innerHTML= currentUser.projectSummary__c;
 			document.getElementById("entranceToChange").innerHTML= FullName;
 			document.getElementById("nameToChange").innerHTML= FullName;
-			document.getElementById("gradeToChange").innerHTML=info.gradeLevel;
-			var userTags=info.projectTags
+			document.getElementById("gradeToChange").innerHTML= currentUser.gradeLevel__c;
+			var userTags= currentUser.projectTags__c;
 			document.getElementById("typeToChange").innerHTML=userTags.join(", ");
-			document.getElementById("yearToChange").innerHTML=info.year;
+			document.getElementById("yearToChange").innerHTML= currentUser.year__c;
 			
 			/*
 			//Add images in Portoflio Slider and call setTimerfunct()
@@ -95,10 +95,11 @@
 			else{
 			  document.getElementById("divOfImgCarousel").style.display="none";
 			}
-
-			document.getElementById("AboutToChange").innerHTML=info.projectDescription;
-			document.getElementById("ReflecToChange").innerHTML=info.menteeMentorRelationship;
-
+			*/
+			document.getElementById("AboutToChange").innerHTML=currentUser.projectDescription__c;
+			document.getElementById("ReflecToChange").innerHTML=currentUser.menteeMentorRelationship__c;
+			
+			/*
 			//if only 1 code photo exists, then only display that
 			if ((doc.get('photoLinks.code1') !=undefined) && (doc.get('photoLinks.code2') ===undefined)){
 			  document.getElementById("1codePhoto").src=info.photoLinks.code1;
@@ -117,14 +118,16 @@
 			else{
 			  document.getElementById("AnyCodePhotos").style.display="none";
 			}
-
+			
 
 			//do not know how to call the Zipped file
 			if (doc.get('codeDownloadLink')!=undefined){
 			  document.getElementById("LinkToMenteeZippedCode").href=info.codeDownloadLink;
 			  document.getElementById("DownloadCode").style.display="block";
 			}
-
+			*/
+			
+			/*
 			if (doc.get('additionalDescription') !=  undefined){
 			  document.getElementById("additionalDescriptionOfProject").innerHTML="Here is more information about "+ info.firstName+ "'s Project.";
 			  document.getElementById("AdditionalDescription").innerHTML= info.additionalDescription;
