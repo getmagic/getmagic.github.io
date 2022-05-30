@@ -60,10 +60,10 @@
               if (error) {
                   console.log("There was an error adding this project to the database.");
                   console.log(error);
-                  //document.getElementById("PostSubmission").innerHTML= "There was an error adding this project to the database. Please reach out to your mentor."+ \n;
+                  document.getElementById("PostSubmission").innerHTML= "There was an error adding this project to the database. Please reach out to your mentor. \n";
               }
               else {
-                var whatToWrite = "This project was succesfully uploaded. The resulting id is " + result.id + \n;
+                var whatToWrite = "This project was succesfully uploaded. The resulting id is " + result.id + "\n";
                 console.log("This project was succesfully uploaded. The resulting id is " + result.id);
                 userID= result.id;
                 //By putting the logic in the callback, you are ensuring that it is synchronous so you never get an error that the ID you want to update doesn't exist.
@@ -152,14 +152,14 @@
                     }, function(err, res) {
                       if(err){
                         console.log(err);
-                        whatToWrite+= "The field " + currentFieldName + " has NOT been succesfully uploaded. Please contact your mentor." + \n;
+                        whatToWrite+= "The field " + currentFieldName + " has NOT been succesfully uploaded. Please contact your mentor. \n";
                       }
                       if(res){
                         console.log("succesfully uploaded " + currentFieldName);
-                        whatToWrite+="The field " + currentFieldName + " has been succesfully uploaded."+ \n;
+                        whatToWrite+="The field " + currentFieldName + " has been succesfully uploaded. \n";
                       }
                    }) //end of conn.sobject.update
-                document.getElementById(whatToWrite).innerHTML= whatToWrite;
+                document.getElementById("PostSubmission").innerHTML= whatToWrite;
                 }//end of for var i <databaseFieldName.length
               } //end of else
             }); //end of conn.sobject create
