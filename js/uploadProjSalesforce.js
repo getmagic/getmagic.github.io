@@ -341,17 +341,17 @@ function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxwords){
 }*/
 
 
-function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxchar){
+function characterLimit(IDofDesiredInput, IDofContainerForAlert, maxchar){
     var BACKSPACE   = 8;
     var DELETE      = 46;
     var valid_keys  = [BACKSPACE, DELETE];
     var textValue = document.getElementById(IDofDesiredInput).value;
    // var words = textValue.split(/\s+/);
     var length = this.value.length;
-    if(length >= maxchar && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+    if(length >= maxchar && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than the max characters and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
     }
-    document.getElementById(IDofContainerForAlert).innerHTML= maxwords- words.length;
+    document.getElementById(IDofContainerForAlert).innerHTML= maxchar- length;
 }
 
 /*append the "pop up" image code wherever pop ups need to be there*/
