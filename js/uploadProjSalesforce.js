@@ -327,6 +327,7 @@ function seeIfLanguageBoxisChecked(){
     return messagetoreturn;
 }
 
+/*
 function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxwords){
     var BACKSPACE   = 8;
     var DELETE      = 46;
@@ -334,6 +335,20 @@ function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxwords){
     var textValue = document.getElementById(IDofDesiredInput).value;
     var words = textValue.split(/\s+/);
     if(words.length >= maxwords && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
+          event.preventDefault();
+    }
+    document.getElementById(IDofContainerForAlert).innerHTML= maxwords- words.length;
+}*/
+
+
+function wordLimit(IDofDesiredInput, IDofContainerForAlert, maxchar){
+    var BACKSPACE   = 8;
+    var DELETE      = 46;
+    var valid_keys  = [BACKSPACE, DELETE];
+    var textValue = document.getElementById(IDofDesiredInput).value;
+   // var words = textValue.split(/\s+/);
+    var length = this.value.length;
+    if(length >= maxchar && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than 100 words and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
     }
     document.getElementById(IDofContainerForAlert).innerHTML= maxwords- words.length;
