@@ -350,8 +350,19 @@ function characterLimit(IDofDesiredInput, IDofContainerForAlert, maxchar){
     var length = event.target.value.length;
     if(length >= maxchar && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than the max characters and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
+      
+          //In case the number of characters goes over the max (ie on pasting), truncate
+          // Grab current textarea value
+          var text = $('#'+IDofDesiredInput).val();  
+          // Set textarea value to substring of up to length maxLen
+          $('#'+IDofDesiredInput).val(text.substr(0, maxchar));  
     }
-    document.getElementById(IDofContainerForAlert).innerHTML= maxchar- length;
+    if (length <=maxchar){
+      document.getElementById(IDofContainerForAlert).innerHTML= maxchar- length;
+    }
+    else{
+      document.getElementById(IDofContainerForAlert).innerHTML= " Exceeded. Your response was truncated.";
+    }
 }
 
 /*append the "pop up" image code wherever pop ups need to be there*/
