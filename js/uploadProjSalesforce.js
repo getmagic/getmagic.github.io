@@ -347,7 +347,7 @@ function characterLimit(IDofDesiredInput, IDofContainerForAlert, maxchar){
     var valid_keys  = [BACKSPACE, DELETE];
     var textValue = document.getElementById(IDofDesiredInput).value;
    // var words = textValue.split(/\s+/);
-    var length = this.value.length;
+    var length = event.target.value.length;
     if(length >= maxchar && valid_keys.indexOf(event.keyCode) == -1){ //if there are more than the max characters and if the key pressed is not backspace or delete, do not let the user continue typing in the box. 
           event.preventDefault();
     }
