@@ -38,10 +38,12 @@
             	console.log('connection');
 		// Single record retrieval
 		conn.sobject("Projects__c").retrieve(menteeID, function(err, currentUser) {
+			console.log(menteeID);
 		  	if (err) { 
 				return console.error(err); 
 			}
 		  	//console.log("Name : " + currentUser.firstName__c);
+			console.log("no error");
 			var FullName=currentUser.menteeFirstName__c + ' ' + currentUser.menteeLastName__c;
 			/*
 			if (doc.get('menteeWebsite') != undefined) { //if the field "menteeWebsite" exists, then that means that the mentee's code has already been forked and added to the database. Therefore, it is ready to be added to the website.
