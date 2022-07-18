@@ -36,9 +36,9 @@
            	 var menteeID = location.search.substring(1);
            	// window.onload="changeText(aVar)";
             	console.log('connection');
+		console.log(menteeID);
 		// Single record retrieval
-		conn.sobject("Projects__c").retrieve(menteeID, function(err, currentUser) {
-			console.log(menteeID);
+		conn.sobject("Project__c").retrieve(menteeID, function(err, currentUser) {
 		  	if (err) { 
 				return console.error(err); 
 			}
