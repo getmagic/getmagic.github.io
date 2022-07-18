@@ -59,7 +59,8 @@
 			var userTags= currentUser.projectTags__c;
 			//document.getElementById("typeToChange").innerHTML=userTags.join(", ");
 			document.getElementById("typeToChange").innerHTML=userTags;
-			document.getElementById("yearToChange").innerHTML= currentUser.Term__c;
+			//document.getElementById("yearToChange").innerHTML= currentUser.Term__c;
+			changeYear(currentUser.Term__c); //currentUser.Term__c returns the ID of the term in the lookup
 			
 			/*
 			//Add images in Portoflio Slider and call setTimerfunct()
@@ -185,6 +186,13 @@
 function setTimerFunct(){
     var slidesCarous = document.getElementsByClassName("mySlidesPortCarous");
     setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
+}
+	     
+function changeYear(term){
+	conn.sobject("Term__c").retrieve(term, function(err, term) {  if (err) { return console.error(err); }
+		document.getElementById("yearToChange").innerHTML= term.Name;
+ 		 // ...
+	});
 }
 
     </script>
