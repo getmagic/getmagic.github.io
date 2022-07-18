@@ -181,6 +181,12 @@
 			}
 			else{ document.getElementById("linkForMenteePresentation").style.display="none";}
 		});//end of conn.sobject
+		
+		function changeYear(term){
+			conn.sobject("Term__c").retrieve(term, function(err, term) {  if (err) { return console.error(err); }
+				document.getElementById("yearToChange").innerHTML= term.Name;
+			});
+		}
         }); //end of on connect
 	
 function setTimerFunct(){
@@ -188,12 +194,7 @@ function setTimerFunct(){
     setInterval(function(){tryToAppendCarous.appendChild(slidesCarous[0]);}, 3000); //moves every 3 seconds
 }
 	     
-function changeYear(term){
-	conn.sobject("Term__c").retrieve(term, function(err, term) {  if (err) { return console.error(err); }
-		document.getElementById("yearToChange").innerHTML= term.Name;
- 		 // ...
-	});
-}
+
 
     </script>
 </head>
