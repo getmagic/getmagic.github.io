@@ -1,1 +1,180 @@
+<apex:page showHeader="false" standardStylesheets="false">
+<html lang="en">
+<head> 
+    <title>MAGIC Mentee Projects</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Rize Portfolio Template">
+    <meta name="keywords" content="personal, portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/cubeportfolio.min.css"/>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/style.css"/>
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<!-- Font icons -->
+    <link rel="stylesheet" href="icon-fonts/fontawesome-5.0.6/css/fontawesome-all.min.css"/>
+	<link rel="stylesheet" href="icon-fonts/etlinefont/style.css"/>
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
 
+    <!--All salesforce beings here-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/uploadProjSalesforce.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
+    <script>
+        
+        jsforce.browser.init({
+            clientId: '3MVG9riCAn8HHkYWyDUteqZ_T5xUUpjPWGSgHayKnlQyuZyE36IMDHNU_z5dzsO1BFgdVowazpUM05sa8E.oX', //client ID= consumer key of connected app
+            redirectUri: 'https://getmagic.github.io/authorization.html',
+            // proxyUrl: 'https://your-jsforce-proxy-server.herokuapp.com/proxy/'
+        });
+    
+        jsforce.browser.on('connect', function(conn) {
+            console.log("connection");
+	   
+	    var records = [];
+	    var query = conn.query("SELECT Id, firstName__c, gradeLevel__c, lastName__c FROM MAGICMenteeProjects__c")
+	    	.on("record", function(record) {
+			records.push(record);
+			var userUID= record.Id;
+			var FirstName= record.firstName__c;
+			var LastName= record.lastName__c;
+			var thumbnailLink="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+			var GradeLevel= record.gradeLevel__c;
+			if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
+        			GradeLevel="High School";
+      			}
+      			else{
+        			GradeLevel="Middle School";
+      			}
+			var paraNew = document.createElement("div");
+			paraNew.setAttribute("class", "AllProjects_Div");
+			var codeBlock2 =
+			` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
+			<img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink + `" alt="` + FirstName + `'s Project">
+			<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+			<span class="` + userUID+ ` date">` + GradeLevel + `</span>
+			</a> `;
+			paraNew.innerHTML = codeBlock2 ;
+			divToAppend.appendChild(paraNew); 
+	            
+		  })
+		  .on("end", function() {
+		    console.log("total in database : " + query.totalSize);
+		    console.log("total fetched : " + query.totalFetched);
+		  })
+		  .on("error", function(err) {
+		    console.error(err);
+		  })
+		  .run({ autoFetch : true, maxFetch : 4000 }); // synonym of Query#execute();
+        }); //end of on connect
+
+    </script>
+
+
+  <style>
+    .site-btn:hover{
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="myBodClick" onload="seeifClick();">
+ <!-- Preloading --> 
+<div class="preloader">
+    <div class="sh-wave-loader">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="60px" viewBox="5 0 80 60">
+        <path class="wave" fill="none" stroke="#f02044" stroke-width="3" stroke-linecap="round" d="M 0 37.5 c 7.684299348848887 0 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15 s 7.172012725592294 15 15 15 s 7.172012725592294 -15 15 -15">
+        </path>
+      </svg>
+    </div>
+</div>
+<div class="wrapper">
+    <header class="type-1 dark">
+        <a href="index.html" class="logo float-left"><img src="images/Logo/MAGICLogo.png" alt="" height="65"></a>
+        <nav class="float-right">
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#blog">Student Projects</a></li>
+               <!-- <li><a href="index.html#contact">Contact</a></li>-->
+            </ul>
+        </nav>
+        <div class="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    	<!-- ARTICLE CONTENT
+    	================================================== -->
+       
+
+        <div class="blog type-1 top_120">
+            <div class="cont">
+                <div id="divToAppend" class="row">
+                    <!--".blog.type-1 .single-blog img{" on style.css is where the css for img is -->
+                    <!--".blog.type-1 .single-blog .title{" on style.css is where the title class css is -->
+                    <!--".blog.type-1 .single-blog .date{" on style.css is where the css for the "date" class is -->
+                    
+
+                </div> <!-- row end -->
+            </div>
+        </div>
+        <a href="uploadProj.html" class="logo" style="float:right;padding-bottom: 60px; padding-right: 30px;"><button class="site-btn">Upload Mentee Project</button></a>
+	 <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" onclick="jsforce.browser.login();" class="site-btn logo">Sign In </button>
+    </div> <!-- wrapper end -->
+
+        <!-- FOOTER SECTION
+        ================================================== -->
+       <footer class="type-1">
+          <div class="cont text-center padding_90">
+            <p>Copyright © 2021 MAGIC, All rights Reserved.</p>
+            <div class="social top_30">
+              <a href="https://www.facebook.com/GirlsGetMAGIC/"><i class="fab fa-facebook"></i>  </a>
+              <a href="https://twitter.com/STEMmagic"><i class="fab fa-twitter" aria-hidden="true"></i>  </a>
+            </div>
+            <br>
+            <br>
+            <div class="information col-md-8 offset-md-2">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 info text-center" data-wow-delay="0.9s">
+                <p><b>Official Website </b><br> getmagic.org</p>
+              </div>
+              <div class="col-md-4 col-sm-6 info text-center  " data-wow-delay="1.3s">
+                <p><b>Location</b><br>San Jose, California, USA</p>
+              </div>
+              <div class="col-md-4 col-sm-12 info text-center " data-wow-delay="1.7s">
+                <p><b>Email</b> <br>info@getmagic.org</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </footer>
+
+<!-- Javascripts -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/tilt.jquery.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.cubeportfolio.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/salesforceProjects.js"></script>
+
+	
+
+	<!--
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+<script src="js/Firestore allProj-Carousel.js"></script>-->
+
+</body>
+</html>
+
+</apex:page>
