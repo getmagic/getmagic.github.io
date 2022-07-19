@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<apex:page showHeader="false" standardStylesheets="false">
 <html lang="en">
-  <head>
+<head> 
+  
     <meta charset="UTF-8">
     <meta name="description" content="Rize Portfolio Template">
     <meta name="keywords" content="personal, portfolio">
@@ -24,6 +25,30 @@
     <link rel="stylesheet" href="icon-fonts/etlinefont/style.css"/>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
+  
+  
+  
+  
+  <!--All salesforce beings here-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/uploadProjSalesforce.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
+    <script>
+        
+        jsforce.browser.init({
+            clientId: '3MVG9vtcvGoeH2bgrxotygtXE9Z6nrYRYpLQdoNrbE_jsEbhyb_9nSkcccqx8zkFJGfQ0EPg9umtf3vbBkDqL', //client ID= consumer key of connected app
+            redirectUri: 'https://getmagic.github.io/authorization.html',
+        });
+    
+        jsforce.browser.on('connect', function(conn) {
+            console.log("connection");
+        }); //end of on connect
+
+    </script>
+  
+  
+  
   </head>
   <body class="myBodClick" onload="imageCarouselLoads();seeifClick();">
     
@@ -177,6 +202,9 @@
         <div class="col-md-12 text-center bottom_30 wow fadeInUp" style="padding-top: 30px;" data-wow-delay="1.5s">
           <a href="allProjects.html" class="site-btn"> View All </a>
         </div>
+        
+        
+        <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" onclick="jsforce.browser.login();" class="site-btn logo">Sign In </button>
      
        <!-- <div class="svg-wave">
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="248" viewBox="0 0 3600 248">
@@ -251,10 +279,10 @@
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/main.js"></script>
-        <!--<script src="js/menteeArrays.js"> </script>-->
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
-        <script src="js/Firestore allProj-Carousel.js"></script>
+        
+       <script src="js/salesforceProjects.js"></script>
         
       </body>
     </html>
+    
+   </apex:page>
