@@ -79,10 +79,11 @@
 	            
 		  })
 		  .on("end", function() {
-        showSlides(slideIndex);
+		    addDots(query.totalFetched);
+        	    showSlides(slideIndex);
 		    console.log("total in database : " + query.totalSize);
 		    console.log("total fetched : " + query.totalFetched);
-        addDots(query.totalFetched);
+        
 		  })
 		  .on("error", function(err) {
 		    console.error(err);
