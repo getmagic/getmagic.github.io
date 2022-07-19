@@ -47,6 +47,61 @@
       
       
       
+      
+      
+      
+      //Appends info for both allProjects and imageCarousel
+function getAndAppendInfo(data, websiteToUse){
+  var html = "";
+  //in each doc, it receives the mentee information from the fields and appends it appropriately to the allProjects page
+  data.forEach(doc => {
+      var info = doc.data(); //get the data from the individual doc (individual mentee initial)
+      var userUID= doc.id;
+      var FirstName=info.firstName;
+      var LastName= info.lastName;
+      var thumbnailLink= info.photoLinks.thumbnail;
+      var GradeLevel=info.gradeLevel;
+      if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
+        GradeLevel="High School";
+      }
+      else{
+        GradeLevel="Middle School";
+      }
+      //Append info to the appropriate place: either allProjects or imageCarousel on index.html
+      if (websiteToUse=="allProjects") { //if u are refering to allProjects page, append it to the appropriate area
+        //append the mentee info into the allProjects page
+        var paraNew = document.createElement("div");
+        paraNew.setAttribute("class", "AllProjects_Div");
+        var codeBlock2 =
+        ` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
+        <img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink + `" alt="` + FirstName + `'s Project">
+        <h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+        <span class="` + userUID+ ` date">` + GradeLevel + `</span>
+        </a> `;
+        paraNew.innerHTML = codeBlock2 ;
+        divToAppend.appendChild(paraNew); 
+      }
+      if (websiteToUse=="imageCarousel") {
+        var divBlock = document.createElement("div");
+        divBlock.className = "mySlides";
+        var para = document.createElement("P");
+        para.className = "madepara";
+        var codeBlock =
+        `<a class="NewA" >
+          <img class="` + userUID+ ` mentee-photos" src="` + thumbnailLink + `" alt="` + FirstName + `'s Project">
+          <div class="` + userUID+ ` menteeInfoDiv">
+            <h3 class="` + userUID+ ` mentee-name menteeInfo">` + FirstName + ` `+ LastName + `</h3>
+            <div class="` + userUID+ ` mentee-grade menteeInfo">` + GradeLevel + `</div>
+          </div>
+        </a> `;
+        para.innerHTML = codeBlock;
+        mainContainerCarousel.appendChild(divBlock);
+        divBlock.appendChild(para);
+      }
+  });
+}
+
+      
       /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
   /* createNewMenteeDiv(), addDots(), and showSlides(slideIndex) are called in the body tag of index.html */
 //The code for the image carousel
@@ -103,6 +158,9 @@ function addDots(dotsToUpload) {
     paraDot2.innerHTML= codeBlock2;
     secondContainerDots.appendChild(paraDot2);
   }
+  
+  
+  
 }
   
       
