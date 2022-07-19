@@ -2376,15 +2376,11 @@ footer.type-2 .ftr-widget p{
         font-size: 40px;
     }
 
-    .portfolio-main.type-2OLDDONTUSE {
+    .portfolio-main.type-2 {
       background: url(../images/works/single_05.png) bottom center no-repeat;
       background-size: 210%;
   }
 	
-.portfolio-main.type-2OLDDONTUSE {
-      background: url(../images/works/single_05.png) bottom center no-repeat;
-      background-size: 100%;
-  }
 
   .port-title-three {
       font-size: 40px;
