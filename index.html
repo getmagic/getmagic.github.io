@@ -44,6 +44,69 @@
         jsforce.browser.on('connect', function(conn) {
             console.log("connection");
         }); //end of on connect
+      
+      
+      
+      /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
+  /* createNewMenteeDiv(), addDots(), and showSlides(slideIndex) are called in the body tag of index.html */
+//The code for the image carousel
+var slideIndex = 1;
+//plusSlides called when the prev-button and next-button are pressed
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+//currentSlide called when the appropriate "dot" is pressed at the bottom of the carousel
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+  
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot-carousel");
+  //if u press "next-button" when there are no more slides, it returns to the 1st slide.
+  if (n > slides.length) {slideIndex = 1}
+  //if u press "prev-button" when you are already on the first slide, it goes to the last slide
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" d-active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " d-active";
+}
+
+function imageCarouselLoads(){
+  database.collection('Projects')
+    //.onSnapshot((querySnapshot) => {
+      database.collection('Projects').get().then((snapshot)=>{ //send a snapshot of all the current docs in the "Projects" collection as a parameter. In this case, the docs are the automated UID for each mentee
+        getAndAppendInfo(snapshot.docs, "imageCarousel");
+        showSlides(slideIndex);
+    });
+  //});
+  database.collection("Projects").get().then(function(querySnapshot) {      
+    //querySnapshot.size is number of documents in Projects (aka mentees)
+    addDots(querySnapshot.size);
+  });
+}
+
+  
+//Adds the dots at the bottom of the carousel
+function addDots(dotsToUpload) {
+//function addDots() {
+  for (var i=1; i<=dotsToUpload; i++){
+    var paraDot2= document.createElement("P");
+    var codeBlock2= `<span class="dot-carousel" onclick="currentSlide(` + i + `)"></span> `;
+    paraDot2.innerHTML= codeBlock2;
+    secondContainerDots.appendChild(paraDot2);
+  }
+}
+  
+      
+      
 
     </script>
   
