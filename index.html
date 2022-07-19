@@ -35,54 +35,33 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
     <script>
-        
+      
+        var slideIndex = 1;
+      
         jsforce.browser.init({
             clientId: '3MVG9vtcvGoeH2bgrxotygtXE9Z6nrYRYpLQdoNrbE_jsEbhyb_9nSkcccqx8zkFJGfQ0EPg9umtf3vbBkDqL', //client ID= consumer key of connected app
             redirectUri: 'https://getmagic.github.io/authorization.html',
         });
     
         jsforce.browser.on('connect', function(conn) {
-            console.log("connection");
-        }); //end of on connect
-      
-      
-      
-      
-      
-      
-      //Appends info for both allProjects and imageCarousel
-function getAndAppendInfo(data, websiteToUse){
-  var html = "";
-  //in each doc, it receives the mentee information from the fields and appends it appropriately to the allProjects page
-  data.forEach(doc => {
-      var info = doc.data(); //get the data from the individual doc (individual mentee initial)
-      var userUID= doc.id;
-      var FirstName=info.firstName;
-      var LastName= info.lastName;
-      var thumbnailLink= info.photoLinks.thumbnail;
-      var GradeLevel=info.gradeLevel;
-      if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
-        GradeLevel="High School";
-      }
-      else{
-        GradeLevel="Middle School";
-      }
-      //Append info to the appropriate place: either allProjects or imageCarousel on index.html
-      if (websiteToUse=="allProjects") { //if u are refering to allProjects page, append it to the appropriate area
-        //append the mentee info into the allProjects page
-        var paraNew = document.createElement("div");
-        paraNew.setAttribute("class", "AllProjects_Div");
-        var codeBlock2 =
-        ` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
-        <img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink + `" alt="` + FirstName + `'s Project">
-        <h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
-        <span class="` + userUID+ ` date">` + GradeLevel + `</span>
-        </a> `;
-        paraNew.innerHTML = codeBlock2 ;
-        divToAppend.appendChild(paraNew); 
-      }
-      if (websiteToUse=="imageCarousel") {
-        var divBlock = document.createElement("div");
+          console.log("connection");
+            var records = [];
+	    var query = conn.query("SELECT Id, menteeFirstName__c, Grade__c, menteeLastName__c FROM Project__c")
+	    	.on("record", function(record) {
+			records.push(record);
+			var userUID= record.Id;
+			var FirstName= record.menteeFirstName__c;
+			var LastName= record.menteeLastName__c;
+			var thumbnailLink="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+			var GradeLevel= record.Grade__c;
+			if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
+        			GradeLevel="High School";
+      			}
+      			else{
+        			GradeLevel="Middle School";
+      			}
+          
+			var divBlock = document.createElement("div");
         divBlock.className = "mySlides";
         var para = document.createElement("P");
         para.className = "madepara";
@@ -97,15 +76,29 @@ function getAndAppendInfo(data, websiteToUse){
         para.innerHTML = codeBlock;
         mainContainerCarousel.appendChild(divBlock);
         divBlock.appendChild(para);
-      }
-  });
-}
+	            
+		  })
+		  .on("end", function() {
+        showSlides(slideIndex);
+		    console.log("total in database : " + query.totalSize);
+		    console.log("total fetched : " + query.totalFetched);
+        addDots(query.totalFetched);
+		  })
+		  .on("error", function(err) {
+		    console.error(err);
+		  })
+		  .run({ autoFetch : true, maxFetch : 4000 }); // synonym of Query#execute();
+        }); //end of on connect
+      
+      
+      
+     
 
       
       /*Adds a new div named mySlides, a new <p> named "madepara" and adds the "codeBlock" information inside "madepara. At the end, the "mySlides" div is appended into the mainContainer carousel and the "para" element is appended inside the "mySlides" div. */
   /* createNewMenteeDiv(), addDots(), and showSlides(slideIndex) are called in the body tag of index.html */
 //The code for the image carousel
-var slideIndex = 1;
+
 //plusSlides called when the prev-button and next-button are pressed
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -133,7 +126,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " d-active";
 }
-
+/*
 function imageCarouselLoads(){
   database.collection('Projects')
     //.onSnapshot((querySnapshot) => {
@@ -146,7 +139,7 @@ function imageCarouselLoads(){
     //querySnapshot.size is number of documents in Projects (aka mentees)
     addDots(querySnapshot.size);
   });
-}
+}*/
 
   
 //Adds the dots at the bottom of the carousel
@@ -171,7 +164,8 @@ function addDots(dotsToUpload) {
   
   
   </head>
-  <body class="myBodClick" onload="imageCarouselLoads();seeifClick();">
+  <!--<body class="myBodClick" onload="imageCarouselLoads();seeifClick();">-->
+    <body class="myBodClick" onload="seeifClick();">
     
     <!-- Preloading -->
     <div class="preloader">
