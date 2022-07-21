@@ -60,7 +60,8 @@
 			//document.getElementById("typeToChange").innerHTML=userTags.join(", ");
 			document.getElementById("typeToChange").innerHTML=userTags;
 			//document.getElementById("yearToChange").innerHTML= currentUser.Term__c;
-			changeYear(currentUser.Term__c); //currentUser.Term__c returns the ID of the term in the lookup
+			//changeYear(currentUser.Term__c); //currentUser.Term__c returns the ID of the term in the lookup
+			document.getElementById("yearToChange").innerHTML=currentUser.projectTerm__c ; 
 			
 			/*
 			//Add images in Portoflio Slider and call setTimerfunct()
@@ -182,11 +183,13 @@
 			else{ document.getElementById("linkForMenteePresentation").style.display="none";}
 		});//end of conn.sobject
 		
+		
+		/*
 		function changeYear(term){
 			conn.sobject("Term__c").retrieve(term, function(err, term) {  if (err) { return console.error(err); }
 				document.getElementById("yearToChange").innerHTML= term.Name;
 			});
-		}
+		}*/
         }); //end of on connect
 	
 function setTimerFunct(){
