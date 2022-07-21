@@ -79,7 +79,7 @@
 	            
 		  })
 		  .on("end", function() {
-		    addDots(query.totalFetched);
+		    //addDots(query.totalFetched);
         	    showSlides(slideIndex);
 		    console.log("total in database : " + query.totalSize);
 		    console.log("total fetched : " + query.totalFetched);
@@ -113,7 +113,7 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot-carousel");
+  //var dots = document.getElementsByClassName("dot-carousel");
   //if u press "next-button" when there are no more slides, it returns to the 1st slide.
   if (n > slides.length) {slideIndex = 1}
   //if u press "prev-button" when you are already on the first slide, it goes to the last slide
@@ -121,11 +121,12 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
+/*
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" d-active", "");
-  }
+  }*/
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " d-active";
+  //dots[slideIndex-1].className += " d-active";
 }
 /*
 function imageCarouselLoads(){
@@ -142,20 +143,18 @@ function imageCarouselLoads(){
   });
 }*/
 
-  
+	    
+ /*
 //Adds the dots at the bottom of the carousel
 function addDots(dotsToUpload) {
-//function addDots() {
   for (var i=1; i<=dotsToUpload; i++){
     var paraDot2= document.createElement("P");
     var codeBlock2= `<span class="dot-carousel" onclick="currentSlide(` + i + `)"></span> `;
     paraDot2.innerHTML= codeBlock2;
     secondContainerDots.appendChild(paraDot2);
-  }
+  }  
   
-  
-  
-}
+}*/
   
       
       
