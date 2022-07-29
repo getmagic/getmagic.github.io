@@ -53,6 +53,12 @@
 				console.log("called.should be 3x");
 				var thumbnailLink=record.thumbnailImage__c;
 				console.log(thumbnailLink);
+		 		var myimgsrc = thumbnailLink.getElementsByTagName('img')[0].src;
+		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimg;
+				document.getElementById("fillhere").innerhtml+="<br>";
+		 		//var mysrc = image.firstChild.getAttribute("src");
+		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
+				
 			}
 			var GradeLevel= record.Grade__c;
 			if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
@@ -82,6 +88,7 @@
 		  })
 		  .run({ autoFetch : true, maxFetch : 4000 }); // synonym of Query#execute();
 		
+		/*
 		//Check for thumbnail image
 		conn.sobject("Project__c").retrieve("a153i000002iiZMAAY", function(err, account) {
 		  if (err) { return console.error(err); }
@@ -92,7 +99,7 @@
 		  //document.getElementById("fillhere").innerhtml+="myimg: " +  myimg;
 		 // var mysrc = image.firstChild.getAttribute("src");
 		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
-		});
+		});*/
 		
         }); //end of on connect
 
@@ -136,7 +143,9 @@
     	<!-- ARTICLE CONTENT
     	================================================== -->
        
-
+	<div id="fillhere">
+	</div>
+	
         <div class="blog type-1 top_120">
             <div class="cont">
                 <div id="divToAppend" class="row">
@@ -151,8 +160,7 @@
         <a href="uploadProj.html" class="logo" style="float:right;padding-bottom: 60px; padding-right: 30px;"><button class="site-btn">Upload Mentee Project</button></a>
 	 <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" onclick="jsforce.browser.login();" class="site-btn logo">Sign In </button>
 	
-	<div id="fillhere">
-	</div>
+	
     </div> <!-- wrapper end -->
 	
 	<!--
