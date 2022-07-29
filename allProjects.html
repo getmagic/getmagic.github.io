@@ -53,9 +53,12 @@
 				console.log("called.should be 3x");
 				var thumbnailLink=record.thumbnailImage__c;
 				console.log(thumbnailLink);
-		 		var myimgsrc = thumbnailLink.getElementsByTagName('img')[0].src;
+				thumbnailLink.id="newimg";
+				console.log(thumbnaillink);
+		 		var myimgsrc = document.getElementById("newimg").getElementsByTagName('img')[0].src;
 		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimg;
 				document.getElementById("fillhere").innerhtml+="<br>";
+				
 		 		//var mysrc = image.firstChild.getAttribute("src");
 		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
 				
