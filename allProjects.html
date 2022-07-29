@@ -84,7 +84,6 @@
 		//Check for thumbnail image
 		conn.sobject("Project__c").retrieve("a153i000002iiZMAAY", function(err, account) {
 		  if (err) { return console.error(err); }
-		  document.getElementById("fillhere").innerhtml="";
 		  document.getElementById("fillhere").innerhtml+="Name : " + account.Name;
 		  document.getElementById("fillhere").innerhtml+="Account.thumbnailimage__c: " + account.thumbnailImage__c;
 		  var image= account.thumbnailImage__c;
