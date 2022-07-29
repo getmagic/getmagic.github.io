@@ -80,6 +80,20 @@
 		    console.error(err);
 		  })
 		  .run({ autoFetch : true, maxFetch : 4000 }); // synonym of Query#execute();
+		
+		//Check for thumbnail image
+		conn.sobject("Project__c").retrieve("a153i000002iiZMAAY", function(err, account) {
+		  if (err) { return console.error(err); }
+		  document.getElementById("fillhere").innerhtml="";
+		  document.getElementById("fillhere").innerhtml+="Name : " + account.Name
+		  document.getElementById("fillhere").innerhtml+="Account.thumbnailimage__c: " + account.thumbnailImage__c;
+		  var image= account.thumbnailImage__c;
+		  var myimg = image.getElementsByTagName('img')[0];
+		  document.getElementById("fillhere").innerhtml+="myimg: " +  myimg;
+		  var mysrc = myimg.src;
+		  document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
+		});
+		
         }); //end of on connect
 
     </script>
@@ -143,6 +157,9 @@
 	<apex:image url="/sfc/servlet.shepherd/version/download/0693i00000FRHGFAA5"/>
 	<p> Test ends</p>
 	-->
+	
+	<div id="fillhere">
+	</div>
 
         <!-- FOOTER SECTION
         ================================================== -->
