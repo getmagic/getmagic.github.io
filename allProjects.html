@@ -88,9 +88,9 @@
 		  document.getElementById("fillhere").innerhtml+="Name : " + account.Name
 		  document.getElementById("fillhere").innerhtml+="Account.thumbnailimage__c: " + account.thumbnailImage__c;
 		  var image= account.thumbnailImage__c;
-		  var myimg = image.getElementsByTagName('img')[0];
-		  document.getElementById("fillhere").innerhtml+="myimg: " +  myimg;
-		  var mysrc = myimg.src;
+		  //var myimg = image.getElementsByTagName('img')[0];
+		  //document.getElementById("fillhere").innerhtml+="myimg: " +  myimg;
+		  var mysrc = image.firstChild.getAttribute("src");
 		  document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
 		});
 		
