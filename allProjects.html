@@ -85,13 +85,13 @@
 		conn.sobject("Project__c").retrieve("a153i000002iiZMAAY", function(err, account) {
 		  if (err) { return console.error(err); }
 		  document.getElementById("fillhere").innerhtml="";
-		  document.getElementById("fillhere").innerhtml+="Name : " + account.Name
+		  document.getElementById("fillhere").innerhtml+="Name : " + account.Name;
 		  document.getElementById("fillhere").innerhtml+="Account.thumbnailimage__c: " + account.thumbnailImage__c;
 		  var image= account.thumbnailImage__c;
 		  //var myimg = image.getElementsByTagName('img')[0];
 		  //document.getElementById("fillhere").innerhtml+="myimg: " +  myimg;
-		  var mysrc = image.firstChild.getAttribute("src");
-		  document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
+		 // var mysrc = image.firstChild.getAttribute("src");
+		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
 		});
 		
         }); //end of on connect
