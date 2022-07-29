@@ -40,7 +40,7 @@
             console.log("connection");
 	   
 	    var records = [];
-	    var query = conn.query("SELECT Id, menteeFirstName__c, Grade__c, menteeLastName__c FROM Project__c")
+	    var query = conn.query("SELECT Id, menteeFirstName__c, Grade__c, menteeLastName__c, thumbnailImage__c FROM Project__c")
 	    	.on("record", function(record) {
 			records.push(record);
 			var userUID= record.Id;
