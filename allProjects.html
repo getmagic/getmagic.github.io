@@ -65,6 +65,8 @@
 					<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;
+				paraNew.innerHTML = codeBlock2 ;
+				divToAppend.appendChild(paraNew); 
 			}
 			else{
 				console.log("called. (should be 3x)");
@@ -95,6 +97,8 @@
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;*/
 				console.log(codeBlock2);
+				paraNew.innerHTML = codeBlock2 ;
+				divToAppend.appendChild(paraNew); 
 				document.getElementById(userUID).getElementsByTagName('img')[0].className=userUID;
 				
 				
@@ -102,8 +106,7 @@
 		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
 				
 			}
-			paraNew.innerHTML = codeBlock2 ;
-			divToAppend.appendChild(paraNew); 
+			
 	            
 		  })
 		  .on("end", function() {
