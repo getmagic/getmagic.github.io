@@ -78,9 +78,11 @@
 				document.getElementById("fillhere").innerhtml+="<br>";*/
 				
 				var codeBlock2 =
-					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">`+
+					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
+					  <a class="`+ userUID+ ` mentee-photos">`+
 					record.thumbnailImage__c +
-					`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+				    	`</a>
+					<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;
 				console.log(codeBlock2);
