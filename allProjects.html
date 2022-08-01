@@ -73,6 +73,7 @@
 				
 				
 				var thumbnailLink=record.thumbnailImage__c;
+				thumbnailLink.id="testID";
 				/*
 				console.log(thumbnailLink);
 				thumbnailLink.id="newimg";
@@ -81,30 +82,30 @@
 		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimgsrc;
 				document.getElementById("fillhere").innerhtml+="<br>";*/
 				
-				
+				/*
 				var codeBlock2 =
 					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 " id="`+ userUID+ `">`+
 					thumbnailLink +
 				    	`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;
+				*/
 				
-				/*
+				console.log("thumbnailLink: " + thumbnailLink);
 				var codeBlock2 =
 					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
-					<img class="` + userUID+ ` mentee-photos" src="https://d3i000000eahxea4--c.documentforce.com/servlet/rtaImage?eid=a153i000002iiZb&amp;feoid=00N3i00000DTKIW&amp;refid=0EM3i000003KNiR" alt="` + FirstName + `'s Project">
+					<img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink+ `" alt="` + FirstName + `'s Project">
 					<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
-					</a> `;*/
+					</a> `;
 				console.log(codeBlock2);
 				paraNew.innerHTML = codeBlock2 ;
 				divToAppend.appendChild(paraNew); 
+				
+				/*
 				document.getElementById(userUID).getElementsByTagName('img')[0].className=userUID;
 				document.getElementById(userUID).getElementsByTagName('img')[0].className+=" mentee-photos";
-				
-				
-		 		//var mysrc = image.firstChild.getAttribute("src");
-		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
+				*/
 				
 			}
 			
