@@ -73,6 +73,13 @@
 				
 				
 				var thumbnailLink=record.thumbnailImage__c;
+				var thumbnailLink= thumbnailLink.toString();
+				//thumbnailLink is orginally <p> <img src=""> </p> SO the following code only produces the src.
+				var splitOne = thumbnailLink.split('src="'); 
+				var firstPart = splitOne[1]; //this will output the part after src
+				var secondPart= firstPart.split('"'); 
+				var imgsrc= secondPart[0];//this will output the official img src
+				console.log(imgsrc);
 				//thumbnailLink.id="testID";
 				/*
 				console.log(thumbnailLink);
@@ -82,32 +89,34 @@
 		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimgsrc;
 				document.getElementById("fillhere").innerhtml+="<br>";*/
 				
-				
+				/*
 				var codeBlock2 =
 					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 " id="`+ userUID+ `">`+
 					thumbnailLink +
 				    	`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;
+				*/
 				
 				
-				/*
+				
 				console.log("thumbnailLink: " + thumbnailLink);
 				var codeBlock2 =
 					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
-					<img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink+ `" alt="` + FirstName + `'s Project">
+					<img class="` + userUID+ ` mentee-photos" src="`+ imgsrc+ `" alt="` + FirstName + `'s Project">
 					<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
-					</a> `;*/
+					</a> `;
 				
 				console.log(codeBlock2);
 				paraNew.innerHTML = codeBlock2 ;
 				divToAppend.appendChild(paraNew); 
+				/*
 				document.getElementById(userUID).getElementsByTagName('img')[0].className=userUID;
 				document.getElementById(userUID).getElementsByTagName('img')[0].className+=" mentee-photos";
 				
 				document.getElementById(userUID).getElementsByTagName('p')[0].className=userUID;
-				document.getElementById(userUID).getElementsByTagName('p')[0].className+=" mentee-photos";
+				document.getElementById(userUID).getElementsByTagName('p')[0].className+=" mentee-photos";*/
 				
 				
 			}
