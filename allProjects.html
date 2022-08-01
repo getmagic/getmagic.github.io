@@ -69,8 +69,11 @@
 			else{
 				console.log("called. (should be 3x)");
 				
-				/*
+				
 				var thumbnailLink=record.thumbnailImage__c;
+				thumbnailLink.className=userUID;
+				thumbnailLink.className+="mentee-photos";
+				/*
 				console.log(thumbnailLink);
 				thumbnailLink.id="newimg";
 				console.log(thumbnailLink);
@@ -81,7 +84,7 @@
 				
 				var codeBlock2 =
 					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">`+
-					record.thumbnailImage__c +
+					thumbnailLink +
 				    	`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;
