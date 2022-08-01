@@ -71,8 +71,6 @@
 				
 				
 				var thumbnailLink=record.thumbnailImage__c;
-				thumbnailLink.className=userUID;
-				thumbnailLink.className+="mentee-photos";
 				/*
 				console.log(thumbnailLink);
 				thumbnailLink.id="newimg";
@@ -83,7 +81,7 @@
 				
 				
 				var codeBlock2 =
-					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">`+
+					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 " id="`+ userUID+ `">`+
 					thumbnailLink +
 				    	`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
@@ -97,6 +95,7 @@
 					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
 					</a> `;*/
 				console.log(codeBlock2);
+				document.getElementById(userUID).getElementsByTagName('img')[0].className=userUID;
 				
 				
 		 		//var mysrc = image.firstChild.getAttribute("src");
