@@ -60,22 +60,36 @@
       			else{
         			GradeLevel="Middle School";
       			}
+			
+			if (record.thumbnailImage__c ==null){
+				var thumbnailLink="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+			}
+			else{
+				var thumbnailImage=record.thumbnailImage__c;
+				var thumbnailImage= thumbnailImage.toString();
+				//thumbnailImage was orginally <p> <img src=""> </p> SO the following code only returns the src.
+				var splitOne = thumbnailLink.split('src="'); 
+				var firstPart = splitOne[1]; //this will output the part after src
+				var secondPart= firstPart.split('"'); 
+				var thumbnailLink= secondPart[0];//this will output the official img src
+				console.log(thumbnailLink);
+			}
           
 			var divBlock = document.createElement("div");
-        divBlock.className = "mySlides";
-        var para = document.createElement("P");
-        para.className = "madepara";
-        var codeBlock =
-        `<a class="NewA" >
-          <img class="` + userUID+ ` mentee-photos" src="` + thumbnailLink + `" alt="` + FirstName + `'s Project">
-          <div class="` + userUID+ ` menteeInfoDiv">
-            <h3 class="` + userUID+ ` mentee-name menteeInfo">` + FirstName + ` `+ LastName + `</h3>
-            <div class="` + userUID+ ` mentee-grade menteeInfo">` + GradeLevel + `</div>
-          </div>
-        </a> `;
-        para.innerHTML = codeBlock;
-        mainContainerCarousel.appendChild(divBlock);
-        divBlock.appendChild(para);
+			divBlock.className = "mySlides";
+			var para = document.createElement("P");
+			para.className = "madepara";
+			var codeBlock =
+			`<a class="NewA" >
+			  <img class="` + userUID+ ` mentee-photos" src="` + thumbnailLink + `" alt="` + FirstName + `'s Project">
+			  <div class="` + userUID+ ` menteeInfoDiv">
+			    <h3 class="` + userUID+ ` mentee-name menteeInfo">` + FirstName + ` `+ LastName + `</h3>
+			    <div class="` + userUID+ ` mentee-grade menteeInfo">` + GradeLevel + `</div>
+			  </div>
+			</a> `;
+			para.innerHTML = codeBlock;
+			mainContainerCarousel.appendChild(divBlock);
+			divBlock.appendChild(para);
 	            
 		  })
 		  .on("end", function() {
