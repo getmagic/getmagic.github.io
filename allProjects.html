@@ -46,38 +46,49 @@
 			var userUID= record.Id;
 			var FirstName= record.menteeFirstName__c;
 			var LastName= record.menteeLastName__c;
-			if (record.thumbnailImage__c ==null){
-				var thumbnailLink="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
-			}
-			else{
-				console.log("called.should be 3x");
-				var thumbnailLink=record.thumbnailImage__c;
-				console.log(thumbnailLink);
-				thumbnailLink.id="newimg";
-				console.log(thumbnailLink);
-		 		var myimgsrc = document.getElementById("newimg").getElementsByTagName('img')[0].src;
-		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimgsrc;
-				document.getElementById("fillhere").innerhtml+="<br>";
-				
-		 		//var mysrc = image.firstChild.getAttribute("src");
-		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
-				
-			}
 			var GradeLevel= record.Grade__c;
+			var paraNew = document.createElement("div");
+			paraNew.setAttribute("class", "AllProjects_Div");
+			
 			if (GradeLevel=="9th" || GradeLevel=="10th" || GradeLevel=="11th" || GradeLevel=="12th"){
         			GradeLevel="High School";
       			}
       			else{
         			GradeLevel="Middle School";
       			}
-			var paraNew = document.createElement("div");
-			paraNew.setAttribute("class", "AllProjects_Div");
-			var codeBlock2 =
-			` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
-			<img class="` + userUID+ ` mentee-photos" src="`+ thumbnailLink + `" alt="` + FirstName + `'s Project">
-			<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
-			<span class="` + userUID+ ` date">` + GradeLevel + `</span>
-			</a> `;
+			
+			if (record.thumbnailImage__c ==null){
+				//var thumbnailLink="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+				var codeBlock2 =
+					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">
+					<img class="` + userUID+ ` mentee-photos" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="` + FirstName + `'s Project">
+					<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
+					</a> `;
+			}
+			else{
+				console.log("called. (should be 3x)");
+				
+				/*var thumbnailLink=record.thumbnailImage__c;
+				console.log(thumbnailLink);
+				thumbnailLink.id="newimg";
+				console.log(thumbnailLink);
+		 		var myimgsrc = document.getElementById("newimg").getElementsByTagName('img')[0].src;
+		  		document.getElementById("fillhere").innerhtml+="myimgsrc: " +  myimgsrc;
+				document.getElementById("fillhere").innerhtml+="<br>";*/
+				
+				var codeBlock2 =
+					` <a class="` + userUID+ ` col-md-4 single-blog lifestyle bottom_60 ">`+
+					record.thumbnailImage__c +
+					`<h2 class="` + userUID+ ` title">`+ FirstName + ` `+ LastName + `</h2>
+					<span class="` + userUID+ ` date">` + GradeLevel + `</span>
+					</a> `;
+				console.log(codeBlock2);
+				
+		 		//var mysrc = image.firstChild.getAttribute("src");
+		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
+				
+			}
 			paraNew.innerHTML = codeBlock2 ;
 			divToAppend.appendChild(paraNew); 
 	            
