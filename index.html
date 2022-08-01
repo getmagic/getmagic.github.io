@@ -68,7 +68,7 @@
 				var thumbnailImage=record.thumbnailImage__c;
 				var thumbnailImage= thumbnailImage.toString();
 				//thumbnailImage was orginally <p> <img src=""> </p> SO the following code only returns the src.
-				var splitOne = thumbnailLink.split('src="'); 
+				var splitOne = thumbnailImage.split('src="'); 
 				var firstPart = splitOne[1]; //this will output the part after src
 				var secondPart= firstPart.split('"'); 
 				var thumbnailLink= secondPart[0];//this will output the official img src
