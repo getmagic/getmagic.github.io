@@ -173,7 +173,7 @@
 						   "https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=",
 						   "https://media.istockphoto.com/photos/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-picture-id1093110112?k=20&m=1093110112&s=612x612&w=0&h=3OhKOpvzOSJgwThQmGhshfOnZTvMExZX2R91jNNStBY=",
 						   "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg"];
-			if (currentUser.exampleImages__c!=null){
+			if (currentUser.exampleImages__c != null){
 				var examplePhotos= currentUser.exampleImages__c;
 				var examplePhotosString= examplePhotos.toString();
 				var numofImages= examplePhotosString.split("src").length - 1; //get the number of times source appears. This is the number of images that there are
