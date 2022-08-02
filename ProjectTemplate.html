@@ -185,7 +185,12 @@
 			     mySubString = examplePhotosString.substring(initialIndex,finalIndex);
 			     console.log(mySubString);
 			     IDOfExamPhoto="examplephoto"+i;
-			     document.getElementById(IDOfExamPhoto).src= mySubString;
+			     if (mySubString.indexOf("amp;") ==-1){
+				     document.getElementById(IDOfExamPhoto).src= mySubString
+			     }
+			     else{
+			     	document.getElementById(IDOfExamPhoto).src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
+			     }
 			    // document.getElementById(IDOfExamPhoto).src="https://d3i000000eahxea4--c.documentforce.com/servlet/rtaImage?eid=a153i000002iiZM&feoid=00N3i00000DTL17&refid=0EM3i000003KRNw";
 			 }
 			setTimerFunct();
