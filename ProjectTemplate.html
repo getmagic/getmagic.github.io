@@ -173,28 +173,31 @@
 						   "https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=",
 						   "https://media.istockphoto.com/photos/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-picture-id1093110112?k=20&m=1093110112&s=612x612&w=0&h=3OhKOpvzOSJgwThQmGhshfOnZTvMExZX2R91jNNStBY=",
 						   "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg"];
-			var examplePhotos= currentUser.exampleImages__c;
-			var examplePhotosString= examplePhotos.toString();
-			var numofImages= examplePhotosString.split("src").length - 1; //get the number of times source appears. This is the number of images that there are
-  			console.log("NumofImages: " + numofImages);
-			
-			var initialIndex=0; 
-			var finalIndex;
-			var mySubString;
-			var IDOfExamPhoto;
-			for (var i=1; i<=numofImages; i++){ //retrieve the link for each image
-			     initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
-			     finalIndex= examplePhotosString.indexOf('"', initialIndex);
-			     mySubString = examplePhotosString.substring(initialIndex,finalIndex);
-			     console.log(mySubString);
-			     IDOfExamPhoto="examplephoto"+i;
-			     if (mySubString.indexOf("amp;") ==-1){
-				     document.getElementById(IDOfExamPhoto).src= mySubString
-			     }
-			     else{
-			     	document.getElementById(IDOfExamPhoto).src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
-			     }
-			 }
+			if (currentUser.exampleImages__c!=null){
+				var examplePhotos= currentUser.exampleImages__c;
+				var examplePhotosString= examplePhotos.toString();
+				var numofImages= examplePhotosString.split("src").length - 1; //get the number of times source appears. This is the number of images that there are
+				console.log("NumofImages: " + numofImages);
+
+				var initialIndex=0; 
+				var finalIndex;
+				var mySubString;
+				var IDOfExamPhoto;
+				for (var i=1; i<=numofImages; i++){ //retrieve the link for each image
+				     initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
+				     finalIndex= examplePhotosString.indexOf('"', initialIndex);
+				     mySubString = examplePhotosString.substring(initialIndex,finalIndex);
+				     console.log(mySubString);
+				     IDOfExamPhoto="examplephoto"+i;
+				     if (mySubString.indexOf("amp;") ==-1){
+					     document.getElementById(IDOfExamPhoto).src= mySubString
+				     }
+				     else{
+					document.getElementById(IDOfExamPhoto).src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
+				     }
+				 }
+			}
+			else{ var numofImages=0;}
 			var numOfRemainingImages= 4- numofImages;
 			//if there are not 4 images uploaded, then fill the carousel with random images
 			for (var i=4; i>numOfRemainingImages; i--){
