@@ -65,7 +65,6 @@
 				
 				
 				var thumbnailImage=record.thumbnailImage__c;
-				document.getElementById("fillhere").innerHTML= thumbnailImage;
 				var thumbnailImage= thumbnailImage.toString();
 				//thumbnailImage was orginally <p> <img src=""> </p> SO the following code only produces the src.
 				var splitOne = thumbnailImage.split('src="'); 
@@ -190,9 +189,7 @@
     	================================================== -->
        
 	
-	<p id="fillhere">
-	</p>
-	
+
         <div class="blog type-1 top_120">
             <div class="cont">
                 <div id="divToAppend" class="row">
