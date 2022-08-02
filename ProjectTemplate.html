@@ -208,14 +208,66 @@
 			}
 			setTimerFunct();
 			
+			
+			//Code image photos
+			if (currentUser.codeImages__c ==null){
+				document.getElementById("AnyCodePhotos").style.display="none";
+			};
+			else{
+				var codePhotos= currentUser.codeImages__c;
+				var codePhotosString= codePhotos.toString();
+				var numofCodeImages= codePhotosString.split("src").length - 1; //get the number of times source appears. This is the number of images that there are
+				console.log("NumofCodeImages: " + numofCodeImages);
+				
+				if (numofCodeImages==1){
+					var initialIndex=0; 
+					initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
+					var finalIndex= examplePhotosString.indexOf('"', initialIndex);
+					var mySubString = examplePhotosString.substring(initialIndex,finalIndex);
+					if (mySubString.indexOf("amp;") ==-1){
+						document.getElementById("1codePhoto").src= mySubString;
+					 }
+					 else{
+						document.getElementById("1codePhoto").src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
+					 }
+					document.getElementById("DivOf2CodePhotos").style.display="none";
+					document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ currentUser.menteeFirstName__c + "'s Project."
+					document.getElementById("1codePhoto").style.display="block";
+				}
+				else{ //if there are 2 code image photos
+					document.getElementById("1codePhoto").style.display="none";
+					var initialIndex=0; 
+					var finalIndex;
+					var mySubString;
+					var IDOfExamPhoto;
+					for (var i=1; i<=2; i++){ //retrieve the link for each image
+					     initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
+					     finalIndex= examplePhotosString.indexOf('"', initialIndex);
+					     mySubString = examplePhotosString.substring(initialIndex,finalIndex);
+					     console.log(mySubString);
+					     IDOfExamPhoto="codeToChange"+i;
+					     if (mySubString.indexOf("amp;") ==-1){
+						     document.getElementById(IDOfExamPhoto).src= mySubString;
+					     }
+					     else{
+						document.getElementById(IDOfExamPhoto).src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
+					     }
+					 }
+					document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ currentUser.menteeFirstName__c + "'s Project."
+					document.getElementById("DivOf2CodePhotos").style.display!="none";
 
+				}
+			}
 
 			
+			
+			/*
 			document.getElementById("1codePhoto").style.display="none";
 			document.getElementById("codeToChange1").src= "https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png";
 			document.getElementById("codeToChange2").src= "https://kottke.org/plus/misc/images/bitcoin-code.jpg";
 			document.getElementById("sampleCodeOfProject").innerHTML="Here is Sample Code of "+ currentUser.menteeFirstName__c+ "'s Project."
 			document.getElementById("DivOf2CodePhotos").style.display!="none";
+			*/
 			
 			if (currentUser.additionalDescription__c !=  null){
 			  document.getElementById("additionalDescriptionOfProject").innerHTML="Here is more information about "+ currentUser.firstName__c+ "'s Project.";
