@@ -170,6 +170,7 @@
 			}
 			setTimerFunct();*/
 			var examplePhotos= currentUser.exampleImages__c;
+			document.getElementById("fillhere").innerHTML=currentUser.exampleImages__c;
 			var examplePhotosString= examplePhotos.toString();
 			var numofImages= examplePhotosString.split("src").length - 1; //get the number of times source appears. This is the number of images that there are
   			console.log("NumofImages: " + numofImages);
@@ -315,6 +316,7 @@ function setTimerFunct(){
             <!--<h2 id="entranceToChange" class="port-title-one text-center bottom_30">Description of Mentee</h2>-->
             <h2 class="port-title-one text-center bottom_30"> Great work, <span id="entranceToChange">mentee</span>. Check out her project below! </h2>
             <ul class="list-type-one row top_60">
+		 <p id="fillhere"></p>
                 <li class="col-lg-3 col-sm-3 col-xs-12">STUDENT NAME<span id="nameToChange">Mentee Name</span></li>
                 <li class="col-lg-3 col-sm-3 col-xs-12">GRADE<span id="gradeToChange">Mentee's Grade while a mentee</span></li>
                 <li class="col-lg-3 col-sm-3 col-xs-12">TERM<span id="yearToChange">Year as MAGIC Mentee</span></li>
