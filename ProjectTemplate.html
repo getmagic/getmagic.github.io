@@ -190,7 +190,7 @@
 				     console.log(mySubString);
 				     IDOfExamPhoto="examplephoto"+i;
 				     if (mySubString.indexOf("amp;") ==-1){
-					     document.getElementById(IDOfExamPhoto).src= mySubString
+					     document.getElementById(IDOfExamPhoto).src= mySubString;
 				     }
 				     else{
 					document.getElementById(IDOfExamPhoto).src= mySubString.replaceAll('amp;', ''); //remove the "amp;" from the URL
