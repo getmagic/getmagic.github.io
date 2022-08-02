@@ -197,7 +197,7 @@
 			 }
 			var numOfRemainingImages= 4- numofImages;
 			//if there are not 4 images uploaded, then fill the carousel with random images
-			for (var i=4; i>numOfRemainingImages; i++){
+			for (var i=4; i>numOfRemainingImages; i--){
 				var IDOfExamPhoto="examplephoto"+i;
 				document.getElementById(IDOfExamPhoto).src=arrayOfExamplePhotos[i-1];
 			}
