@@ -145,6 +145,7 @@
 		 // var mysrc = image.firstChild.getAttribute("src");
 		 // document.getElementById("fillhere").innerhtml+="mysrc: " + mysrc;
 		});*/
+		document.getElementById("logoutbtn").addEventListener("click", logout);
 		function logout(){
 			conn.logout(function(err) {
 			  if (err) { return console.error(err); }
@@ -210,7 +211,7 @@
         <a href="uploadProj.html" class="logo" style="float:right;padding-bottom: 60px; padding-right: 30px;"><button class="site-btn">Upload Mentee Project</button></a>
 	 <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" onclick="jsforce.browser.login();" class="site-btn logo">Sign In </button>
 	<br>
-	 <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" onclick="logout();" class="site-btn logo">Log out of jsforce </button>
+	 <button type="button"  style="float:left; margin-left: 30px; padding-bottom: 15px; padding-top:15px; padding-left: 30px; padding-right: 30px;text-align: center;" id="logoutbtn" class="site-btn logo">Log out of jsforce </button>
 	
 	
     </div> <!-- wrapper end -->
