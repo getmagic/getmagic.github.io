@@ -221,9 +221,9 @@
 				
 				if (numofCodeImages==1){
 					var initialIndex=0; 
-					initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
-					var finalIndex= examplePhotosString.indexOf('"', initialIndex);
-					var mySubString = examplePhotosString.substring(initialIndex,finalIndex);
+					initialIndex=codePhotosString.indexOf('src="', initialIndex) + 5;     
+					var finalIndex= codePhotosString.indexOf('"', initialIndex);
+					var mySubString = codePhotosString.substring(initialIndex,finalIndex);
 					if (mySubString.indexOf("amp;") ==-1){
 						document.getElementById("1codePhoto").src= mySubString;
 					 }
@@ -241,9 +241,9 @@
 					var mySubString;
 					var IDOfExamPhoto;
 					for (var i=1; i<=2; i++){ //retrieve the link for each image
-					     initialIndex=examplePhotosString.indexOf('src="', initialIndex) + 5;     
-					     finalIndex= examplePhotosString.indexOf('"', initialIndex);
-					     mySubString = examplePhotosString.substring(initialIndex,finalIndex);
+					     initialIndex=codePhotosString.indexOf('src="', initialIndex) + 5;     
+					     finalIndex= codePhotosString.indexOf('"', initialIndex);
+					     mySubString = codePhotosString.substring(initialIndex,finalIndex);
 					     console.log(mySubString);
 					     IDOfExamPhoto="codeToChange"+i;
 					     if (mySubString.indexOf("amp;") ==-1){
