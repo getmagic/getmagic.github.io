@@ -65,6 +65,7 @@
 				
 				
 				var thumbnailImage=record.thumbnailImage__c;
+				document.getElementById("fillhereTest").innerHTML= record.thumbnailImage__c;
 				var thumbnailImage= thumbnailImage.toString();
 				//thumbnailImage was orginally <p> <img src=""> </p> SO the following code only produces the src.
 				var splitOne = thumbnailImage.split('src="'); 
@@ -188,7 +189,8 @@
     	<!-- ARTICLE CONTENT
     	================================================== -->
        
-	
+	<p id="fillhereTest">
+	</p>
 
         <div class="blog type-1 top_120">
             <div class="cont">
